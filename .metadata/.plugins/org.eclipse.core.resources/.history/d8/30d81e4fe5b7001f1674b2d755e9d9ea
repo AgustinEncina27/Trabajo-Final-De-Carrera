@@ -1,0 +1,31 @@
+package com.springboot.app.backend.turismo.model;
+
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "preferencias")
+public class Preferencia {
+	
+	  @Id
+	  @GeneratedValue
+	  private Integer idPreferencia;
+	
+	  @Column(nullable = false)
+	  private long distanciaPreferida;
+	
+	  @Column(nullable = false)
+	  private long tiempoDisponible;
+
+	// Relación 1 a 1 con Usuario
+	    @OneToOne(mappedBy = "preferencia")
+	    private Usuario usuario;
+}

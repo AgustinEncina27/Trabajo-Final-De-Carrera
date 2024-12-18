@@ -1,0 +1,32 @@
+INSERT INTO estados_ruta (id_estado_ruta, descripcion) VALUES (1, 'En Progreso');
+INSERT INTO estados_ruta (id_estado_ruta, descripcion) VALUES (2, 'Completada');
+INSERT INTO estados_ruta (id_estado_ruta, descripcion) VALUES (3, 'Pendiente');
+INSERT INTO estados_ruta (id_estado_ruta, descripcion) VALUES (4, 'Cancelada');
+
+INSERT INTO tipos_de_actividades (id_tipo_de_actividad, nombre_actividad, descripcion) VALUES (1, 'Turismo Cultural', 'Actividades relacionadas con museos, galerías y sitios históricos');
+INSERT INTO tipos_de_actividades (id_tipo_de_actividad, nombre_actividad, descripcion) VALUES (2, 'Aventura', 'Actividades como trekking, rafting y escalada');
+INSERT INTO tipos_de_actividades (id_tipo_de_actividad, nombre_actividad, descripcion) VALUES (3, 'Relax', 'Actividades relacionadas con spas, termas y descanso');
+INSERT INTO tipos_de_actividades (id_tipo_de_actividad, nombre_actividad, descripcion) VALUES (4, 'Gastronomía', 'Actividades relacionadas con degustaciones y tours gastronómicos');
+INSERT INTO tipos_de_actividades (id_tipo_de_actividad, nombre_actividad, descripcion) VALUES (5, 'Ecoturismo', 'Actividades relacionadas con la naturaleza y el cuidado del medio ambiente');
+
+
+--Casa de Gobierno -27.366569960598934, -55.89339610508137 	
+--Categral San José
+--Parque Paraguayo
+--Av.Costanera Monseñor J.Kemerer
+--Museo regional Aníbal Cambas
+--Anfiteatro Manuel antonio Ramírez
+--Jardín Botánico Alberto Roth
+--Paseo Bosetti
+--Paseo Cultural La Terminal
+--Piedra Fundacional Itapúa
+--Plaza 9 de Julio
+--Plaza San Martín
+--Reserva Urbana Rincón Nazarí
+--El Parque de la Ciudad
+--Museo de Ciencias Naturales e Historia Antonio Ruiz de Montoya
+--Museo Histórico y Arqueológico Andrés Guacurarí
+--Museo Municipal de Bellas Artes Lucas Braulio Areco-Palacio del Mate
+--Museo Provincial "Juan Yaparí"
+--Playa "El Brete"
+

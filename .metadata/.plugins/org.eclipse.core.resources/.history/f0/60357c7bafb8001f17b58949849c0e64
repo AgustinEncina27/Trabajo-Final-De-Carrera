@@ -1,0 +1,5 @@
+package com.springboot.app.backend.turismo.repository;
+
+public interface RutaRepository {
+
+}

@@ -1,0 +1,4 @@
+INSERT INTO estados_ruta (id_estado_ruta, descripcion) VALUES (1, 'En Progreso');
+INSERT INTO estados_ruta (id_estado_ruta, descripcion) VALUES (2, 'Completada');
+INSERT INTO estados_ruta (id_estado_ruta, descripcion) VALUES (3, 'Pendiente');
+INSERT INTO estados_ruta (id_estado_ruta, descripcion) VALUES (4, 'Cancelada');

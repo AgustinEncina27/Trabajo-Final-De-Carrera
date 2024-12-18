@@ -1,0 +1,5 @@
+package com.springboot.app.backend.turismo.config;
+
+public class AppConfig {
+
+}
