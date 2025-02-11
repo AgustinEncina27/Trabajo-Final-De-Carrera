@@ -1,0 +1,40 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: turismo_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: turismo_db
+      MYSQL_USER: turismo_user
+      MYSQL_PASSWORD: turismo_pass
+    ports:
+      - "3307:3306"  # MySQL en Docker expuesto en el puerto 3307 del host
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - turismo_network
+
+  app:
+     build: .
+     container_name: turismo_app
+     restart: always
+     depends_on:
+       - mysql
+     environment:
+       SPRING_DATASOURCE_URL: jdbc:mysql://turismo_mysql:3306/turismo_db?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+       SPRING_DATASOURCE_USERNAME: turismo_user
+       SPRING_DATASOURCE_PASSWORD: turismo_pass
+       SPRING_JPA_HIBERNATE_DDL_AUTO: update
+       APPLICATION_SECURITY_JWT_SECRET_KEY: "mi-secreto-super-seguro"
+     ports:
+       - "8080:8080"
+     networks:
+       - turismo_network
+
+volumes:
+  mysql_data:
+
+networks:
+  turismo_network:
+    driver: bridge

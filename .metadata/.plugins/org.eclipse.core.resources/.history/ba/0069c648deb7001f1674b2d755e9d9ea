@@ -1,7 +1,0 @@
-package com.springboot.app.backend.turismo.user;
-
-public record UserResponse(
-        String name,
-        String email
-) {
-}

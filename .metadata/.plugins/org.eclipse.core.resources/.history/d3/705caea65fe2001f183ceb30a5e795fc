@@ -1,0 +1,32 @@
+package com.springboot.app.backend.turismo.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.springboot.app.backend.turismo.model.Destino;
+import com.springboot.app.backend.turismo.model.Preferencia;
+import com.springboot.app.backend.turismo.repository.DestinoRepository;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class DestinoImpl implements IDestinoService {
+	
+	private final DestinoRepository destinoRepository;
+
+	@Override
+    @Transactional(readOnly = true)
+	public List<Destino> obtenerDestinosSegunPreferencias(Preferencia preferencia, Destino.ClimaIdeal climaActual) {
+	    return destinoRepository.filtrarDestinos(
+	        preferencia.getTiposDeActividades(),
+	        500, // Puedes definir un coste máximo o tomarlo de las preferencias
+	        preferencia.getUsuario().isAccesibilidadRequerida(),
+	        climaActual == Destino.ClimaIdeal.LLUVIOSO,  // Si llueve, buscar destinos techados
+	        true,  // Si es de noche, buscar destinos con iluminación
+	        climaActual
+	    );
+	}
+}

@@ -1,0 +1,26 @@
+# Usar una imagen base con JDK 11 y Maven
+FROM maven:3.8.4-openjdk-11 AS build
+
+# Establecer un directorio de trabajo
+WORKDIR /app
+
+# Copiar archivos de tu proyecto al directorio de trabajo
+COPY . /app
+
+# Ejecutar Maven para construir el proyecto
+RUN mvn clean package -DskipTests
+
+# Crear una nueva imagen basada en OpenJDK 11
+FROM openjdk:11-jre-slim-buster
+
+# Exponer el puerto que utilizará la aplicación
+EXPOSE 8080
+
+# Copia el JAR generado en la etapa anterior
+COPY --from=build /app/target/springboot-backend-turismo.jar app.jar
+
+# Expone el puerto de la aplicación
+EXPOSE 8080
+
+# Comando para ejecutar la aplicación
+ENTRYPOINT ["java", "-jar", "app.jar"]

@@ -3,6 +3,8 @@ package com.springboot.app.backend.turismo.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,7 +20,7 @@ import lombok.NoArgsConstructor;
 public class Preferencia {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idPreferencia;
 	
 	@Column(nullable = false)
@@ -27,6 +29,13 @@ public class Preferencia {
 	@Column(nullable = false)
 	private long tiempoDisponible;
 	
+	@Column(nullable = false)
+	private boolean accesibilidadRequerida;
+	
+	@Column(nullable = false)
+	private Integer costeMaximo;
+	
+	@JsonIgnore
 	@OneToOne(mappedBy = "preferencia")
 	private Usuario usuario;
 	

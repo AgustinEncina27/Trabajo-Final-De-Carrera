@@ -31,6 +31,7 @@ public class AuthService {
         final Usuario user = Usuario.builder()
                 .nombreUsuario(request.name())
                 .correoUsuario(request.email())
+                .celular(request.celular())
                 .fechaDeCreacion(LocalDate.now())
                 .contrasena(passwordEncoder.encode(request.password()))
                 .build();

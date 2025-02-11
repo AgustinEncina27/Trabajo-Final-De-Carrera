@@ -3,6 +3,8 @@ package com.springboot.app.backend.turismo.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,42 +18,63 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "destinos")
 public class Destino {
-	  @Id
-	  @GeneratedValue
-	  private Integer idDestino;
-	
-	  @Column(nullable = false)
-	  private String nombreDestino;
-	
-	  @Column(nullable = false)
-	  private String descripcion;
-	
-	  @Column(nullable = false)
-	  private String horario;
-	
-	  @Column(nullable = false)
-	  private Integer coste;
 	  
-	  @Column(nullable = false)
-	  private boolean accesibilidad;
-	 
-	  @Column(nullable = false)
-	  private boolean techado;
+	  @Id
+	  @GeneratedValue(strategy = GenerationType.IDENTITY)
+	  private Integer id;
+		  
+	  @ManyToMany
+		@JoinTable(
+		  name = "destino_TipoDeActividad", 
+		  joinColumns = @JoinColumn(name = "idDestino"), 
+		  inverseJoinColumns = @JoinColumn(name = "idTipoDeActividad"))
+		private List<TipoDeActividad> tiposDeActividades;
 	  
 	  @OneToOne
 	  @JoinColumn(name = "fkCoordenada") 
 	  private Coordenada coordenada;
 	  
-	  @ManyToMany(mappedBy = "destinos")
-	  private List<Ruta> rutas;
+	  @Column
+	  private int duracionVisita;
+	  
+	  @Column
+	  private boolean accesibilidad;
+	  
+	  @Column
+	  private int popularidad;
+	  
+	  @Column
+	  private String horario;
+	  
+	  @Column
+	  @Enumerated(EnumType.STRING)  // Guarda el nombre del enum como texto
+	  private ClimaIdeal climaIdeal;
+	
+	  @Column
+	  private Integer coste;
+	  
+	  @Column
+	  private boolean techado;
+	  
+	  @Column
+	  private boolean iluminacion;
+	  
+	  @JsonIgnore
+	  @OneToMany(mappedBy = "destino", cascade = CascadeType.ALL, orphanRemoval = true)
+	  private List<RutaDestino> rutas;
 	  
 	  @OneToMany(mappedBy = "destino", cascade = CascadeType.ALL, orphanRemoval = true)
 	  private List<Comentario> comentarios;
 	  
-	  @ManyToMany
-	    @JoinTable(
-	      name = "destino_TipoDeActividad", 
-	      joinColumns = @JoinColumn(name = "idDestino"), 
-	      inverseJoinColumns = @JoinColumn(name = "idTipoDeActividad"))
-	    private List<TipoDeActividad> tiposDeActividades;
+	  @JsonIgnore
+	  @OneToMany(mappedBy = "destino", cascade = CascadeType.ALL, orphanRemoval = true)
+	  private List<DestinoTraduccion> traducciones;
+	  
+	  public enum ClimaIdeal {
+		    SOLEADO,
+		    NUBLADO,
+		    LLUVIOSO,
+		    VENTOSO,
+		    CUALQUIERA
+		}
 }

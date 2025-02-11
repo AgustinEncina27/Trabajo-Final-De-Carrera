@@ -1,5 +1,6 @@
 package com.springboot.app.backend.turismo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.springboot.app.backend.turismo.auth.repository.Token;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -19,7 +20,7 @@ import java.util.List;
 public class Usuario {
 
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
   @Column(nullable = false)
@@ -30,7 +31,10 @@ public class Usuario {
 
   @Column(nullable = false)
   private String contrasena;
-
+  
+  @Column(nullable = false)
+  private String celular;
+  
   @Column(nullable = false)
   private LocalDate fechaDeCreacion;
   
@@ -38,9 +42,11 @@ public class Usuario {
   @JoinColumn(name = "fkPreferencia")  
   private Preferencia preferencia;
   
+  @JsonIgnore
   @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Ruta> rutas;
   
+  @JsonIgnore
   @OneToMany(mappedBy = "user")
   private List<Token> tokens;
 }

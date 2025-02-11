@@ -1,0 +1,66 @@
+package com.springboot.app.backend.turismo.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.springboot.app.backend.turismo.dto.UserResponse;
+import com.springboot.app.backend.turismo.model.Preferencia;
+import com.springboot.app.backend.turismo.model.Usuario;
+import com.springboot.app.backend.turismo.repository.UserRepository;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class UsuarioImpl implements IUsuarioService {
+	
+	private final UserRepository usuarioRepository;
+	
+	@Override
+    @Transactional(readOnly = true)
+    public List<Usuario> obtenerTodos() {
+        return usuarioRepository.findAll();
+    }
+	
+	@Override
+    @Transactional(readOnly = true)
+    public Optional<Usuario> obtenerPorId(Integer id) {
+        return usuarioRepository.findById(id);
+    }
+	
+	@Override
+    @Transactional
+    public List<UserResponse> cambioContrasena() {
+        return usuarioRepository.findAll()
+                .stream()
+                .map(user -> new UserResponse(user.getNombreUsuario(), user.getCorreoUsuario()))
+                .toList();
+    }
+	
+	@Override
+	@Transactional(readOnly = true)
+    public Optional<Usuario> obtenerPorCorreo(String correo) {
+        return usuarioRepository.findByCorreoUsuario(correo);
+    }
+	
+	@Override
+	@Transactional
+    public Usuario guardar(Usuario usuario) {
+        return usuarioRepository.save(usuario);
+    }
+	@Override
+	@Transactional
+    public void eliminar(Integer id) {
+        usuarioRepository.deleteById(id);
+    }
+	
+	@Override
+	@Transactional
+	public Usuario guardarPreferencias(Integer idUsuario, Preferencia preferencia) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

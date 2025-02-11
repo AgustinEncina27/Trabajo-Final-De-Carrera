@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "rutas")
 public class Ruta {
 	  @Id
-	  @GeneratedValue
+	  @GeneratedValue(strategy = GenerationType.IDENTITY)
 	  private Integer idRuta;
 	  
 	  @Column(nullable = false)
@@ -29,6 +29,7 @@ public class Ruta {
 	  @Column(nullable = false)
 	  private LocalDate fechaCreacion;
 	  
+	  
 	  @ManyToOne
 	  @JoinColumn(name = "fkUsuario")
 	  private Usuario usuario;
@@ -37,10 +38,6 @@ public class Ruta {
 	  @JoinColumn(name = "fkEstado") 
 	  private EstadoRuta estado;
 	  
-	  @ManyToMany
-	    @JoinTable(
-	      name = "ruta_destino", 
-	      joinColumns = @JoinColumn(name = "idRuta"), 
-	      inverseJoinColumns = @JoinColumn(name = "idDestino"))
-	    private List<Destino> destinos;
+	  @OneToMany(mappedBy = "ruta", cascade = CascadeType.ALL, orphanRemoval = true)
+	  private List<RutaDestino> destinos;
 }

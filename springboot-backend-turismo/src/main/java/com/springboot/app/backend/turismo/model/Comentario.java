@@ -2,9 +2,12 @@ package com.springboot.app.backend.turismo.model;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -22,7 +25,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "comentarios")
 public class Comentario {
 	  @Id
-	  @GeneratedValue
+	  @GeneratedValue(strategy = GenerationType.IDENTITY)
 	  private Integer idComentario;
 	
 	  @Column(nullable = false)
@@ -34,6 +37,7 @@ public class Comentario {
 	  @Column(nullable = false)
 	  private LocalDate  fechaComentario;
 	  
+	  @JsonIgnore
 	  @ManyToOne
 	  @JoinColumn(name = "fkDestino") 
 	  private Destino destino;

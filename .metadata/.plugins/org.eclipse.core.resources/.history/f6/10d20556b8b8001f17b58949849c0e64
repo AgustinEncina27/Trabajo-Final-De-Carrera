@@ -1,4 +1,0 @@
-INSERT INTO estado_ruta (id_estado_ruta, descripcion) VALUES (1, 'En Progreso');
-INSERT INTO estado_ruta (id_estado_ruta, descripcion) VALUES (2, 'Completada');
-INSERT INTO estado_ruta (id_estado_ruta, descripcion) VALUES (3, 'Pendiente');
-INSERT INTO estado_ruta (id_estado_ruta, descripcion) VALUES (4, 'Cancelada');

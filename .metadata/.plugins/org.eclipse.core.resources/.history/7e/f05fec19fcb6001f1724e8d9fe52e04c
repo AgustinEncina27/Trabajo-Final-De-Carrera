@@ -1,5 +1,0 @@
-package com.springboot.app.backend.turismo.auth.repository;
-
-public class Token {
-
-}
