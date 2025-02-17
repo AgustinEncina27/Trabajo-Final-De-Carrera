@@ -1,0 +1,16 @@
+package com.springboot.app.backend.turismo.repository;
+
+
+import com.springboot.app.backend.turismo.model.PuntoDeInteres;
+import com.springboot.app.backend.turismo.model.TiempoPuntoDeInteres;
+import com.springboot.app.backend.turismo.model.TiempoPuntoDeInteres.TipoTransporte;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface TiempoPuntoDeInteresRepository extends JpaRepository<TiempoPuntoDeInteres, Integer> {
+    
+    Optional<TiempoPuntoDeInteres> findByOrigenAndDestinoAndTipoTransporte(
+        PuntoDeInteres origen, PuntoDeInteres destino, TipoTransporte tipoTransporte);
+}

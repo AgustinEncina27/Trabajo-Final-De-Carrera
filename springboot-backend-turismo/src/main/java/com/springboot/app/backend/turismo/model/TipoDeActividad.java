@@ -9,7 +9,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -30,14 +29,14 @@ public class TipoDeActividad {
 	  private Integer id;
 		  
 	  @JsonIgnore
-	  @ManyToMany(mappedBy = "tiposDeActividades")
-	  private List<Destino> destinos;
-	  
-	  @JsonIgnore
-	  @ManyToMany(mappedBy = "tiposDeActividades")
-	  private List<Preferencia> preferencias;
+	  @OneToMany(mappedBy = "tipoDeActividad", cascade = CascadeType.ALL, orphanRemoval = true)
+	    private List<PreferenciaTipoDeActividad> preferenciasActividades;
 	  
 	  @JsonIgnore
 	  @OneToMany(mappedBy = "tipoDeActividad", cascade = CascadeType.ALL, orphanRemoval = true)
 	  private List<TipoDeActividadTraduccion> traducciones;
+	  
+	  @JsonIgnore
+	  @OneToMany(mappedBy = "tipoDeActividad", cascade = CascadeType.ALL, orphanRemoval = true)
+	  private List<PuntoDeInteresTipoDeActividad> puntosDeInteres;
 }

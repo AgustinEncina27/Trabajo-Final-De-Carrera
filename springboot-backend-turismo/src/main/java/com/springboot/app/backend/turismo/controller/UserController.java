@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -56,6 +57,15 @@ public class UserController {
         return ResponseEntity.ok(usuarioActualizado);
     }
     
+    @PutMapping("/{idUsuario}/preferencias")
+    public ResponseEntity<Preferencia> actualizarPreferencias(
+            @PathVariable Integer idUsuario,
+            @RequestBody Preferencia nuevaPreferencia) {
+
+        Preferencia preferenciaActualizada = usuarioService.actualizarPreferencias(idUsuario, nuevaPreferencia);
+        return ResponseEntity.ok(preferenciaActualizada);
+    }
+    
     @PostMapping
     public Usuario guardar(@RequestBody Usuario usuario) {
         return usuarioService.guardar(usuario);
@@ -63,6 +73,10 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
+        if (!usuarioService.obtenerPorId(id).isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        
         usuarioService.eliminar(id);
         return ResponseEntity.noContent().build();
     }

@@ -1,0 +1,210 @@
+package com.springboot.app.backend.turismo.model;
+
+import com.springboot.app.backend.turismo.repository.DistanciaPuntoDeInteresRepository;
+import com.springboot.app.backend.turismo.repository.PreferenciaTipoActividadRepository;
+import org.jgrapht.Graph;
+import org.jgrapht.graph.DefaultWeightedEdge;
+import org.jgrapht.graph.SimpleWeightedGraph;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.*;
+
+public class ColoniaHormigas {
+    private final Graph<PuntoDeInteres, DefaultWeightedEdge> grafo;
+    private final Preferencia perfilUsuario;
+    private final int iteraciones;
+    private final int numHormigas;
+    private final Map<DefaultWeightedEdge, Double> feromonas;
+    private final DistanciaPuntoDeInteresRepository distanciaRepository;
+    private final PreferenciaTipoActividadRepository preferenciaRepository;
+
+    public ColoniaHormigas(
+            List<PuntoDeInteres> destinos,
+            Preferencia perfilUsuario,
+            int iteraciones,
+            int numHormigas,
+            DistanciaPuntoDeInteresRepository distanciaRepository,
+            PreferenciaTipoActividadRepository preferenciaRepository) {
+        this.grafo = new SimpleWeightedGraph<>(DefaultWeightedEdge.class);
+        this.perfilUsuario = perfilUsuario;
+        this.iteraciones = iteraciones;
+        this.numHormigas = numHormigas;
+        this.feromonas = new HashMap<>();
+        this.distanciaRepository = distanciaRepository;
+        this.preferenciaRepository = preferenciaRepository;
+
+        cargarDistanciasDesdeBD(destinos);
+    }
+
+    /**
+     * Cargar las distancias desde la base de datos en el grafo
+     */
+    @Transactional
+    private void cargarDistanciasDesdeBD(List<PuntoDeInteres> destinos) {
+        destinos.forEach(grafo::addVertex);
+
+        for (PuntoDeInteres d1 : destinos) {
+            for (PuntoDeInteres d2 : destinos) {
+                if (!d1.equals(d2)) {
+                    Optional<DistanciaPuntoDeInteres> distanciaOpt = distanciaRepository.findByOrigenAndDestino(d1, d2);
+
+                    if (distanciaOpt.isPresent()) {
+                        double distancia = distanciaOpt.get().getDistancia();
+                        DefaultWeightedEdge edge = grafo.addEdge(d1, d2);
+                        grafo.setEdgeWeight(edge, distancia);
+                        feromonas.put(edge, 1.0); // Inicializar feromonas en 1.0
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Optimizar la ruta usando el algoritmo de colonia de hormigas
+     */
+    public List<PuntoDeInteres> optimizarRuta() {
+        List<PuntoDeInteres> mejorRuta = new ArrayList<>();
+        double mejorUtilidad = 0.0;
+
+        for (int i = 0; i < iteraciones; i++) {
+            for (int j = 0; j < numHormigas; j++) {
+                List<PuntoDeInteres> ruta = construirRuta();
+                double utilidad = calcularUtilidadRuta(ruta);
+
+                if (utilidad > mejorUtilidad) {
+                    mejorUtilidad = utilidad;
+                    mejorRuta = new ArrayList<>(ruta);
+                }
+
+                actualizarFeromonas(ruta, utilidad);
+            }
+            evaporarFeromonas();
+        }
+        return mejorRuta;
+    }
+
+    /**
+     * Construir una ruta según las preferencias del usuario
+     */
+    private List<PuntoDeInteres> construirRuta() {
+        List<PuntoDeInteres> ruta = new ArrayList<>();
+        Set<PuntoDeInteres> visitados = new HashSet<>();
+        PuntoDeInteres nodoActual = grafo.vertexSet().iterator().next(); // Elegir un punto inicial aleatorio
+        double tiempoRestante = perfilUsuario.getTiempoDisponible();
+
+        while (tiempoRestante > 0) {
+            List<PuntoDeInteres> opciones = obtenerOpciones(nodoActual, visitados);
+            if (opciones.isEmpty()) break;
+
+            PuntoDeInteres siguiente = seleccionarSiguiente(opciones, nodoActual);
+            if (siguiente == null) break;
+
+            DefaultWeightedEdge edge = grafo.getEdge(nodoActual, siguiente);
+            double tiempoViaje = grafo.getEdgeWeight(edge);
+
+            if (tiempoViaje + siguiente.getDuracionVisita() > tiempoRestante) break;
+
+            ruta.add(siguiente);
+            visitados.add(siguiente);
+            nodoActual = siguiente;
+            tiempoRestante -= (tiempoViaje + siguiente.getDuracionVisita());
+        }
+        return ruta;
+    }
+
+    /**
+     * Obtener las opciones de destinos no visitados
+     */
+    private List<PuntoDeInteres> obtenerOpciones(PuntoDeInteres nodoActual, Set<PuntoDeInteres> visitados) {
+        List<PuntoDeInteres> opciones = new ArrayList<>();
+        for (DefaultWeightedEdge edge : grafo.edgesOf(nodoActual)) {
+            PuntoDeInteres destino = grafo.getEdgeTarget(edge);
+            if (!visitados.contains(destino)) {
+                opciones.add(destino);
+            }
+        }
+        return opciones;
+    }
+
+    /**
+     * Calcular la utilidad total de una ruta basada en las preferencias del usuario
+     */
+    private double calcularUtilidadRuta(List<PuntoDeInteres> ruta) {
+        return ruta.stream().mapToDouble(this::calcularUtilidad).sum();
+    }
+
+    /**
+     * Calcular la utilidad de un destino según las preferencias del usuario
+     */
+    private double calcularUtilidad(PuntoDeInteres destino) {
+        double utilidadTotal = 0.0;
+
+        // Obtener las actividades asociadas al destino y sus pesos desde la BD
+        List<PreferenciaTipoDeActividad> actividades = preferenciaRepository.findByPreferenciaId(perfilUsuario.getIdPreferencia());
+
+        for (PreferenciaTipoDeActividad actividad : actividades) {
+            String nombreActividad = actividad.getTipoDeActividad().getNombre();
+            Double pesoUsuario = actividad.getPeso();
+            utilidadTotal += pesoUsuario * actividad.getTipoDeActividad().getPopularidad(); // Ajustar fórmula según necesidad
+        }
+
+        return utilidadTotal;
+    }
+
+    /**
+     * Actualizar las feromonas en las rutas recorridas
+     */
+    private void actualizarFeromonas(List<PuntoDeInteres> ruta, double utilidad) {
+        for (int i = 0; i < ruta.size() - 1; i++) {
+            DefaultWeightedEdge edge = grafo.getEdge(ruta.get(i), ruta.get(i + 1));
+            feromonas.put(edge, feromonas.get(edge) + utilidad);
+        }
+    }
+
+    /**
+     * Evaporación de feromonas para evitar saturación
+     */
+    private void evaporarFeromonas() {
+        feromonas.replaceAll((k, v) -> v * 0.9);
+    }
+    
+    private PuntoDeInteres seleccionarSiguiente(List<PuntoDeInteres> opciones, PuntoDeInteres nodoActual) {
+        double alpha = 1.0; // Peso de las feromonas
+        double beta = 2.0;  // Peso de la utilidad
+
+        // Lista de pesos para cada opción
+        Map<PuntoDeInteres, Double> probabilidades = new HashMap<>();
+        double sumaProbabilidades = 0.0;
+
+        for (PuntoDeInteres opcion : opciones) {
+            DefaultWeightedEdge edge = grafo.getEdge(nodoActual, opcion);
+            double feromona = feromonas.getOrDefault(edge, 1.0);
+            double utilidad = calcularUtilidad(opcion);
+
+            // Fórmula ACO: (feromona ^ alpha) * (utilidad ^ beta)
+            double probabilidad = Math.pow(feromona, alpha) * Math.pow(utilidad, beta);
+            probabilidades.put(opcion, probabilidad);
+            sumaProbabilidades += probabilidad;
+        }
+
+        // Si no hay opciones válidas, retornar null
+        if (sumaProbabilidades == 0) {
+            return null;
+        }
+
+        // Selección por Ruleta Sesgada
+        double umbral = Math.random() * sumaProbabilidades;
+        double acumulado = 0.0;
+
+        for (Map.Entry<PuntoDeInteres, Double> entrada : probabilidades.entrySet()) {
+            acumulado += entrada.getValue();
+            if (acumulado >= umbral) {
+                return entrada.getKey();
+            }
+        }
+
+        return null; // Debería no llegar aquí si el umbral se calcula correctamente
+    }
+}
+
+

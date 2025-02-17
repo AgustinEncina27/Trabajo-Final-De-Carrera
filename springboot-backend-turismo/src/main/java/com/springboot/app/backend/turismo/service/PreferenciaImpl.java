@@ -17,6 +17,7 @@ public class PreferenciaImpl implements IPreferenciaService {
 		
 	private final PreferenciaRepository preferenciaRepository;
 	
+	
 	@Override
     @Transactional(readOnly = true)
     public List<Preferencia> obtenerTodas() {
@@ -41,7 +42,7 @@ public class PreferenciaImpl implements IPreferenciaService {
     public Preferencia guardar(Preferencia preferencia) {
         return preferenciaRepository.save(preferencia);
     }
-	
+		
 	@Override
 	@Transactional
     public void eliminar(Integer id) {

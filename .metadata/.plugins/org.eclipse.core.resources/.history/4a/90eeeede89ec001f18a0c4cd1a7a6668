@@ -1,0 +1,31 @@
+package com.springboot.app.backend.turismo.model;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "distancia_destinos")
+public class DistanciaPuntoDeInteres {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name = "idDestinoOrigen", nullable = false)
+    private PuntoDeInteres puntoDeInteresOrigen;
+
+    @ManyToOne
+    @JoinColumn(name = "idDestinoDestino", nullable = false)
+    private PuntoDeInteres puntoDeInteresDestino;
+
+    @Column(nullable = false)
+    private Double distancia; // Distancia en kilómetros
+}

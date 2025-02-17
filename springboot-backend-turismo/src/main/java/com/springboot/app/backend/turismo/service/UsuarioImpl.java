@@ -1,5 +1,6 @@
 package com.springboot.app.backend.turismo.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,8 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.springboot.app.backend.turismo.dto.UserResponse;
 import com.springboot.app.backend.turismo.model.Preferencia;
+import com.springboot.app.backend.turismo.model.PreferenciaTipoDeActividad;
 import com.springboot.app.backend.turismo.model.Usuario;
 import com.springboot.app.backend.turismo.repository.PreferenciaRepository;
+import com.springboot.app.backend.turismo.repository.PreferenciaTipoActividadRepository;
 import com.springboot.app.backend.turismo.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -20,7 +23,7 @@ public class UsuarioImpl implements IUsuarioService {
 	
 	private final UserRepository usuarioRepository;
     private final PreferenciaRepository preferenciaRepository;
-
+    private final PreferenciaTipoActividadRepository preferenciaTipoDeActividadRepository;
 	
 	@Override
     @Transactional(readOnly = true)
@@ -63,17 +66,71 @@ public class UsuarioImpl implements IUsuarioService {
 	@Override
 	@Transactional
 	public Usuario guardarPreferencias(Integer idUsuario, Preferencia preferencia) {
-		Optional<Usuario> usuarioOpt = usuarioRepository.findById(idUsuario);
+	    Usuario usuario = usuarioRepository.findById(idUsuario)
+	            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
-        if (usuarioOpt.isPresent()) {
-            Usuario usuario = usuarioOpt.get();
-            preferencia.setUsuario(usuario); // Asigna el usuario a la preferencia
-            usuario.setPreferencia(preferencia); // Asigna la preferencia al usuario
-            
-            preferenciaRepository.save(preferencia); // Guarda la preferencia
-            return usuarioRepository.save(usuario); // Guarda el usuario con la nueva preferencia
-        } else {
-            throw new RuntimeException("Usuario no encontrado con ID: " + idUsuario);
-        }
+	    // Desvincular temporalmente las actividades para que Hibernate no las guarde ahora
+	    List<PreferenciaTipoDeActividad> actividades = preferencia.getPreferenciasActividades();
+	    preferencia.setPreferenciasActividades(null);  // Evita que Hibernate intente guardarlas
+
+	    // Guardar primero la preferencia sin actividades
+	    Preferencia preferenciaGuardada = preferenciaRepository.save(preferencia);
+
+	    // Ahora asignamos la preferencia a cada actividad y las volvemos a agregar
+	    if (actividades != null) {
+	        for (PreferenciaTipoDeActividad actividad : actividades) {
+	            actividad.setPreferencia(preferenciaGuardada);
+	        }
+	        // Guardar todas las actividades con la referencia a la preferencia
+	        preferenciaTipoDeActividadRepository.saveAll(actividades);
+
+	        // Volver a asignar las actividades a la preferencia guardada
+	        preferenciaGuardada.setPreferenciasActividades(actividades);
+	    }
+
+	    // Asignar la preferencia guardada al usuario y guardarlo
+	    usuario.setPreferencia(preferenciaGuardada);
+	    usuarioRepository.save(usuario);
+
+	    return usuario;
 	}
+	
+	@Override
+	@Transactional
+	public Preferencia actualizarPreferencias(Integer idUsuario, Preferencia nuevaPreferencia) {
+	    Usuario usuario = usuarioRepository.findById(idUsuario)
+	        .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+	    Preferencia preferenciaExistente = usuario.getPreferencia();
+	    if (preferenciaExistente == null) {
+	        throw new RuntimeException("No se encontraron preferencias para el usuario");
+	    }
+
+	    // Actualizar los valores básicos
+	    preferenciaExistente.setDistanciaPreferida(nuevaPreferencia.getDistanciaPreferida());
+	    preferenciaExistente.setTiempoDisponible(nuevaPreferencia.getTiempoDisponible());
+	    preferenciaExistente.setAccesibilidadRequerida(nuevaPreferencia.isAccesibilidadRequerida());
+	    preferenciaExistente.setCosteMaximo(nuevaPreferencia.getCosteMaximo());
+	    preferenciaExistente.setPopularidad(nuevaPreferencia.getPopularidad());
+
+	    // 🔥 Solución para evitar que Hibernate intente eliminar las referencias previas
+	    List<PreferenciaTipoDeActividad> actividadesActualizadas = new ArrayList<>();
+	    for (PreferenciaTipoDeActividad preferenciaTipoDeActividad : nuevaPreferencia.getPreferenciasActividades()) {
+	        if (preferenciaTipoDeActividad.getId() == null) {
+	            preferenciaTipoDeActividad.setPreferencia(preferenciaExistente); // Asignar la preferencia si es una nueva actividad
+	        } else {
+	            // Mantener la referencia si ya existe en la base de datos
+	            preferenciaTipoDeActividad = preferenciaTipoDeActividadRepository.findById(preferenciaTipoDeActividad.getId())
+	                    .orElseThrow(() -> new RuntimeException("Actividad no encontrada"));
+	        }
+	        actividadesActualizadas.add(preferenciaTipoDeActividad);
+	    }
+
+	    // En lugar de sobrescribir, limpiamos y agregamos las nuevas actividades
+	    preferenciaExistente.getPreferenciasActividades().clear();
+	    preferenciaExistente.getPreferenciasActividades().addAll(actividadesActualizadas);
+
+	    return preferenciaRepository.save(preferenciaExistente);
+	}
+
 }

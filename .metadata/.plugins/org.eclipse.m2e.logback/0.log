@@ -3252,3 +3252,681 @@
 2025-02-10 23:09:01,413 [Worker-68: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2025-02-10 23:09:01,417 [Worker-68: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2025-02-10 23:09:01,420 [Worker-68: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 17:13:44,431 [Worker-13: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-02-11 17:14:21,867 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-11 17:14:21,927 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-11 17:14:21,959 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 17:20:33,721 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:20:33,721 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:20:33,723 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 17:24:46,019 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:24:46,019 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:24:46,022 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 17:25:05,865 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:25:05,866 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:25:05,867 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 17:27:21,265 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:27:21,278 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:27:21,281 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 17:41:51,661 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:41:51,662 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:41:51,664 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 17:44:04,834 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:44:04,835 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:44:04,837 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 17:47:52,582 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:47:52,582 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:47:52,585 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 17:48:59,738 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-11 17:48:59,743 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:48:59,745 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 17:52:19,982 [Worker-24: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:52:19,982 [Worker-24: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:52:19,984 [Worker-24: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 17:53:26,535 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:53:26,536 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:53:26,537 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 17:58:23,067 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:58:23,067 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 17:58:23,071 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 18:07:23,120 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:07:23,121 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:07:23,122 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 18:08:49,123 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:08:49,123 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:08:49,125 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 18:19:01,730 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:19:01,731 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:19:01,733 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 18:19:34,432 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:19:34,432 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:19:34,434 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 18:21:02,178 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-11 18:21:02,199 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:21:02,200 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 18:24:09,651 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-11 18:24:09,661 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:24:09,665 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 18:36:28,811 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-11 18:36:28,820 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:36:28,824 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 18:38:13,507 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:38:13,508 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:38:13,509 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 18:41:10,297 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-11 18:41:10,301 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:41:10,303 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 18:41:11,401 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:41:11,401 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:41:11,403 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 18:52:48,254 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:52:48,254 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:52:48,255 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 18:58:26,661 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-11 18:58:26,665 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:58:26,667 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 18:58:35,618 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:58:35,618 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 18:58:35,619 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 19:07:03,912 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-11 19:07:03,917 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-11 19:07:03,923 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 19:07:43,648 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-11 19:07:43,648 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-11 19:07:43,652 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 19:18:59,981 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-11 19:18:59,986 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-11 19:18:59,988 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-11 19:19:10,124 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-11 19:19:10,134 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-11 19:19:10,137 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-14 15:07:06,756 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-02-14 15:37:51,322 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-14 15:37:51,360 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-14 15:37:51,380 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-14 17:55:38,862 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-02-14 18:16:02,904 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-14 18:16:02,920 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-14 18:16:02,924 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-14 18:17:02,214 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-14 18:17:02,219 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-14 18:17:02,222 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-14 18:17:08,187 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-14 18:17:08,191 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-14 18:17:08,193 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-14 18:17:10,310 [Worker-12: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.springboot.app.backend.turismo:test.assigment.backend..turismo:0.0.1-SNAPSHOT @ F:\Trabajo Final de Carrera\springboot-backend-turismo\pom.xml.
+2025-02-14 18:17:11,016 [Worker-12: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/jgrapht/jgrapht-core/1.5.1/jgrapht-core-1.5.1.pom
+2025-02-14 18:17:11,028 [Worker-12: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/jgrapht/jgrapht-core/1.5.1/jgrapht-core-1.5.1.pom
+2025-02-14 18:17:11,072 [Worker-12: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/jgrapht/jgrapht/1.5.1/jgrapht-1.5.1.pom
+2025-02-14 18:17:11,101 [Worker-12: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/jgrapht/jgrapht/1.5.1/jgrapht-1.5.1.pom
+2025-02-14 18:17:11,144 [Worker-12: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/jheaps/jheaps/0.13/jheaps-0.13.pom
+2025-02-14 18:17:11,154 [Worker-12: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/jheaps/jheaps/0.13/jheaps-0.13.pom
+2025-02-14 18:17:11,321 [Worker-12: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/jgrapht/jgrapht-core/1.5.1/jgrapht-core-1.5.1.jar
+2025-02-14 18:17:11,538 [Worker-12: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/jgrapht/jgrapht-core/1.5.1/jgrapht-core-1.5.1.jar
+2025-02-14 18:17:11,572 [BasicRepositoryConnector-repo.maven.apache.org-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/jheaps/jheaps/0.13/jheaps-0.13.jar
+2025-02-14 18:17:11,594 [BasicRepositoryConnector-repo.maven.apache.org-0-0] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/jheaps/jheaps/0.13/jheaps-0.13.jar
+2025-02-14 18:17:11,929 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-14 18:17:11,930 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-14 18:17:11,933 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-14 18:17:13,022 [Worker-12: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/jgrapht/jgrapht-core/1.5.1/jgrapht-core-1.5.1-sources.jar
+2025-02-14 18:17:13,208 [Worker-12: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/jgrapht/jgrapht-core/1.5.1/jgrapht-core-1.5.1-sources.jar
+2025-02-14 18:17:13,211 [Worker-12: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jgrapht:jgrapht-core:1.5.1
+2025-02-14 18:17:13,461 [Worker-12: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/jheaps/jheaps/0.13/jheaps-0.13-sources.jar
+2025-02-14 18:17:13,530 [Worker-12: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/jheaps/jheaps/0.13/jheaps-0.13-sources.jar
+2025-02-14 18:17:13,533 [Worker-12: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jheaps:jheaps:0.13
+2025-02-14 18:17:14,206 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-14 18:17:14,222 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-14 18:17:14,225 [Worker-25: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-14 18:17:21,615 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313 [359])
+2025-02-14 18:17:21,617 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313
+2025-02-14 18:17:21,617 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\aopalliance-1.0.jar
+2025-02-14 18:17:21,618 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\guice-5.1.0.jar
+2025-02-14 18:17:21,618 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\httpclient-4.5.14.jar
+2025-02-14 18:17:21,618 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\httpcore-4.4.16.jar
+2025-02-14 18:17:21,618 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\jansi-2.4.1.jar
+2025-02-14 18:17:21,618 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\jcl-over-slf4j-1.7.36.jar
+2025-02-14 18:17:21,618 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-artifact-3.9.7.jar
+2025-02-14 18:17:21,618 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-builder-support-3.9.7.jar
+2025-02-14 18:17:21,618 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-compat-3.9.7.jar
+2025-02-14 18:17:21,618 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-core-3.9.7.jar
+2025-02-14 18:17:21,618 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-embedder-3.9.7.jar
+2025-02-14 18:17:21,618 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-model-3.9.7.jar
+2025-02-14 18:17:21,618 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-model-builder-3.9.7.jar
+2025-02-14 18:17:21,618 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-plugin-api-3.9.7.jar
+2025-02-14 18:17:21,619 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-repository-metadata-3.9.7.jar
+2025-02-14 18:17:21,619 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-api-1.9.20.jar
+2025-02-14 18:17:21,619 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-connector-basic-1.9.20.jar
+2025-02-14 18:17:21,619 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-impl-1.9.20.jar
+2025-02-14 18:17:21,619 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-named-locks-1.9.20.jar
+2025-02-14 18:17:21,619 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-provider-3.9.7.jar
+2025-02-14 18:17:21,619 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-spi-1.9.20.jar
+2025-02-14 18:17:21,619 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-transport-file-1.9.20.jar
+2025-02-14 18:17:21,619 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-transport-http-1.9.20.jar
+2025-02-14 18:17:21,619 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-transport-wagon-1.9.20.jar
+2025-02-14 18:17:21,619 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-util-1.9.20.jar
+2025-02-14 18:17:21,619 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-settings-3.9.7.jar
+2025-02-14 18:17:21,619 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-settings-builder-3.9.7.jar
+2025-02-14 18:17:21,619 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-shared-utils-3.4.2.jar
+2025-02-14 18:17:21,619 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\org.eclipse.sisu.inject-0.9.0.M2.jar
+2025-02-14 18:17:21,619 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\org.eclipse.sisu.plexus-0.9.0.M2.jar
+2025-02-14 18:17:21,619 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-build-api-0.0.7.jar
+2025-02-14 18:17:21,620 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-build-api-1.2.0.jar
+2025-02-14 18:17:21,620 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-cipher-2.0.jar
+2025-02-14 18:17:21,620 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-classworlds-2.8.0.jar
+2025-02-14 18:17:21,620 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-component-annotations-2.1.0.jar
+2025-02-14 18:17:21,620 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-interpolation-1.27.jar
+2025-02-14 18:17:21,620 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-sec-dispatcher-2.0.jar
+2025-02-14 18:17:21,620 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-utils-3.5.1.jar
+2025-02-14 18:17:21,620 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-file-3.5.3.jar
+2025-02-14 18:17:21,620 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-http-3.5.3.jar
+2025-02-14 18:17:21,620 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-http-shared-3.5.3.jar
+2025-02-14 18:17:21,620 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-provider-api-3.5.3.jar
+2025-02-14 18:17:21,621 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava_33.2.0.jre [29])
+2025-02-14 18:17:21,621 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\com.google.guava_33.2.0.jre.jar
+2025-02-14 18:17:21,621 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=slf4j.api_2.0.13 [592])
+2025-02-14 18:17:21,622 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\slf4j.api_2.0.13.jar
+2025-02-14 18:17:21,622 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.inject.jakarta.inject-api_1.0.5 [44])
+2025-02-14 18:17:21,622 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\jakarta.inject.jakarta.inject-api_1.0.5.jar
+2025-02-14 18:17:21,622 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=javax.annotation_1.3.5.v20200909-1856 [53])
+2025-02-14 18:17:21,623 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\javax.annotation_1.3.5.v20200909-1856.jar
+2025-02-14 18:17:21,623 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.cli_1.8.0 [76])
+2025-02-14 18:17:21,623 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.apache.commons.cli_1.8.0.jar
+2025-02-14 18:17:21,623 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.commons-codec_1.16.0 [78])
+2025-02-14 18:17:21,623 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.apache.commons.commons-codec_1.16.0.jar
+2025-02-14 18:17:21,624 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.lang3_3.14.0 [82])
+2025-02-14 18:17:21,624 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.apache.commons.lang3_3.14.0.jar
+2025-02-14 18:17:21,624 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava.failureaccess_1.0.2 [30])
+2025-02-14 18:17:21,624 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\com.google.guava.failureaccess_1.0.2.jar
+2025-02-14 18:17:21,627 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "F:\Trabajo Final de Carrera\springboot-backend-turismo":
+2025-02-14 18:17:21,628 [Worker-17: Launching Executing clean in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -Ppom.xml -B -Dstyle.color=always clean
+2025-02-14 18:17:24,102 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-14 18:17:24,103 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-14 18:17:24,106 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-14 18:17:28,473 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313 [359])
+2025-02-14 18:17:28,473 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313
+2025-02-14 18:17:28,473 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\aopalliance-1.0.jar
+2025-02-14 18:17:28,473 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\guice-5.1.0.jar
+2025-02-14 18:17:28,473 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\httpclient-4.5.14.jar
+2025-02-14 18:17:28,473 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\httpcore-4.4.16.jar
+2025-02-14 18:17:28,473 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\jansi-2.4.1.jar
+2025-02-14 18:17:28,473 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\jcl-over-slf4j-1.7.36.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-artifact-3.9.7.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-builder-support-3.9.7.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-compat-3.9.7.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-core-3.9.7.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-embedder-3.9.7.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-model-3.9.7.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-model-builder-3.9.7.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-plugin-api-3.9.7.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-repository-metadata-3.9.7.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-api-1.9.20.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-connector-basic-1.9.20.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-impl-1.9.20.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-named-locks-1.9.20.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-provider-3.9.7.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-spi-1.9.20.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-transport-file-1.9.20.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-transport-http-1.9.20.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-transport-wagon-1.9.20.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-resolver-util-1.9.20.jar
+2025-02-14 18:17:28,474 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-settings-3.9.7.jar
+2025-02-14 18:17:28,475 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-settings-builder-3.9.7.jar
+2025-02-14 18:17:28,475 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\maven-shared-utils-3.4.2.jar
+2025-02-14 18:17:28,475 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\org.eclipse.sisu.inject-0.9.0.M2.jar
+2025-02-14 18:17:28,475 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\org.eclipse.sisu.plexus-0.9.0.M2.jar
+2025-02-14 18:17:28,475 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-build-api-0.0.7.jar
+2025-02-14 18:17:28,475 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-build-api-1.2.0.jar
+2025-02-14 18:17:28,475 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-cipher-2.0.jar
+2025-02-14 18:17:28,475 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-classworlds-2.8.0.jar
+2025-02-14 18:17:28,475 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-component-annotations-2.1.0.jar
+2025-02-14 18:17:28,475 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-interpolation-1.27.jar
+2025-02-14 18:17:28,475 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-sec-dispatcher-2.0.jar
+2025-02-14 18:17:28,475 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\plexus-utils-3.5.1.jar
+2025-02-14 18:17:28,475 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-file-3.5.3.jar
+2025-02-14 18:17:28,475 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-http-3.5.3.jar
+2025-02-14 18:17:28,475 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-http-shared-3.5.3.jar
+2025-02-14 18:17:28,475 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.eclipse.m2e.maven.runtime_3.9.700.20240602-2313\jars\wagon-provider-api-3.5.3.jar
+2025-02-14 18:17:28,476 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava_33.2.0.jre [29])
+2025-02-14 18:17:28,476 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\com.google.guava_33.2.0.jre.jar
+2025-02-14 18:17:28,476 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=slf4j.api_2.0.13 [592])
+2025-02-14 18:17:28,476 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\slf4j.api_2.0.13.jar
+2025-02-14 18:17:28,476 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=jakarta.inject.jakarta.inject-api_1.0.5 [44])
+2025-02-14 18:17:28,477 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\jakarta.inject.jakarta.inject-api_1.0.5.jar
+2025-02-14 18:17:28,477 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=javax.annotation_1.3.5.v20200909-1856 [53])
+2025-02-14 18:17:28,477 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\javax.annotation_1.3.5.v20200909-1856.jar
+2025-02-14 18:17:28,477 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.cli_1.8.0 [76])
+2025-02-14 18:17:28,477 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.apache.commons.cli_1.8.0.jar
+2025-02-14 18:17:28,477 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.commons-codec_1.16.0 [78])
+2025-02-14 18:17:28,478 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.apache.commons.commons-codec_1.16.0.jar
+2025-02-14 18:17:28,478 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=org.apache.commons.lang3_3.14.0 [82])
+2025-02-14 18:17:28,478 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\org.apache.commons.lang3_3.14.0.jar
+2025-02-14 18:17:28,478 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - getClasspathEntries(Bundle=com.google.guava.failureaccess_1.0.2 [30])
+2025-02-14 18:17:28,478 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: F:\spring tool\sts-4.23.1.RELEASE\plugins\com.google.guava.failureaccess_1.0.2.jar
+2025-02-14 18:17:28,479 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "F:\Trabajo Final de Carrera\springboot-backend-turismo":
+2025-02-14 18:17:28,479 [Worker-30: Launching Executing install in F__Trabajo Final de Carrera_springboot-backend-turismo] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -Ppom.xml -B -Dstyle.color=always install
+2025-02-15 16:41:51,517 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2025-02-15 16:44:45,798 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-15 16:44:45,867 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-15 16:44:45,903 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-15 16:44:50,020 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-15 16:44:50,022 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-15 16:44:50,026 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-15 16:49:51,413 [Worker-0: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-15 16:49:51,418 [Worker-0: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-15 16:49:51,421 [Worker-0: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-15 16:50:18,451 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-15 16:50:18,458 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-15 16:50:18,460 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 13:36:46,242 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-02-16 13:40:14,200 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 13:40:14,247 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 13:40:14,266 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 13:46:48,794 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 13:46:48,798 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 13:46:48,801 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 13:47:19,533 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 13:47:19,537 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 13:47:19,540 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 13:48:19,382 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 13:48:19,391 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 13:48:19,396 [Worker-14: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 13:48:47,775 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 13:48:47,783 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 13:48:47,787 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:01:02,331 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:01:02,341 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:01:02,344 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:01:21,200 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:01:21,203 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:01:21,206 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:01:30,223 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:01:30,227 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:01:30,229 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:01:34,166 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:01:34,174 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:01:34,178 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:10:55,033 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:10:55,037 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:10:55,039 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:11:08,957 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:11:08,960 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:11:08,963 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:11:55,152 [Worker-27: Building Workspace] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:11:55,155 [Worker-27: Building Workspace] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:11:55,158 [Worker-27: Building Workspace] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:13:12,804 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:13:12,808 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:13:12,810 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:13:31,503 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:13:31,506 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:13:31,508 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:13:42,869 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:13:42,873 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:13:42,876 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:14:03,857 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:14:03,860 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:14:03,863 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:14:20,152 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:14:20,155 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:14:20,157 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:14:41,866 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:14:41,869 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:14:41,871 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:14:53,542 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:14:53,545 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:14:53,547 [Worker-38: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:15:00,493 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:15:00,496 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:15:00,498 [Worker-27: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:15:08,645 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:15:08,648 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:15:08,651 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:15:18,006 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:15:18,009 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:15:18,011 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:15:32,998 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:15:33,002 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:15:33,004 [Worker-31: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:15:42,053 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:15:42,056 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:15:42,058 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:16:01,537 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:16:01,540 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:16:01,542 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:16:28,805 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:16:28,808 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:16:28,811 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:16:44,405 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:16:44,408 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:16:44,410 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:16:55,530 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:16:55,534 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:16:55,536 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:17:16,882 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:17:16,885 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:17:16,887 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:17:44,373 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:17:44,376 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:17:44,378 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:17:56,064 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:17:56,068 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:17:56,070 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:18:19,516 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:18:19,519 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:18:19,522 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:18:35,914 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:18:35,917 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:18:35,920 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:18:53,285 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:18:53,289 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:18:53,291 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:19:23,586 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:19:23,590 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:19:23,592 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:21:33,725 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:21:33,729 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:21:33,731 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:21:57,089 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:21:57,092 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:21:57,094 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:22:15,393 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:22:15,397 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:22:15,399 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:22:36,912 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:22:36,916 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:22:36,918 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:23:07,881 [Worker-35: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:23:07,884 [Worker-35: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:23:07,886 [Worker-35: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:23:11,765 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:23:11,768 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:23:11,770 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:23:44,233 [Worker-35: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:23:44,236 [Worker-35: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:23:44,238 [Worker-35: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:24:01,202 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:24:01,205 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:24:01,207 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:25:36,095 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:25:36,099 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:25:36,101 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:25:50,692 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:25:50,695 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:25:50,697 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:26:05,209 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:26:05,212 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:26:05,214 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:26:24,934 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:26:24,937 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:26:24,939 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 14:26:38,344 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:26:38,347 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 14:26:38,349 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 15:03:44,013 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 15:03:44,041 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 15:03:44,043 [Worker-45: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 15:05:33,374 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 15:05:33,378 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 15:05:33,380 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 15:06:44,177 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 15:06:44,181 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 15:06:44,183 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 15:06:48,274 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 15:06:48,300 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 15:06:48,302 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 15:08:20,260 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 15:08:20,264 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 15:08:20,267 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 15:09:23,010 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 15:09:23,013 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 15:09:23,015 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 16:13:18,348 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:13:18,361 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:13:18,363 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 16:16:26,069 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:16:26,074 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:16:26,077 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 16:16:29,205 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:16:29,208 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:16:29,211 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 16:16:42,233 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:16:42,236 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:16:42,238 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 16:17:05,176 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:17:05,180 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:17:05,182 [Worker-57: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 16:17:13,211 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:17:13,214 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:17:13,216 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 16:27:07,763 [Worker-60: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:27:07,767 [Worker-60: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:27:07,769 [Worker-60: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 16:29:15,168 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:29:15,174 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:29:15,176 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 16:30:56,008 [Worker-60: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:30:56,012 [Worker-60: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:30:56,014 [Worker-60: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 16:31:53,907 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:31:53,910 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:31:53,913 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 16:39:09,819 [Worker-68: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-16 16:39:09,820 [Worker-68: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:39:09,837 [Worker-68: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 16:40:07,419 [Worker-68: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-16 16:40:07,420 [Worker-68: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:40:07,423 [Worker-68: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 16:41:12,413 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-16 16:41:12,413 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:41:12,416 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 16:47:38,007 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:47:38,012 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:47:38,014 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 16:47:39,218 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:47:39,222 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:47:39,224 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 16:47:50,194 [Worker-70: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:47:50,197 [Worker-70: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:47:50,199 [Worker-70: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 16:48:01,616 [Worker-73: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:48:01,628 [Worker-73: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:48:01,632 [Worker-73: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 16:48:11,245 [Worker-70: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:48:11,248 [Worker-70: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 16:48:11,250 [Worker-70: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 17:06:10,602 [Worker-75: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-16 17:06:10,603 [Worker-75: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 17:06:10,605 [Worker-75: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 17:56:52,192 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-16 17:56:52,193 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 17:56:52,195 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 17:59:42,746 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-16 17:59:42,747 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 17:59:42,750 [Worker-79: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:03:40,478 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-16 18:03:40,478 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:03:40,481 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:03:44,289 [Worker-84: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:03:44,297 [Worker-84: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:03:44,299 [Worker-84: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:04:09,258 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:04:09,261 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:04:09,263 [Worker-85: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:07:34,747 [Worker-96: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:07:34,751 [Worker-96: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:07:34,753 [Worker-96: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:10:02,197 [Worker-91: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:10:02,200 [Worker-91: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:10:02,202 [Worker-91: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:13:06,048 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:13:06,052 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:13:06,054 [Worker-95: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:15:04,314 [Worker-93: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:15:04,317 [Worker-93: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:15:04,319 [Worker-93: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:16:37,297 [Worker-102: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-16 18:16:37,298 [Worker-102: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:16:37,301 [Worker-102: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:16:56,985 [Worker-102: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-16 18:16:56,985 [Worker-102: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:16:56,988 [Worker-102: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:18:24,763 [Worker-91: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:18:24,767 [Worker-91: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:18:24,769 [Worker-91: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:19:22,897 [Worker-104: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:19:22,901 [Worker-104: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:19:22,903 [Worker-104: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:20:23,336 [Worker-108: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:20:23,344 [Worker-108: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:20:23,346 [Worker-108: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:20:48,891 [Worker-105: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:20:48,895 [Worker-105: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:20:48,896 [Worker-105: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:21:01,334 [Worker-108: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:21:01,337 [Worker-108: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:21:01,339 [Worker-108: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:23:47,039 [Worker-91: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:23:47,042 [Worker-91: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:23:47,044 [Worker-91: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:26:04,008 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:26:04,011 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:26:04,013 [Worker-101: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:27:44,418 [Worker-113: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:27:44,421 [Worker-113: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:27:44,423 [Worker-113: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:28:43,932 [Worker-117: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:28:43,936 [Worker-117: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:28:43,938 [Worker-117: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:29:05,037 [Worker-115: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:29:05,040 [Worker-115: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:29:05,042 [Worker-115: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:29:19,782 [Worker-116: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:29:19,784 [Worker-116: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:29:19,786 [Worker-116: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:29:37,989 [Worker-113: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:29:37,992 [Worker-113: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:29:37,994 [Worker-113: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:30:08,576 [Worker-115: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:30:08,579 [Worker-115: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:30:08,581 [Worker-115: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:30:12,863 [Worker-118: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:30:12,866 [Worker-118: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:30:12,867 [Worker-118: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:30:29,341 [Worker-113: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:30:29,343 [Worker-113: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:30:29,345 [Worker-113: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:32:06,452 [Worker-117: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:32:06,455 [Worker-117: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:32:06,457 [Worker-117: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:32:31,307 [Worker-118: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:32:31,311 [Worker-118: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:32:31,312 [Worker-118: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:32:40,261 [Worker-117: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:32:40,264 [Worker-117: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:32:40,266 [Worker-117: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:34:21,846 [Worker-115: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:34:21,850 [Worker-115: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:34:21,852 [Worker-115: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:35:16,121 [Worker-105: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:35:16,124 [Worker-105: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:35:16,126 [Worker-105: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:35:20,425 [Worker-105: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:35:20,428 [Worker-105: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:35:20,430 [Worker-105: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:35:39,985 [Worker-119: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:35:39,989 [Worker-119: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:35:39,991 [Worker-119: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:35:48,202 [Worker-105: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:35:48,205 [Worker-105: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:35:48,206 [Worker-105: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:38:44,052 [Worker-120: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:38:44,056 [Worker-120: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:38:44,058 [Worker-120: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:38:53,814 [Worker-117: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:38:53,817 [Worker-117: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:38:53,819 [Worker-117: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:41:07,487 [Worker-113: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:41:07,490 [Worker-113: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:41:07,492 [Worker-113: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:42:12,336 [Worker-119: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-16 18:42:12,336 [Worker-119: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:42:12,339 [Worker-119: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:43:34,258 [Worker-123: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-16 18:43:34,259 [Worker-123: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:43:34,263 [Worker-123: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:44:51,294 [Worker-121: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2025-02-16 18:44:51,295 [Worker-121: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:44:51,297 [Worker-121: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:46:46,110 [Worker-126: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:46:46,114 [Worker-126: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:46:46,116 [Worker-126: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:51:12,840 [Worker-126: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:51:12,844 [Worker-126: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:51:12,847 [Worker-126: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:51:47,627 [Worker-130: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:51:47,631 [Worker-130: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:51:47,632 [Worker-130: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:51:51,610 [Worker-130: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:51:51,613 [Worker-130: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:51:51,615 [Worker-130: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:51:59,211 [Worker-132: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:51:59,216 [Worker-132: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:51:59,218 [Worker-132: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:52:58,240 [Worker-133: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:52:58,245 [Worker-133: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:52:58,247 [Worker-133: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:53:03,654 [Worker-128: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:53:03,656 [Worker-128: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:53:03,658 [Worker-128: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:53:46,290 [Worker-132: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:53:46,294 [Worker-132: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:53:46,296 [Worker-132: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 18:54:58,102 [Worker-130: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:54:58,106 [Worker-130: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 18:54:58,108 [Worker-130: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 19:00:07,955 [Worker-130: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 19:00:07,959 [Worker-130: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 19:00:07,960 [Worker-130: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 19:08:20,115 [Worker-138: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 19:08:20,119 [Worker-138: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 19:08:20,120 [Worker-138: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-16 19:09:43,986 [Worker-136: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 19:09:43,989 [Worker-136: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-16 19:09:43,991 [Worker-136: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-17 10:13:19,465 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2025-02-17 10:21:39,364 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:21:39,395 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:21:39,405 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-17 10:21:58,924 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:21:58,928 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:21:58,930 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-17 10:22:05,061 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:22:05,069 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:22:05,074 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-17 10:22:11,909 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:22:11,913 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:22:11,915 [Worker-19: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-17 10:32:00,366 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:32:00,370 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:32:00,372 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-17 10:32:09,988 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:32:09,992 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:32:09,994 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-17 10:43:52,057 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:43:52,062 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:43:52,065 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-17 10:44:02,557 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:44:02,566 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:44:02,568 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-17 10:44:45,882 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:44:45,886 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:44:45,888 [Worker-26: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-17 10:46:39,221 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:46:39,225 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:46:39,227 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-17 10:47:50,944 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:47:50,947 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:47:50,950 [Worker-32: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources
+2025-02-17 10:56:11,955 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:56:11,959 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2025-02-17 10:56:11,962 [Worker-30: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory F:\Trabajo Final de Carrera\springboot-backend-turismo\src\test\resources

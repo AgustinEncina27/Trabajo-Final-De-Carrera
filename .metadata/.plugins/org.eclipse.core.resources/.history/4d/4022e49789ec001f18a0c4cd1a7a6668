@@ -1,0 +1,150 @@
+package com.springboot.app.backend.turismo.service;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.springboot.app.backend.turismo.dto.RutaConTraducciones;
+import com.springboot.app.backend.turismo.model.Coordenada;
+import com.springboot.app.backend.turismo.model.PuntoDeInteres;
+import com.springboot.app.backend.turismo.model.PuntoDeInteresTraduccion;
+import com.springboot.app.backend.turismo.model.EstadoRuta;
+import com.springboot.app.backend.turismo.model.Preferencia;
+import com.springboot.app.backend.turismo.model.Ruta;
+import com.springboot.app.backend.turismo.model.RutaDestino;
+import com.springboot.app.backend.turismo.repository.PuntoDeInteresTraduccionRepository;
+import com.springboot.app.backend.turismo.repository.EstadoRutaRepository;
+import com.springboot.app.backend.turismo.repository.RutaPuntoDeInteresRepository;
+import com.springboot.app.backend.turismo.repository.RutaRepository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Comparator;
+
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class RutaImpl implements IRutaService {
+	
+	private final IPreferenciaService preferenciaService;
+	private final IDestinoService destinoService;
+	private final RutaRepository rutaRepository;
+	private final PuntoDeInteresTraduccionRepository destinoTraduccionRepository;
+	private final RutaPuntoDeInteresRepository rutaDestinoRepository;
+	private final EstadoRutaRepository estadoRutaRepository;
+	
+	@Override
+    @Transactional(readOnly = true)
+    public List<Ruta> obtenerTodas() {
+        return rutaRepository.findAll();
+    }
+	
+	@Override
+    @Transactional(readOnly = true)
+    public Optional<Ruta> obtenerPorId(Integer id) {
+        return rutaRepository.findById(id);
+    }
+		
+	@Override
+	@Transactional
+    public Ruta guardar(Ruta ruta) {
+        return rutaRepository.save(ruta);
+    }
+	
+	@Override
+	@Transactional
+    public void eliminar(Integer id) {
+		rutaRepository.deleteById(id);
+    }
+	
+	
+	@Override
+	@Transactional
+	public RutaConTraducciones generarRutaParaUsuario(Integer usuarioId, Coordenada ubicacionActual, PuntoDeInteres.ClimaIdeal climaActual, String idioma) {
+	    Preferencia preferencia = preferenciaService.obtenerPreferenciasPorUsuario(usuarioId);
+	    Optional<EstadoRuta> estadoRuta = estadoRutaRepository.findById(3);
+	    List<PuntoDeInteres> destinos = destinoService.obtenerDestinosSegunPreferencias(preferencia, climaActual);
+
+	    // Ordenar los destinos según distancia mínima
+	    destinos.sort(Comparator.comparingInt(d -> calcularDistancia(d.getCoordenada(), ubicacionActual)));
+	    
+	    // Crear la ruta sin los destinos todavía
+	    Ruta ruta = Ruta.builder()
+	            .usuario(preferencia.getUsuario())
+	            .distanciaTotal(calcularDistanciaTotal(destinos))
+	            .duracionEstimada(calcularDuracionTotal(destinos))
+	            .fechaCreacion(LocalDate.now())
+	            .estado(estadoRuta.get())
+	            .build();
+ 
+	    rutaRepository.save(ruta); // Guardar primero la ruta para tener su ID
+
+	    // Crear las relaciones RutaDestino y guardarlas
+	    List<RutaDestino> rutaDestinos = destinos.stream()
+	            .map(destino -> RutaDestino.builder()
+	                    .ruta(ruta)
+	                    .destino(destino)
+	                    .visitado(false) // Inicialmente, el usuario aún no ha llegado
+	                    .build())
+	            .toList();
+
+	    rutaDestinoRepository.saveAll(rutaDestinos); // Guardar las relaciones en la BD
+	    
+	    // Obtener las traducciones para devolverlas al frontend
+	    List<PuntoDeInteresTraduccion> destinosTraducidos = destinos.stream()
+	        .map(destino -> destinoTraduccionRepository.findByDestino_IdAndIdioma(destino.getId(), idioma))
+	        .toList();
+
+	    // Retornar la ruta con los destinos traducidos
+	    return new RutaConTraducciones(ruta, destinosTraducidos);
+	}
+	
+	@Override
+	@Transactional
+    public boolean marcarDestinoComoLlegado(Integer idRutaDestino) {
+        Optional<RutaDestino> rutaDestinoOpt = rutaDestinoRepository.findById(idRutaDestino);
+
+        if (rutaDestinoOpt.isPresent()) {
+            RutaDestino rutaDestino = rutaDestinoOpt.get();
+            rutaDestino.setVisitado(true);
+            rutaDestinoRepository.save(rutaDestino);
+            return true;
+        }
+        return false;
+    }
+	
+	private int calcularDistancia(Coordenada origen, Coordenada destino) {
+	    final int RADIO_TIERRA_KM = 6371; // Radio de la Tierra en km
+
+	    double lat1 = Math.toRadians(origen.getLatitud());
+	    double lon1 = Math.toRadians(origen.getLongitud());
+	    double lat2 = Math.toRadians(destino.getLatitud());
+	    double lon2 = Math.toRadians(destino.getLongitud());
+
+	    double dLat = lat2 - lat1;
+	    double dLon = lon2 - lon1;
+
+	    double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+	               Math.cos(lat1) * Math.cos(lat2) *
+	               Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+	    double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+	    return (int) (RADIO_TIERRA_KM * c); // Distancia en km
+	}
+	
+	private int calcularDistanciaTotal(List<PuntoDeInteres> destinos) {
+	    int distanciaTotal = 0;
+	    for (int i = 0; i < destinos.size() - 1; i++) {
+	        distanciaTotal += calcularDistancia(destinos.get(i).getCoordenada(), destinos.get(i + 1).getCoordenada());
+	    }
+	    return distanciaTotal;
+	}
+
+	private int calcularDuracionTotal(List<PuntoDeInteres> destinos) {
+	    return destinos.stream().mapToInt(d -> d.getDuracionVisita()).sum();
+	}
+}

@@ -15,4 +15,5 @@ public interface IUsuarioService {
 	public void eliminar(Integer id);
 	public List<UserResponse> cambioContrasena();
 	public Usuario guardarPreferencias(Integer idUsuario, Preferencia preferencia);
+	public Preferencia actualizarPreferencias(Integer idUsuario, Preferencia nuevaPreferencia);
 }

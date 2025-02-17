@@ -39,9 +39,13 @@ public class PreferenciaController {
     public Preferencia guardar(@RequestBody Preferencia preferencia) {
         return preferenciaService.guardar(preferencia);
     }
-
+        
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
+        if (!preferenciaService.obtenerPorId(id).isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        
         preferenciaService.eliminar(id);
         return ResponseEntity.noContent().build();
     }

@@ -21,28 +21,28 @@ public class Preferencia {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idPreferencia;
+	private Integer id;
 	
-	@Column(nullable = false)
+	@Column
 	private long distanciaPreferida;
 	
-	@Column(nullable = false)
+	@Column
 	private long tiempoDisponible;
 	
-	@Column(nullable = false)
+	@Column
 	private boolean accesibilidadRequerida;
 	
-	@Column(nullable = false)
+	@Column
 	private Integer costeMaximo;
+	
+	@Column
+	private Integer popularidad;
 	
 	@JsonIgnore
 	@OneToOne(mappedBy = "preferencia")
 	private Usuario usuario;
 	
-	@ManyToMany
-    @JoinTable(
-      name = "Preferencia_TipoDeActividad", 
-      joinColumns = @JoinColumn(name = "idPreferencia"), 
-      inverseJoinColumns = @JoinColumn(name = "idTipoDeActividad"))
-    private List<TipoDeActividad> tiposDeActividades;
+	// Relación con la nueva tabla intermedia
+    @OneToMany(mappedBy = "preferencia", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PreferenciaTipoDeActividad> preferenciasActividades;
 }

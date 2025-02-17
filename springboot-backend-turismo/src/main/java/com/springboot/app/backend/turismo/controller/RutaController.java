@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.app.backend.turismo.dto.RutaConTraducciones;
 import com.springboot.app.backend.turismo.model.Coordenada;
-import com.springboot.app.backend.turismo.model.Destino;
+import com.springboot.app.backend.turismo.model.PuntoDeInteres;
 import com.springboot.app.backend.turismo.model.Ruta;
 import com.springboot.app.backend.turismo.service.IRutaService;
 
@@ -47,7 +47,11 @@ public class RutaController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
-    	rutaService.eliminar(id);
+        if (!rutaService.obtenerPorId(id).isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        
+        rutaService.eliminar(id);
         return ResponseEntity.noContent().build();
     }
 	
@@ -56,10 +60,10 @@ public class RutaController {
 	        @RequestParam Integer usuarioId,
 	        @RequestParam double latitud,
 	        @RequestParam double longitud,
-	        @RequestParam Destino.ClimaIdeal climaActual,
+	        @RequestParam PuntoDeInteres.ClimaIdeal climaActual,
 	        @RequestParam String idioma) {
 
-	    Coordenada ubicacionActual = new Coordenada(null, latitud, longitud, null);
+	    Coordenada ubicacionActual = new Coordenada(null, latitud, longitud);
 	    RutaConTraducciones ruta = rutaService.generarRutaParaUsuario(usuarioId, ubicacionActual, climaActual, idioma);
 	    return ResponseEntity.ok(ruta);
 	}

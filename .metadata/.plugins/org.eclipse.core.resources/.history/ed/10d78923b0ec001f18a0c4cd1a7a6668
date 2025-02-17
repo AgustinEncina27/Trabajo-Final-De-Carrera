@@ -1,0 +1,12 @@
+package com.springboot.app.backend.turismo.service;
+
+import java.util.List;
+
+import com.springboot.app.backend.turismo.model.PuntoDeInteres;
+import com.springboot.app.backend.turismo.model.PuntoDeInteresTraduccion;
+import com.springboot.app.backend.turismo.model.Preferencia;
+
+public interface IPuntoDeInteresService {
+	public List<PuntoDeInteres> obtenerDestinosSegunPreferencias(Preferencia preferencia, PuntoDeInteres.ClimaIdeal climaActual);
+	public PuntoDeInteresTraduccion obtenerTraduccionDestino(Integer idDestino, String idioma);
+}

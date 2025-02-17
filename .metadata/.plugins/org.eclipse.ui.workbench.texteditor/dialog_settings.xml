@@ -6,14 +6,18 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="nombre_punto_de_interes"/>
 		<list key="findhistory">
+			<item value="nombre_destino"/>
+			<item value="id_destino"/>
 			<item value="UserResponse"/>
 			<item value="tokenRepository"/>
 			<item value="com.programandoenjava.jwt"/>
 			<item value="Token"/>
 		</list>
 		<list key="replacehistory">
+			<item value="nombre_punto_de_interes"/>
+			<item value="id_punto_de_interes"/>
 			<item value="com.springboot.app.backend.turismo"/>
 		</list>
 	</section>

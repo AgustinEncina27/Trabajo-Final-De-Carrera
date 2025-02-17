@@ -21,10 +21,10 @@ public class Ruta {
 	  private Integer idRuta;
 	  
 	  @Column(nullable = false)
-	  private Integer duracionEstimada;
+	  private Double duracionEstimada;
 	  
 	  @Column(nullable = false)
-	  private Integer distanciaTotal;
+	  private Double distanciaTotal;
 	  
 	  @Column(nullable = false)
 	  private LocalDate fechaCreacion;
@@ -39,5 +39,5 @@ public class Ruta {
 	  private EstadoRuta estado;
 	  
 	  @OneToMany(mappedBy = "ruta", cascade = CascadeType.ALL, orphanRemoval = true)
-	  private List<RutaDestino> destinos;
+	  private List<RutaPuntoDeInteres> puntosDeInteres;
 }
