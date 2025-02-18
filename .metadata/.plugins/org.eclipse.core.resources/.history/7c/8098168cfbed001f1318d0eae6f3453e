@@ -13,6 +13,7 @@ public interface IUsuarioService {
 	public Optional<Usuario> obtenerPorCorreo(String correo);
 	public Usuario guardar(Usuario usuario);
 	public void eliminar(Integer id);
-	public List<UserResponse> cambioContrasena();
+	public boolean cambiarContrasena(String nombreUsuario, String nuevaContrasena);
 	public Usuario guardarPreferencias(Integer idUsuario, Preferencia preferencia);
+	public Preferencia actualizarPreferencias(Integer idUsuario, Preferencia nuevaPreferencia);
 }

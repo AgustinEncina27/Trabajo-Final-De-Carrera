@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="nombre_punto_de_interes"/>
+		<item key="selection" value="eliminar"/>
 		<list key="findhistory">
+			<item value="eliminar"/>
+			<item value="construirRuta"/>
 			<item value="nombre_destino"/>
 			<item value="id_destino"/>
 			<item value="UserResponse"/>

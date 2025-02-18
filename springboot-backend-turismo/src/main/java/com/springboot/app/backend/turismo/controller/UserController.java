@@ -3,6 +3,7 @@ package com.springboot.app.backend.turismo.controller;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.app.backend.turismo.dto.UserResponse;
+import com.springboot.app.backend.turismo.auth.controller.AuthRequest;
+import com.springboot.app.backend.turismo.dto.RecuperarContrasenaRequest;
+import com.springboot.app.backend.turismo.dto.VerificarCodigoRequest;
 import com.springboot.app.backend.turismo.model.Preferencia;
 import com.springboot.app.backend.turismo.model.Usuario;
 import com.springboot.app.backend.turismo.service.UsuarioImpl;
@@ -27,10 +30,38 @@ public class UserController {
 	
     private final UsuarioImpl usuarioService;
 
-    @GetMapping
-    public List<UserResponse> changePassword() {
-        return usuarioService.cambioContrasena();
+    // Endpoint POST para cambiar la contraseña
+    @PostMapping("/cambiar-contrasena")
+    public ResponseEntity<String> cambiarContrasena(@RequestBody AuthRequest request) {
+        boolean actualizado = usuarioService.cambiarContrasena(request.email(), request.password());
+        if (actualizado) {
+            return ResponseEntity.ok("Contraseña actualizada correctamente");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
+        }
     }
+    
+    @PostMapping("/solicitar-recuperacion")
+    public ResponseEntity<String> solicitarRecuperacion(@RequestBody RecuperarContrasenaRequest request) {
+        boolean enviado = usuarioService.enviarCodigoRecuperacion(request.email());
+        if (enviado) {
+            return ResponseEntity.ok("Código de verificación enviado al correo");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Correo incorrecto");
+        }
+    }
+    
+    @PostMapping("/verificar-codigo")
+    public ResponseEntity<String> verificarCodigo(@RequestBody VerificarCodigoRequest request) {
+        boolean valido = usuarioService.verificarCodigo(request.email(), request.codigoVerificacion());
+        if (valido) {
+            return ResponseEntity.ok("Código válido, puede cambiar la contraseña");
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Código incorrecto o expirado");
+        }
+    }
+
+
     
     @GetMapping("/obtenerTodos")
     public List<Usuario> obtenerTodos() {

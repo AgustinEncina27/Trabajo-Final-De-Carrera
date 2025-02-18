@@ -2,12 +2,15 @@ package com.springboot.app.backend.turismo.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.springboot.app.backend.turismo.dto.UserResponse;
 import com.springboot.app.backend.turismo.model.Preferencia;
 import com.springboot.app.backend.turismo.model.PreferenciaTipoDeActividad;
 import com.springboot.app.backend.turismo.model.Usuario;
@@ -24,7 +27,12 @@ public class UsuarioImpl implements IUsuarioService {
 	private final UserRepository usuarioRepository;
     private final PreferenciaRepository preferenciaRepository;
     private final PreferenciaTipoActividadRepository preferenciaTipoDeActividadRepository;
-	
+    private final PasswordEncoder passwordEncoder;
+    private final CorreoService correoService;
+    
+    private final Map<String, String> codigosRecuperacion = new ConcurrentHashMap<>(); // Almacena temporalmente los códigos
+
+    
 	@Override
     @Transactional(readOnly = true)
     public List<Usuario> obtenerTodos() {
@@ -38,12 +46,41 @@ public class UsuarioImpl implements IUsuarioService {
     }
 	
 	@Override
-    @Transactional
-    public List<UserResponse> cambioContrasena() {
-        return usuarioRepository.findAll()
-                .stream()
-                .map(user -> new UserResponse(user.getNombreUsuario(), user.getCorreoUsuario()))
-                .toList();
+	@Transactional
+    public boolean enviarCodigoRecuperacion(String correoUsuario) {
+        Optional<Usuario> usuarioOpt = usuarioRepository.findByCorreoUsuario( correoUsuario);
+        if (usuarioOpt.isPresent()) {
+            String codigo = String.valueOf(new Random().nextInt(900000) + 100000); // Código de 6 dígitos
+            codigosRecuperacion.put(correoUsuario, codigo);
+
+            correoService.enviarCorreo(correoUsuario, "Código de recuperación", "Tu código de verificación es: " + codigo);
+            return true;
+        }
+        return false;
+    }
+	
+	// Verificar si el código es correcto
+    public boolean verificarCodigo(String correoUsuario, String codigoVerificacion) {
+        return codigosRecuperacion.containsKey(correoUsuario) && 
+               codigosRecuperacion.get(correoUsuario).equals(codigoVerificacion);
+    }
+	
+	@Override
+	@Transactional
+    public boolean cambiarContrasena(String email, String nuevaContrasena) {
+		if (!codigosRecuperacion.containsKey(email)) {
+            return false;
+        }
+		
+		Optional<Usuario> usuarioOpt = usuarioRepository.findByCorreoUsuario(email);
+        if (usuarioOpt.isPresent()) {
+            Usuario usuario = usuarioOpt.get();
+            usuario.setContrasena(passwordEncoder.encode(nuevaContrasena)); 
+            usuarioRepository.save(usuario);
+            codigosRecuperacion.remove(email);
+            return true;
+        }
+        return false;
     }
 	
 	@Override
