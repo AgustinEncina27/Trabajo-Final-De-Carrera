@@ -14,6 +14,8 @@ public class ColoniaHormigas {
     private final Preferencia perfilUsuario;
     private final int iteraciones;
     private final int numHormigas;
+    private final Long distanciaPreferida;
+    private final Long tiempoDisponible;
     private final Map<DefaultWeightedEdge, Double> feromonas;
     private final DistanciaPuntoDeInteresRepository distanciaRepository;
     private final TiempoPuntoDeInteresRepository tiempoRepository;
@@ -25,6 +27,8 @@ public class ColoniaHormigas {
             Preferencia perfilUsuario,
             int iteraciones,
             int numHormigas,
+            Long distanciaPreferida,
+            Long tiempoDisponible,
             DistanciaPuntoDeInteresRepository distanciaRepository,
             TiempoPuntoDeInteresRepository tiempoRepository) {
 
@@ -32,6 +36,8 @@ public class ColoniaHormigas {
         this.perfilUsuario = perfilUsuario;
         this.iteraciones = iteraciones;
         this.numHormigas = numHormigas;
+        this.distanciaPreferida = distanciaPreferida;
+        this.tiempoDisponible = tiempoDisponible;
         this.feromonas = new HashMap<>();
         this.distanciaRepository = distanciaRepository;
         this.tiempoRepository = tiempoRepository;
@@ -106,9 +112,9 @@ public class ColoniaHormigas {
     private List<PuntoDeInteres> construirRuta(Coordenada ubicacionActual) {
         List<PuntoDeInteres> ruta = new ArrayList<>();
         Set<PuntoDeInteres> visitados = new HashSet<>();
-        double tiempoRestante = perfilUsuario.getTiempoDisponible();
+        double tiempoRestante = this.tiempoDisponible;
         double distanciaRecorrida = 0.0;
-        double distanciaMaxima = perfilUsuario.getDistanciaPreferida();
+        double distanciaMaxima = this.distanciaPreferida;
 
         // Encontrar el punto más cercano a la ubicación actual
         PuntoDeInteres nodoActual = encontrarPuntoMasCercano(ubicacionActual);

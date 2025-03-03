@@ -38,6 +38,12 @@ public class Usuario {
   @Column(nullable = false)
   private LocalDate fechaDeCreacion;
   
+  @Column
+  private Long distanciarecorrida;
+  
+  @Column
+  private Integer puntosObtenidos;
+  
   @OneToOne
   @JoinColumn(name = "fkPreferencia")  
   private Preferencia preferencia;
@@ -49,4 +55,6 @@ public class Usuario {
   @JsonIgnore
   @OneToMany(mappedBy = "user")
   private List<Token> tokens;
+  
+  
 }

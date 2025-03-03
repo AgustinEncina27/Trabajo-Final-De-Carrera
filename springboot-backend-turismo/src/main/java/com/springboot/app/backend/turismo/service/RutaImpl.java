@@ -40,6 +40,7 @@ public class RutaImpl implements IRutaService {
 	private final EstadoRutaRepository estadoRutaRepository;
 	private final DistanciaPuntoDeInteresRepository distanciaRepository;
     private final TiempoPuntoDeInteresRepository tiempoRepository;
+    private final ClimaService climaService;
 	
 	@Override
     @Transactional(readOnly = true)
@@ -68,14 +69,20 @@ public class RutaImpl implements IRutaService {
 	
 	@Override
 	@Transactional
-	public RutaConTraducciones generarRutaParaUsuario(Integer usuarioId, Coordenada ubicacionActual, PuntoDeInteres.ClimaIdeal climaActual, String idioma) {
+	public RutaConTraducciones generarRutaParaUsuario(Integer usuarioId, Coordenada ubicacionActual, 
+			Long distanciaPreferida,Long tiempoDisponible, String idioma) {
+		
 	    Preferencia preferencia = preferenciaService.obtenerPreferenciasPorUsuario(usuarioId);
 	    Optional<EstadoRuta> estadoRuta = estadoRutaRepository.findById(3);
+	    
+	    PuntoDeInteres.ClimaIdeal climaActual = climaService.obtenerClima(ubicacionActual.getLatitud(), ubicacionActual.getLongitud(), tiempoDisponible);
+	    
+	    
 	    List<PuntoDeInteres> destinos = puntoDeInteresService.obtenerPuntosDeInteresSegunClima(climaActual);
 
 	    // Inicializar colonia de hormigas
 	    ColoniaHormigas coloniaHormigas = new ColoniaHormigas(
-	            destinos, preferencia, 100, 10, distanciaRepository, tiempoRepository);
+	            destinos, preferencia, 100, 10,distanciaPreferida,tiempoDisponible, distanciaRepository, tiempoRepository);
 
 	    // Generar ruta optimizada considerando la ubicación actual
 	    List<PuntoDeInteres> mejorRuta = coloniaHormigas.optimizarRuta(ubicacionActual);
@@ -87,6 +94,7 @@ public class RutaImpl implements IRutaService {
 	            .duracionEstimada(calcularDuracionTotal(mejorRuta))
 	            .fechaCreacion(LocalDate.now())
 	            .estado(estadoRuta.get())
+	            .clima(climaActual)
 	            .build();
 
 	    rutaRepository.save(ruta); 

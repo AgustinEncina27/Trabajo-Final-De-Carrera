@@ -1,0 +1,65 @@
+package com.springboot.app.backend.turismo.service;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Map;
+
+@Service
+public class ClimaService {
+
+    private final WebClient webClient;
+
+    public ClimaService(WebClient.Builder webClientBuilder) {
+        this.webClient = webClientBuilder.baseUrl("https://api.open-meteo.com/v1").build();
+    }
+
+    public ClimaIdeal obtenerClima(double latitud, double longitud, long tiempoDisponible) {
+        // Calcular la hora objetivo en base al tiempo disponible
+        LocalDateTime horaObjetivo = LocalDateTime.now().plusMinutes(tiempoDisponible);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:00");
+
+        // Construcción de la URL de la API
+        String url = UriComponentsBuilder.fromHttpUrl("https://api.open-meteo.com/v1/forecast")
+                .queryParam("latitude", latitud)
+                .queryParam("longitude", longitud)
+                .queryParam("hourly", "precipitation")
+                .queryParam("timezone", "America/Argentina/Buenos_Aires")
+                .build()
+                .toUriString();
+
+        // Hacer la solicitud a la API
+        Map<String, Object> response = webClient.get()
+                .uri(url)
+                .retrieve()
+                .bodyToMono(Map.class)
+                .block();
+
+        if (response == null || !response.containsKey("hourly")) {
+            return ClimaIdeal.SOLEADO; // Si hay error, asumir SOLEADO
+        }
+
+        Map<String, Object> hourlyData = (Map<String, Object>) response.get("hourly");
+        List<String> times = (List<String>) hourlyData.get("time");
+        List<Double> precipitation = (List<Double>) hourlyData.get("precipitation");
+
+        // Buscar la predicción más cercana a la hora objetivo
+        ClimaIdeal climaPredicho = ClimaIdeal.SOLEADO; // Por defecto, asumimos SOLEADO
+        LocalDateTime mejorDiferencia = LocalDateTime.MAX; // Para encontrar la predicción más cercana
+
+        for (int i = 0; i < times.size(); i++) {
+            LocalDateTime forecastTime = LocalDateTime.parse(times.get(i), DateTimeFormatter.ISO_DATE_TIME);
+
+            if (Math.abs(forecastTime.compareTo(horaObjetivo)) < Math.abs(mejorDiferencia.compareTo(horaObjetivo))) {
+                mejorDiferencia = forecastTime;
+                double lluvia = precipitation.get(i);
+                climaPredicho = lluvia > 0 ? ClimaIdeal.LLUVIOSO : ClimaIdeal.SOLEADO;
+            }
+        }
+        return climaPredicho;
+    }
+}

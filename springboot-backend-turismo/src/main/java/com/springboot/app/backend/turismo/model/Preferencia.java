@@ -23,11 +23,7 @@ public class Preferencia {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column
-	private long distanciaPreferida;
-	
-	@Column
-	private long tiempoDisponible;
+
 	
 	@Column
 	private boolean accesibilidadRequerida;

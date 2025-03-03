@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.app.backend.turismo.dto.RutaConTraducciones;
 import com.springboot.app.backend.turismo.model.Coordenada;
-import com.springboot.app.backend.turismo.model.PuntoDeInteres;
 import com.springboot.app.backend.turismo.model.Ruta;
 import com.springboot.app.backend.turismo.service.IRutaService;
 
@@ -60,11 +59,12 @@ public class RutaController {
 	        @RequestParam Integer usuarioId,
 	        @RequestParam double latitud,
 	        @RequestParam double longitud,
-	        @RequestParam PuntoDeInteres.ClimaIdeal climaActual,
+	        @RequestParam Long distanciaPreferida,
+	        @RequestParam Long tiempoDisponible,
 	        @RequestParam String idioma) {
 
 	    Coordenada ubicacionActual = new Coordenada(null, latitud, longitud);
-	    RutaConTraducciones ruta = rutaService.generarRutaParaUsuario(usuarioId, ubicacionActual, climaActual, idioma);
+	    RutaConTraducciones ruta = rutaService.generarRutaParaUsuario(usuarioId, ubicacionActual,distanciaPreferida,tiempoDisponible, idioma);
 	    return ResponseEntity.ok(ruta);
 	}
 	

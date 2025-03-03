@@ -5,11 +5,10 @@ import java.util.Optional;
 
 import com.springboot.app.backend.turismo.dto.RutaConTraducciones;
 import com.springboot.app.backend.turismo.model.Coordenada;
-import com.springboot.app.backend.turismo.model.PuntoDeInteres;
 import com.springboot.app.backend.turismo.model.Ruta;
 
 public interface IRutaService {
-	public RutaConTraducciones generarRutaParaUsuario(Integer usuarioId, Coordenada ubicacionActual, PuntoDeInteres.ClimaIdeal climaActual, String idioma);
+	public RutaConTraducciones generarRutaParaUsuario(Integer usuarioId, Coordenada ubicacionActual,Long distanciaPreferida,Long tiempoDisponible, String idioma);
 	public boolean marcarDestinoComoLlegado(Integer idRutaDestino);
 	public List<Ruta> obtenerTodas();
 	public Optional<Ruta> obtenerPorId(Integer id);

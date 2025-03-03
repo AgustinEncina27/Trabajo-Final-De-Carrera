@@ -1,0 +1,72 @@
+package com.springboot.app.backend.turismo.service;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.springboot.app.backend.turismo.model.PuntoDeInteres.ClimaIdeal;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
+@Service
+public class ClimaService {
+    private static final String API_URL = "https://api.open-meteo.com/v1/forecast?latitude=%f&longitude=%f&hourly=precipitation&timezone=America/Argentina/Buenos_Aires";
+    private final RestTemplate restTemplate;
+
+    public ClimaService(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
+    public ClimaIdeal obtenerClima(Double latitud, Double longitud, Long tiempoDisponible) {
+        // Construir la URL con la latitud y longitud
+        String url = String.format(API_URL, latitud, longitud);
+        
+        // Llamar a la API
+        ClimaResponse response = restTemplate.getForObject(url, ClimaResponse.class);
+        if (response == null || response.hourly == null) {
+            return ClimaIdeal.SOLEADO; // Si hay error, asumimos SOLEADO
+        }
+
+        // Obtener los datos de la API
+        List<String> times = response.hourly.time;
+        List<Double> precipitation = response.hourly.precipitation;
+
+        // Hora actual
+        LocalDateTime ahora = LocalDateTime.now();
+
+        // Calcular cuántas horas revisar
+        int horasARevisar = (int) Math.ceil(tiempoDisponible / 60.0);
+
+        // Buscar el índice de la primera hora que es igual o después de la actual
+        int startIndex = 0;
+        for (int i = 0; i < times.size(); i++) {
+            LocalDateTime forecastTime = LocalDateTime.parse(times.get(i), DateTimeFormatter.ISO_DATE_TIME);
+            if (!forecastTime.isBefore(ahora)) {
+                startIndex = i;
+                break;
+            }
+        }
+
+        // Revisar solo el rango de tiempo disponible
+        for (int i = startIndex; i < times.size() && i < startIndex + horasARevisar; i++) {
+            double lluvia = precipitation.get(i);
+            if (lluvia > 0) {
+                return ClimaIdeal.LLUVIOSO; // Si en alguna hora llueve, devuelve LLUVIOSO
+            }
+        }
+
+        return ClimaIdeal.SOLEADO; // Si no llueve, devuelve SOLEADO
+    }
+
+    // Clases para mapear la respuesta de la API
+    private static class ClimaResponse {
+        public Hourly hourly;
+    }
+
+    private static class Hourly {
+        public List<String> time;
+        public List<Double> precipitation;
+    }
+}
+

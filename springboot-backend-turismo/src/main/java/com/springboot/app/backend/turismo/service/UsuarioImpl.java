@@ -144,8 +144,6 @@ public class UsuarioImpl implements IUsuarioService {
 	    }
 
 	    // Actualizar los valores básicos
-	    preferenciaExistente.setDistanciaPreferida(nuevaPreferencia.getDistanciaPreferida());
-	    preferenciaExistente.setTiempoDisponible(nuevaPreferencia.getTiempoDisponible());
 	    preferenciaExistente.setAccesibilidadRequerida(nuevaPreferencia.isAccesibilidadRequerida());
 	    preferenciaExistente.setCosteMaximo(nuevaPreferencia.getCosteMaximo());
 	    preferenciaExistente.setPopularidad(nuevaPreferencia.getPopularidad());
@@ -169,5 +167,37 @@ public class UsuarioImpl implements IUsuarioService {
 
 	    return preferenciaRepository.save(preferenciaExistente);
 	}
+	
+	// Método para actualizar la distancia recorrida
+	@Override
+	@Transactional
+    public String actualizarDistancia(Integer id, Long distanciaRecorrida) {
+        Optional<Usuario> usuarioOpt = usuarioRepository.findById(id);
+
+        if (usuarioOpt.isPresent()) {
+            Usuario usuario = usuarioOpt.get();
+            usuario.setDistanciarecorrida((long) distanciaRecorrida); // Convertimos Integer a Long
+            usuarioRepository.save(usuario);
+            return "Distancia recorrida actualizada correctamente.";
+        } else {
+            return "Usuario no encontrado.";
+        }
+    }
+
+    // Método para actualizar los puntos obtenidos
+	@Override
+	@Transactional
+    public String actualizarPuntos(Integer id, Integer puntosObtenidos) {
+        Optional<Usuario> usuarioOpt = usuarioRepository.findById(id);
+
+        if (usuarioOpt.isPresent()) {
+            Usuario usuario = usuarioOpt.get();
+            usuario.setPuntosObtenidos(puntosObtenidos);
+            usuarioRepository.save(usuario);
+            return "Puntos obtenidos actualizados correctamente.";
+        } else {
+            return "Usuario no encontrado.";
+        }
+    }
 
 }

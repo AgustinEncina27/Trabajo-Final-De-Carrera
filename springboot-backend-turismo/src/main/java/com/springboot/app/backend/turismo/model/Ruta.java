@@ -3,6 +3,8 @@ package com.springboot.app.backend.turismo.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.springboot.app.backend.turismo.model.PuntoDeInteres.ClimaIdeal;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,6 +31,8 @@ public class Ruta {
 	  @Column(nullable = false)
 	  private LocalDate fechaCreacion;
 	  
+	  @Column
+	  private ClimaIdeal clima;
 	  
 	  @ManyToOne
 	  @JoinColumn(name = "fkUsuario")

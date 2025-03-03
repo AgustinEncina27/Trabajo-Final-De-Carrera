@@ -3,7 +3,6 @@ package com.springboot.app.backend.turismo.controller;
 
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,9 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.app.backend.turismo.auth.controller.AuthRequest;
-import com.springboot.app.backend.turismo.dto.RecuperarContrasenaRequest;
-import com.springboot.app.backend.turismo.dto.VerificarCodigoRequest;
 import com.springboot.app.backend.turismo.model.Preferencia;
 import com.springboot.app.backend.turismo.model.Usuario;
 import com.springboot.app.backend.turismo.service.UsuarioImpl;
@@ -29,39 +25,6 @@ import java.util.List;
 public class UserController {
 	
     private final UsuarioImpl usuarioService;
-
-    // Endpoint POST para cambiar la contraseña
-    @PostMapping("/cambiar-contrasena")
-    public ResponseEntity<String> cambiarContrasena(@RequestBody AuthRequest request) {
-        boolean actualizado = usuarioService.cambiarContrasena(request.email(), request.password());
-        if (actualizado) {
-            return ResponseEntity.ok("Contraseña actualizada correctamente");
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");
-        }
-    }
-    
-    @PostMapping("/solicitar-recuperacion")
-    public ResponseEntity<String> solicitarRecuperacion(@RequestBody RecuperarContrasenaRequest request) {
-        boolean enviado = usuarioService.enviarCodigoRecuperacion(request.email());
-        if (enviado) {
-            return ResponseEntity.ok("Código de verificación enviado al correo");
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Correo incorrecto");
-        }
-    }
-    
-    @PostMapping("/verificar-codigo")
-    public ResponseEntity<String> verificarCodigo(@RequestBody VerificarCodigoRequest request) {
-        boolean valido = usuarioService.verificarCodigo(request.email(), request.codigoVerificacion());
-        if (valido) {
-            return ResponseEntity.ok("Código válido, puede cambiar la contraseña");
-        } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Código incorrecto o expirado");
-        }
-    }
-
-
     
     @GetMapping("/obtenerTodos")
     public List<Usuario> obtenerTodos() {
@@ -87,7 +50,7 @@ public class UserController {
         Usuario usuarioActualizado = usuarioService.guardarPreferencias(idUsuario, preferencia);
         return ResponseEntity.ok(usuarioActualizado);
     }
-    
+        
     @PutMapping("/{idUsuario}/preferencias")
     public ResponseEntity<Preferencia> actualizarPreferencias(
             @PathVariable Integer idUsuario,
@@ -95,6 +58,26 @@ public class UserController {
 
         Preferencia preferenciaActualizada = usuarioService.actualizarPreferencias(idUsuario, nuevaPreferencia);
         return ResponseEntity.ok(preferenciaActualizada);
+    }
+    
+    // Endpoint para actualizar la distancia recorrida
+    @PutMapping("/{id}/distancia")
+    public ResponseEntity<String> actualizarDistancia(@PathVariable Integer id, @RequestBody Long distanciaRecorrida) {
+        if (distanciaRecorrida == null || distanciaRecorrida < 0) {
+            return ResponseEntity.badRequest().body("La distancia recorrida no puede ser nula o negativa.");
+        }
+        String resultado = usuarioService.actualizarDistancia(id, distanciaRecorrida);
+        return ResponseEntity.ok(resultado);
+    }
+
+    // Endpoint para actualizar los puntos obtenidos
+    @PutMapping("/{id}/puntos")
+    public ResponseEntity<String> actualizarPuntos(@PathVariable Integer id, @RequestBody Integer puntosObtenidos) {
+        if (puntosObtenidos == null || puntosObtenidos < 0) {
+            return ResponseEntity.badRequest().body("Los puntos obtenidos no pueden ser nulos o negativos.");
+        }
+        String resultado = usuarioService.actualizarPuntos(id, puntosObtenidos);
+        return ResponseEntity.ok(resultado);
     }
     
     @PostMapping
