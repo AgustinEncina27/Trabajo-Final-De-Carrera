@@ -56,5 +56,7 @@ public class Usuario {
   @OneToMany(mappedBy = "user")
   private List<Token> tokens;
   
+  @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<ObjetivoPuntosInteres> objetivosPuntosInteres;
   
 }

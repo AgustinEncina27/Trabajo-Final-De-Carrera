@@ -1,0 +1,53 @@
+package com.springboot.app.backend.turismo.controller;
+
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.springboot.app.backend.turismo.model.ObjetivoPuntosInteres;
+import com.springboot.app.backend.turismo.repository.ObjetivoPuntosInteresRepository;
+import com.springboot.app.backend.turismo.service.ObjetivoPuntosInteresService;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequestMapping("/objetivos")
+@RequiredArgsConstructor
+public class ObjetivoPuntosInteresController {
+
+    private final ObjetivoPuntosInteresRepository repository;
+    private final ObjetivoPuntosInteresService service;
+    
+    @GetMapping("/{usuarioId}")
+    public ResponseEntity<List<ObjetivoPuntosInteres>> obtenerObjetivosPorUsuario(@PathVariable Integer usuarioId) {
+        List<ObjetivoPuntosInteres> objetivos = service.obtenerObjetivosPorUsuario(usuarioId);
+        return ResponseEntity.ok(objetivos);
+    }
+    
+    @PostMapping("/{usuarioId}/asignar")
+    public ResponseEntity<Void> asignarObjetivosFijos(@PathVariable Integer usuarioId) {
+        service.asignarObjetivosFijos(usuarioId);
+        return ResponseEntity.ok().build();
+    }
+    
+    @PutMapping("/{usuarioId}/visitar/{puntoDeInteresId}")
+    public ResponseEntity<Void> marcarComoVisitado(
+            @PathVariable Integer usuarioId,
+            @PathVariable Integer puntoDeInteresId) {
+        repository.marcarComoVisitado(usuarioId, puntoDeInteresId);
+        return ResponseEntity.ok().build();
+    }
+    
+    @DeleteMapping("/eliminar-antiguos")
+    public ResponseEntity<Void> eliminarDesafios() {
+        service.eliminarDesafios();
+        return ResponseEntity.ok().build(); // Devuelve un 200 OK sin contenido
+    }
+}

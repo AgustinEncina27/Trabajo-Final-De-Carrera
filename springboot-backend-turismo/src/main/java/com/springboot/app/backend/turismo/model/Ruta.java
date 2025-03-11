@@ -3,6 +3,7 @@ package com.springboot.app.backend.turismo.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.springboot.app.backend.turismo.model.PuntoDeInteres.ClimaIdeal;
 
 import jakarta.persistence.*;
@@ -34,6 +35,7 @@ public class Ruta {
 	  @Column
 	  private ClimaIdeal clima;
 	  
+	  @JsonIgnore
 	  @ManyToOne
 	  @JoinColumn(name = "fkUsuario")
 	  private Usuario usuario;
@@ -42,6 +44,6 @@ public class Ruta {
 	  @JoinColumn(name = "fkEstado") 
 	  private EstadoRuta estado;
 	  
-	  @OneToMany(mappedBy = "ruta", cascade = CascadeType.ALL, orphanRemoval = true)
+	  @OneToMany(mappedBy = "ruta", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	  private List<RutaPuntoDeInteres> puntosDeInteres;
 }

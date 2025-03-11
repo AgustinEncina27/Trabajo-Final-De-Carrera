@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="eliminar"/>
+		<item key="selection" value="ClimaResponse"/>
 		<list key="findhistory">
+			<item value="System"/>
+			<item value="ClimaResponse"/>
 			<item value="eliminar"/>
 			<item value="construirRuta"/>
 			<item value="nombre_destino"/>

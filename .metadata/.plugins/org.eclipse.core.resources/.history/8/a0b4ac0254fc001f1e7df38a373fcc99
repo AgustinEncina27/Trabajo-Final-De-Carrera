@@ -1,0 +1,5 @@
+package com.springboot.app.backend.turismo.controller;
+
+public class ObjetivoPuntosInteresController {
+
+}

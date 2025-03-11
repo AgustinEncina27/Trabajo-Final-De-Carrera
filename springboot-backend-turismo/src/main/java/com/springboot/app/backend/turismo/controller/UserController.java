@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.Map;
 
 import com.springboot.app.backend.turismo.model.Preferencia;
 import com.springboot.app.backend.turismo.model.Usuario;
@@ -46,9 +47,15 @@ public class UserController {
     }
     
     @PostMapping("/{idUsuario}/preferencias")
-    public ResponseEntity<Usuario> guardarPreferencias(@PathVariable Integer idUsuario, @RequestBody Preferencia preferencia) {
-        Usuario usuarioActualizado = usuarioService.guardarPreferencias(idUsuario, preferencia);
-        return ResponseEntity.ok(usuarioActualizado);
+    public ResponseEntity<Map<String, String>> guardarPreferencias(@PathVariable Integer idUsuario, @RequestBody Preferencia preferencia) {
+        usuarioService.guardarPreferencias(idUsuario, preferencia);
+        return ResponseEntity.ok(Map.of("message", "Preferencia guardada con éxito"));
+    }
+    
+    
+    @PostMapping
+    public Usuario guardar(@RequestBody Usuario usuario) {
+        return usuarioService.guardar(usuario);
     }
         
     @PutMapping("/{idUsuario}/preferencias")
@@ -78,11 +85,6 @@ public class UserController {
         }
         String resultado = usuarioService.actualizarPuntos(id, puntosObtenidos);
         return ResponseEntity.ok(resultado);
-    }
-    
-    @PostMapping
-    public Usuario guardar(@RequestBody Usuario usuario) {
-        return usuarioService.guardar(usuario);
     }
 
     @DeleteMapping("/{id}")

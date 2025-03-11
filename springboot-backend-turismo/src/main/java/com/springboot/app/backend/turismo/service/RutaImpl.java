@@ -3,6 +3,7 @@ package com.springboot.app.backend.turismo.service;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -42,16 +43,33 @@ public class RutaImpl implements IRutaService {
     private final TiempoPuntoDeInteresRepository tiempoRepository;
     private final ClimaService climaService;
 	
-	@Override
+    @Override
     @Transactional(readOnly = true)
-    public List<Ruta> obtenerTodas() {
-        return rutaRepository.findAll();
+    public List<RutaConTraducciones> obtenerTodas(String idioma) {
+        return rutaRepository.findAll().stream()
+                .map(ruta -> convertirARutaConTraducciones(ruta, idioma))
+                .collect(Collectors.toList());
     }
-	
-	@Override
+    
+    @Override
     @Transactional(readOnly = true)
     public Optional<Ruta> obtenerPorId(Integer id) {
         return rutaRepository.findById(id);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<RutaConTraducciones> obtenerPorId(Integer id, String idioma) {
+        return rutaRepository.findById(id)
+                .map(ruta -> convertirARutaConTraducciones(ruta, idioma));
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<RutaConTraducciones> obtenerRutasPorUsuario(Integer usuarioId, String idioma) {
+        return rutaRepository.findByUsuarioId(usuarioId).stream()
+                .map(ruta -> convertirARutaConTraducciones(ruta, idioma))
+                .collect(Collectors.toList());
     }
 		
 	@Override
@@ -96,10 +114,8 @@ public class RutaImpl implements IRutaService {
 	            .estado(estadoRuta.get())
 	            .clima(climaActual)
 	            .build();
-
-	    rutaRepository.save(ruta); 
-
-	    // Crear las relaciones de la ruta optimizada con los puntos de interés
+	    
+	 // Crear las relaciones de la ruta optimizada con los puntos de interés
 	    List<RutaPuntoDeInteres> rutaPuntos = mejorRuta.stream()
 	            .map(puntoDeInteres -> RutaPuntoDeInteres.builder()
 	                    .ruta(ruta)
@@ -107,15 +123,17 @@ public class RutaImpl implements IRutaService {
 	                    .visitado(false)
 	                    .build())
 	            .toList();
-
-	    rutaDestinoRepository.saveAll(rutaPuntos);
-
+	    
+	    ruta.setPuntosDeInteres(rutaPuntos);
+	    
+	    Ruta rutaGuardada=rutaRepository.save(ruta); 
+    
 	    // Obtener traducciones para la respuesta
 	    List<PuntoDeInteresTraduccion> destinosTraducidos = mejorRuta.stream()
 	            .map(destino -> puntoDeInteresTraduccionRepository.findByPuntoDeInteresAndIdioma(destino.getId(), idioma))
 	            .toList();
-
-	    return new RutaConTraducciones(ruta, destinosTraducidos);
+	    
+	    return new RutaConTraducciones(rutaGuardada, destinosTraducidos);
 	}
 
     @Override
@@ -155,5 +173,14 @@ public class RutaImpl implements IRutaService {
         }
         return duracionTotal;
     }
+    
+    private RutaConTraducciones convertirARutaConTraducciones(Ruta ruta, String idioma) {
+        List<PuntoDeInteresTraduccion> destinosTraducidos = ruta.getPuntosDeInteres().stream()
+                .map(destino -> puntoDeInteresTraduccionRepository.findByPuntoDeInteresAndIdioma(destino.getId(), idioma))
+                .collect(Collectors.toList());
+
+        return new RutaConTraducciones(ruta, destinosTraducidos);
+    }
+
 }
 

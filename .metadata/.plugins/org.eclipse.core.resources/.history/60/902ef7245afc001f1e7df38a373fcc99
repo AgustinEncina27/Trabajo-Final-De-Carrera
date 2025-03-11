@@ -1,0 +1,30 @@
+package com.springboot.app.backend.turismo.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.springboot.app.backend.turismo.model.ObjetivoPuntosInteres;
+import com.springboot.app.backend.turismo.repository.ObjetivoPuntosInteresRepository;
+
+import lombok.RequiredArgsConstructor;
+
+
+@Service
+@RequiredArgsConstructor
+public class ObjetivoPuntosInteresService {
+
+    private final ObjetivoPuntosInteresRepository repository;
+    
+    @Transactional(readOnly = true)
+    public List<ObjetivoPuntosInteres> obtenerObjetivosPorUsuario(Integer usuarioId) {
+        return repository.findByUsuarioId(usuarioId);
+    }
+    
+    @Transactional
+    public void eliminarDesafios() {
+        // Eliminar objetivos antiguos
+        repository.eliminarObjetivosAntiguos();
+    }
+}

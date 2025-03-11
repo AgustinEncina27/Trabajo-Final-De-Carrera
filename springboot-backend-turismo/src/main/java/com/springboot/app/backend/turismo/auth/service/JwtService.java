@@ -42,7 +42,12 @@ public class JwtService {
     private String buildToken(final Usuario user, final long expiration) {
         return Jwts
                 .builder()
-                .claims(Map.of("name", user.getNombreUsuario()))
+                .claims(Map.of(
+                        "id", user.getId(),  
+                        "name", user.getNombreUsuario(),
+                        "puntos", user.getPuntosObtenidos() == null?0:user.getPuntosObtenidos(),
+                        "distanciaRecorrida", user.getDistanciarecorrida() == null?0:user.getDistanciarecorrida()
+                    ))
                 .subject(user.getCorreoUsuario())
                 .issuedAt(new Date(System.currentTimeMillis()))
                 .expiration(new Date(System.currentTimeMillis() + expiration))

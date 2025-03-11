@@ -28,32 +28,32 @@ public class RutaController {
 	private final IRutaService rutaService;
 	
 	@GetMapping
-    public List<Ruta> obtenerTodas() {
-        return rutaService.obtenerTodas();
+    public ResponseEntity<List<RutaConTraducciones>> obtenerTodas(@RequestParam String idioma) {
+        return ResponseEntity.ok(rutaService.obtenerTodas(idioma));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Ruta> obtenerPorId(@PathVariable Integer id) {
-        return rutaService.obtenerPorId(id)
+    public ResponseEntity<RutaConTraducciones> obtenerPorId(@PathVariable Integer id, @RequestParam String idioma) {
+        return rutaService.obtenerPorId(id, idioma)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/usuario/{usuarioId}")
+    public ResponseEntity<List<RutaConTraducciones>> obtenerRutasPorUsuario(@PathVariable Integer usuarioId, @RequestParam String idioma) {
+        List<RutaConTraducciones> rutas = rutaService.obtenerRutasPorUsuario(usuarioId, idioma);
+        if (rutas.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(rutas);
+    }
+
+    
     @PostMapping
     public Ruta guardar(@RequestBody Ruta ruta) {
         return rutaService.guardar(ruta);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
-        if (!rutaService.obtenerPorId(id).isPresent()) {
-            return ResponseEntity.notFound().build();
-        }
-        
-        rutaService.eliminar(id);
-        return ResponseEntity.noContent().build();
-    }
-	
 	@PostMapping("/generar")
 	public ResponseEntity<RutaConTraducciones> generarRuta(
 	        @RequestParam Integer usuarioId,
@@ -76,5 +76,15 @@ public class RutaController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+	
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
+        if (!rutaService.obtenerPorId(id).isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        
+        rutaService.eliminar(id);
+        return ResponseEntity.noContent().build();
     }
 }

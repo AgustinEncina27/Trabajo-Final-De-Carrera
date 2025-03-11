@@ -1,21 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.Coordenada"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.Destino"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.CascadeType"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.TipoDeActividadTraduccion"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.TipoDeActividadTraduccionRepository"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.service.ITipoDeActividadService"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.DestinoTraduccionRepository"/>
-    <fullyQualifiedTypeName name="lombok.Data"/>
-    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.DestinoTraduccion"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.dto.RutaConTraducciones"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.PreferenciaRepository"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.RutaDestino"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.RutaDestinoRepository"/>
@@ -23,8 +8,6 @@
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.EstadoRutaRepository"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.Ruta"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.DestinoTipoDeActividad"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.TiempoPuntoDeInteres.TipoTransporte"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.DistanciaPuntoDeInteres"/>
@@ -32,16 +15,10 @@
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.DistanciaPuntoDeInteresRepository"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.TiempoPuntoDeInteresRepository"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.ColoniaHormigas"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.PuntoDeInteres"/>
-    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
-    <fullyQualifiedTypeName name="org.springframework.data.repository.query.Param"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.Preferencia"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.PuntoDeInteresTipoDeActividad"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.PreferenciaTipoActividadRepository"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.service.IUsuarioService"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.UserRepository"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.Usuario"/>
     <fullyQualifiedTypeName name="java.util.HashSet"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -60,4 +37,27 @@
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.dto.VerificarCodigoRequest"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.service.ClimaService"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.PuntoDeInteres.ClimaIdeal"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="lombok.RequiredArgsConstructor"/>
+    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.ObjetivoPuntosInteresRepository"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
+    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.service.ObjetivoPuntosInteresService"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.ObjetivoPuntosInteres"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.UserRepository"/>
+    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.PuntoDeInteresRepository"/>
+    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.Usuario"/>
+    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.PuntoDeInteres"/>
+    <fullyQualifiedTypeName name="org.hibernate.Hibernate"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="org.springframework.data.repository.query.Param"/>
 </qualifiedTypeNameHistroy>
