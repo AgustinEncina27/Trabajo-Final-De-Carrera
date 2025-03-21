@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.springboot.app.backend.turismo.auth.service.JwtService;
 import com.springboot.app.backend.turismo.dto.RutaConTraducciones;
 import com.springboot.app.backend.turismo.model.ColoniaHormigas;
 import com.springboot.app.backend.turismo.model.Coordenada;
@@ -42,6 +43,8 @@ public class RutaImpl implements IRutaService {
 	private final DistanciaPuntoDeInteresRepository distanciaRepository;
     private final TiempoPuntoDeInteresRepository tiempoRepository;
     private final ClimaService climaService;
+    private final JwtService jwtService;
+
 	
     @Override
     @Transactional(readOnly = true)
@@ -66,8 +69,15 @@ public class RutaImpl implements IRutaService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<RutaConTraducciones> obtenerRutasPorUsuario(Integer usuarioId, String idioma) {
-        return rutaRepository.findByUsuarioId(usuarioId).stream()
+    public List<RutaConTraducciones> obtenerRutasPorUsuario(String authorizationHeader, String idioma) {
+    	
+    	// Extraer token eliminando "Bearer "
+        String token = authorizationHeader.substring(7);
+		
+		// Obtener ID del usuario desde el token
+        Integer idUsuario = jwtService.extractUserId(token);
+    	
+    	return rutaRepository.findByUsuarioId(idUsuario).stream()
                 .map(ruta -> convertirARutaConTraducciones(ruta, idioma))
                 .collect(Collectors.toList());
     }
@@ -87,10 +97,16 @@ public class RutaImpl implements IRutaService {
 	
 	@Override
 	@Transactional
-	public RutaConTraducciones generarRutaParaUsuario(Integer usuarioId, Coordenada ubicacionActual, 
+	public RutaConTraducciones generarRutaParaUsuario(String authorizationHeader, Coordenada ubicacionActual, 
 			Long distanciaPreferida,Long tiempoDisponible, String idioma) {
 		
-	    Preferencia preferencia = preferenciaService.obtenerPreferenciasPorUsuario(usuarioId);
+		// Extraer token eliminando "Bearer "
+        String token = authorizationHeader.substring(7);
+		
+		// Obtener ID del usuario desde el token
+        Integer idUsuario = jwtService.extractUserId(token);
+		
+	    Preferencia preferencia = preferenciaService.obtenerPreferenciasPorUsuario(idUsuario);
 	    Optional<EstadoRuta> estadoRuta = estadoRutaRepository.findById(3);
 	    
 	    PuntoDeInteres.ClimaIdeal climaActual = climaService.obtenerClima(ubicacionActual.getLatitud(), ubicacionActual.getLongitud(), tiempoDisponible);

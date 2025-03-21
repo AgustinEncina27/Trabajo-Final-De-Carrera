@@ -3,6 +3,7 @@ package com.springboot.app.backend.turismo.controller;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,10 +11,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
+import com.springboot.app.backend.turismo.Exception.UsuarioNoEncontradoException;
 import com.springboot.app.backend.turismo.model.Preferencia;
 import com.springboot.app.backend.turismo.model.Usuario;
 import com.springboot.app.backend.turismo.service.UsuarioImpl;
@@ -32,9 +35,14 @@ public class UserController {
         return usuarioService.obtenerTodos();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Usuario> obtenerPorId(@PathVariable Integer id) {
-        return usuarioService.obtenerPorId(id)
+    @GetMapping("/me")
+    public ResponseEntity<?> obtenerPorId(@RequestHeader("Authorization") String authorizationHeader) {
+    	
+    	if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message", "Token no válido"));
+        }
+    	
+        return usuarioService.obtenerPorToken(authorizationHeader)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
@@ -46,9 +54,16 @@ public class UserController {
                 .orElse(ResponseEntity.notFound().build());
     }
     
-    @PostMapping("/{idUsuario}/preferencias")
-    public ResponseEntity<Map<String, String>> guardarPreferencias(@PathVariable Integer idUsuario, @RequestBody Preferencia preferencia) {
-        usuarioService.guardarPreferencias(idUsuario, preferencia);
+    @PostMapping("/preferencias")
+    public ResponseEntity<Map<String, String>> guardarPreferencias(
+            @RequestHeader("Authorization") String authorizationHeader,
+            @RequestBody Preferencia preferencia) {
+
+        if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message", "Token no válido"));
+        }
+        
+        usuarioService.guardarPreferencias(authorizationHeader, preferencia);
         return ResponseEntity.ok(Map.of("message", "Preferencia guardada con éxito"));
     }
     
@@ -58,42 +73,64 @@ public class UserController {
         return usuarioService.guardar(usuario);
     }
         
-    @PutMapping("/{idUsuario}/preferencias")
-    public ResponseEntity<Preferencia> actualizarPreferencias(
-            @PathVariable Integer idUsuario,
+    @PutMapping("/preferencias")
+    public ResponseEntity<?> actualizarPreferencias(
+    		@RequestHeader("Authorization") String authorizationHeader,
             @RequestBody Preferencia nuevaPreferencia) {
-
-        Preferencia preferenciaActualizada = usuarioService.actualizarPreferencias(idUsuario, nuevaPreferencia);
+    	
+    	if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message", "Token no válido"));
+        }
+    	
+        Preferencia preferenciaActualizada = usuarioService.actualizarPreferencias(authorizationHeader, nuevaPreferencia);
         return ResponseEntity.ok(preferenciaActualizada);
     }
     
     // Endpoint para actualizar la distancia recorrida
-    @PutMapping("/{id}/distancia")
-    public ResponseEntity<String> actualizarDistancia(@PathVariable Integer id, @RequestBody Long distanciaRecorrida) {
+    @PutMapping("/distancia")
+    public ResponseEntity<?> actualizarDistancia(
+    		@RequestHeader("Authorization") String authorizationHeader,
+    		@RequestBody Long distanciaRecorrida) {
+    	
+    	if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message", "Token no válido"));
+        }
+    	
         if (distanciaRecorrida == null || distanciaRecorrida < 0) {
             return ResponseEntity.badRequest().body("La distancia recorrida no puede ser nula o negativa.");
         }
-        String resultado = usuarioService.actualizarDistancia(id, distanciaRecorrida);
+        
+        String resultado = usuarioService.actualizarDistancia(authorizationHeader, distanciaRecorrida);
         return ResponseEntity.ok(resultado);
     }
 
     // Endpoint para actualizar los puntos obtenidos
-    @PutMapping("/{id}/puntos")
-    public ResponseEntity<String> actualizarPuntos(@PathVariable Integer id, @RequestBody Integer puntosObtenidos) {
+    @PutMapping("/puntos")
+    public ResponseEntity<?> actualizarPuntos(
+    		@RequestHeader("Authorization") String authorizationHeader,
+    		@RequestBody Integer puntosObtenidos) {
+    	
+    	if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message", "Token no válido"));
+        }
+    	
         if (puntosObtenidos == null || puntosObtenidos < 0) {
             return ResponseEntity.badRequest().body("Los puntos obtenidos no pueden ser nulos o negativos.");
         }
-        String resultado = usuarioService.actualizarPuntos(id, puntosObtenidos);
+        
+        String resultado = usuarioService.actualizarPuntos(authorizationHeader, puntosObtenidos);
         return ResponseEntity.ok(resultado);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Integer id) {
-        if (!usuarioService.obtenerPorId(id).isPresent()) {
-            return ResponseEntity.notFound().build();
+    @DeleteMapping("/eliminar")
+    public ResponseEntity<Void> eliminar(@RequestHeader("Authorization") String authorizationHeader) {
+        try {
+            usuarioService.eliminar(authorizationHeader);
+            return ResponseEntity.noContent().build(); // 204 No Content
+        } catch (UsuarioNoEncontradoException e) {
+            return ResponseEntity.notFound().build(); // 404 Not Found
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build(); // 500
         }
-        
-        usuarioService.eliminar(id);
-        return ResponseEntity.noContent().build();
     }
 }

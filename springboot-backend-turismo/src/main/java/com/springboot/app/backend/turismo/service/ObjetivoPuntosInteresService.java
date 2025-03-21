@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.springboot.app.backend.turismo.auth.service.JwtService;
 import com.springboot.app.backend.turismo.model.ObjetivoPuntosInteres;
 import com.springboot.app.backend.turismo.model.PuntoDeInteres;
 import com.springboot.app.backend.turismo.model.Usuario;
@@ -22,10 +23,19 @@ public class ObjetivoPuntosInteresService {
     private final ObjetivoPuntosInteresRepository repository;
     private final PuntoDeInteresRepository puntoDeInteresRepository;
     private final UserRepository usuarioRepository;
+    private final JwtService jwtService;
+
     
     @Transactional(readOnly = true)
-    public List<ObjetivoPuntosInteres> obtenerObjetivosPorUsuario(Integer usuarioId) {
-        return repository.findByUsuarioId(usuarioId);
+    public List<ObjetivoPuntosInteres> obtenerObjetivosPorUsuario(String authorizationHeader) {
+    	
+    	// Extraer token eliminando "Bearer "
+	    String token = authorizationHeader.substring(7);
+
+	    // Obtener ID del usuario desde el token
+	    Integer idUsuario = jwtService.extractUserId(token);
+    	
+        return repository.findByUsuarioId(idUsuario);
     }
     
     @Transactional
@@ -35,9 +45,16 @@ public class ObjetivoPuntosInteresService {
     }
 
     @Transactional
-    public void asignarObjetivosFijos(Integer usuarioId) {
+    public void asignarObjetivosFijos(String authorizationHeader) {
+    	
+    	// Extraer token eliminando "Bearer "
+	    String token = authorizationHeader.substring(7);
+
+	    // Obtener ID del usuario desde el token
+	    Integer idUsuario = jwtService.extractUserId(token);
+    	
         // Verificar si el usuario existe
-        Usuario usuario = usuarioRepository.findById(usuarioId)
+        Usuario usuario = usuarioRepository.findById(idUsuario)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
         // Obtener la lista de puntos de interés fijos (IDs fijos)
@@ -57,5 +74,22 @@ public class ObjetivoPuntosInteresService {
 
             repository.save(nuevoObjetivo);
         });
+    }
+    
+    @Transactional
+    public boolean marcarComoVisitado(String authorizationHeader, Integer puntoDeInteresId) {
+        if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
+            return false;
+        }
+
+        String token = authorizationHeader.substring(7);
+        Integer idUsuario = jwtService.extractUserId(token);
+
+        if (idUsuario == null || puntoDeInteresId == null) {
+            return false;
+        }
+
+        repository.marcarComoVisitado(idUsuario, puntoDeInteresId);
+        return true;
     }
 }

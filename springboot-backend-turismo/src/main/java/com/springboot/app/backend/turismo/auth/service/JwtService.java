@@ -44,7 +44,6 @@ public class JwtService {
                 .builder()
                 .claims(Map.of(
                         "id", user.getId(),  
-                        "name", user.getNombreUsuario(),
                         "puntos", user.getPuntosObtenidos() == null?0:user.getPuntosObtenidos(),
                         "distanciaRecorrida", user.getDistanciarecorrida() == null?0:user.getDistanciarecorrida()
                     ))
@@ -76,5 +75,14 @@ public class JwtService {
     private SecretKey getSignInKey() {
         final byte[] keyBytes = Decoders.BASE64.decode(secretKey);
         return Keys.hmacShaKeyFor(keyBytes);
+    }
+    
+    public Integer extractUserId(String token) {
+        return Jwts.parser()
+                .verifyWith(getSignInKey())
+                .build()
+                .parseSignedClaims(token)
+                .getPayload()
+                .get("id", Integer.class); 
     }
 }

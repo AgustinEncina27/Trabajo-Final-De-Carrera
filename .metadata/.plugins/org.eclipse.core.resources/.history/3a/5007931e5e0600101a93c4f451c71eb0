@@ -1,0 +1,5 @@
+package com.springboot.app.backend.turismo.Exception;
+
+public class UsuarioNoEncontradoException {
+
+}

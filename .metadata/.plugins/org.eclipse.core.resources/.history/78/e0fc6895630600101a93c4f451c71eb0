@@ -1,0 +1,78 @@
+package com.springboot.app.backend.turismo.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.springboot.app.backend.turismo.auth.service.JwtService;
+import com.springboot.app.backend.turismo.model.ObjetivoPuntosInteres;
+import com.springboot.app.backend.turismo.model.PuntoDeInteres;
+import com.springboot.app.backend.turismo.model.Usuario;
+import com.springboot.app.backend.turismo.repository.ObjetivoPuntosInteresRepository;
+import com.springboot.app.backend.turismo.repository.PuntoDeInteresRepository;
+import com.springboot.app.backend.turismo.repository.UserRepository;
+
+import lombok.RequiredArgsConstructor;
+
+
+@Service
+@RequiredArgsConstructor
+public class ObjetivoPuntosInteresService {
+
+    private final ObjetivoPuntosInteresRepository repository;
+    private final PuntoDeInteresRepository puntoDeInteresRepository;
+    private final UserRepository usuarioRepository;
+    private final JwtService jwtService;
+
+    
+    @Transactional(readOnly = true)
+    public List<ObjetivoPuntosInteres> obtenerObjetivosPorUsuario(String authorizationHeader) {
+    	
+    	// Extraer token eliminando "Bearer "
+	    String token = authorizationHeader.substring(7);
+
+	    // Obtener ID del usuario desde el token
+	    Integer idUsuario = jwtService.extractUserId(token);
+    	
+        return repository.findByUsuarioId(idUsuario);
+    }
+    
+    @Transactional
+    public void eliminarDesafios() {
+        // Eliminar objetivos antiguos
+        repository.eliminarObjetivosAntiguos();
+    }
+
+    @Transactional
+    public void asignarObjetivosFijos(String authorizationHeader) {
+    	
+    	// Extraer token eliminando "Bearer "
+	    String token = authorizationHeader.substring(7);
+
+	    // Obtener ID del usuario desde el token
+	    Integer idUsuario = jwtService.extractUserId(token);
+    	
+        // Verificar si el usuario existe
+        Usuario usuario = usuarioRepository.findById(idUsuario)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+        // Obtener la lista de puntos de interés fijos (IDs fijos)
+        List<Integer> idsPuntosFijos = List.of(1, 2, 3, 4, 5); // IDs fijos en la base de datos
+
+        // Filtrar los puntos que aún no están asignados al usuario
+        List<PuntoDeInteres> puntosNuevos = puntoDeInteresRepository.findAllById(idsPuntosFijos).stream()
+                .filter(punto -> !repository.existsByUsuarioAndPuntoDeInteres(usuario, punto))
+                .toList();
+
+        // Crear y guardar los nuevos objetivos
+        puntosNuevos.forEach(punto -> {
+            ObjetivoPuntosInteres nuevoObjetivo = new ObjetivoPuntosInteres();
+            nuevoObjetivo.setUsuario(usuario);
+            nuevoObjetivo.setPuntoDeInteres(punto);
+            nuevoObjetivo.setVisitado(false);
+
+            repository.save(nuevoObjetivo);
+        });
+    }
+}

@@ -11,6 +11,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.springboot.app.backend.turismo.Exception.UsuarioNoEncontradoException;
+import com.springboot.app.backend.turismo.auth.service.JwtService;
+import com.springboot.app.backend.turismo.dto.UsuarioDTO;
 import com.springboot.app.backend.turismo.model.Preferencia;
 import com.springboot.app.backend.turismo.model.PreferenciaTipoDeActividad;
 import com.springboot.app.backend.turismo.model.Usuario;
@@ -29,6 +32,7 @@ public class UsuarioImpl implements IUsuarioService {
     private final PreferenciaTipoActividadRepository preferenciaTipoDeActividadRepository;
     private final PasswordEncoder passwordEncoder;
     private final CorreoService correoService;
+    private final JwtService jwtService;
     
     private final Map<String, String> codigosRecuperacion = new ConcurrentHashMap<>(); // Almacena temporalmente los códigos
 
@@ -41,7 +45,32 @@ public class UsuarioImpl implements IUsuarioService {
 	
 	@Override
     @Transactional(readOnly = true)
-    public Optional<Usuario> obtenerPorId(Integer id) {
+    public Optional<UsuarioDTO> obtenerPorToken(String authorizationHeader) {
+		
+		// Extraer token eliminando "Bearer "
+	    String token = authorizationHeader.substring(7);
+
+	    // Obtener ID del usuario desde el token
+	    Integer idUsuario = jwtService.extractUserId(token);
+
+	    return usuarioRepository.findById(idUsuario)
+	            .map(usuario -> {
+	                UsuarioDTO dto = new UsuarioDTO();
+	                dto.setId(usuario.getId());
+	                dto.setNombreUsuario(usuario.getNombreUsuario());
+	                dto.setCorreoUsuario(usuario.getCorreoUsuario());
+	                dto.setCelular(usuario.getCelular());
+	                dto.setFechaDeCreacion(usuario.getFechaDeCreacion());
+	                dto.setDistanciarecorrida(usuario.getDistanciarecorrida());
+	                dto.setPuntosObtenidos(usuario.getPuntosObtenidos());
+	                dto.setPreferencia(usuario.getPreferencia());
+	                return dto;
+	            });
+    }
+	
+	@Override
+    @Transactional(readOnly = true)
+	public Optional<Usuario> obtenerPorId(Integer id) {
         return usuarioRepository.findById(id);
     }
 	
@@ -94,15 +123,36 @@ public class UsuarioImpl implements IUsuarioService {
     public Usuario guardar(Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
-	@Override
-	@Transactional
-    public void eliminar(Integer id) {
-        usuarioRepository.deleteById(id);
-    }
 	
 	@Override
 	@Transactional
-	public Usuario guardarPreferencias(Integer idUsuario, Preferencia preferencia) {
+	public void eliminar(String authorizationHeader) {
+		
+		// Extraer token eliminando "Bearer "
+	    String token = authorizationHeader.substring(7);
+
+	    // Obtener ID del usuario desde el token
+	    Integer idUsuario = jwtService.extractUserId(token);
+
+	    Optional<Usuario> usuarioOpt = this.obtenerPorId(idUsuario);
+
+	    if (usuarioOpt.isEmpty()) {
+	        throw new UsuarioNoEncontradoException("Usuario no encontrado.");
+	    }
+
+	    usuarioRepository.deleteById(usuarioOpt.get().getId());
+	}
+	
+	@Override
+	@Transactional
+	public Usuario guardarPreferencias(String authorizationHeader, Preferencia preferencia) {
+		
+		// Extraer token eliminando "Bearer "
+        String token = authorizationHeader.substring(7);
+		
+		// Obtener ID del usuario desde el token
+        Integer idUsuario = jwtService.extractUserId(token);
+		
 	    Usuario usuario = usuarioRepository.findById(idUsuario)
 	            .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
@@ -134,7 +184,14 @@ public class UsuarioImpl implements IUsuarioService {
 	
 	@Override
 	@Transactional
-	public Preferencia actualizarPreferencias(Integer idUsuario, Preferencia nuevaPreferencia) {
+	public Preferencia actualizarPreferencias(String authorizationHeader, Preferencia nuevaPreferencia) {
+		
+		// Extraer token eliminando "Bearer "
+        String token = authorizationHeader.substring(7);
+		
+		// Obtener ID del usuario desde el token
+        Integer idUsuario = jwtService.extractUserId(token);
+		
 	    Usuario usuario = usuarioRepository.findById(idUsuario)
 	        .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
@@ -171,8 +228,15 @@ public class UsuarioImpl implements IUsuarioService {
 	// Método para actualizar la distancia recorrida
 	@Override
 	@Transactional
-    public String actualizarDistancia(Integer id, Long distanciaRecorrida) {
-        Optional<Usuario> usuarioOpt = usuarioRepository.findById(id);
+    public String actualizarDistancia(String authorizationHeader, Long distanciaRecorrida) {
+        
+		// Extraer token eliminando "Bearer "
+        String token = authorizationHeader.substring(7);
+		
+		// Obtener ID del usuario desde el token
+        Integer idUsuario = jwtService.extractUserId(token);
+		
+		Optional<Usuario> usuarioOpt = usuarioRepository.findById(idUsuario);
 
         if (usuarioOpt.isPresent()) {
             Usuario usuario = usuarioOpt.get();
@@ -187,8 +251,15 @@ public class UsuarioImpl implements IUsuarioService {
     // Método para actualizar los puntos obtenidos
 	@Override
 	@Transactional
-    public String actualizarPuntos(Integer id, Integer puntosObtenidos) {
-        Optional<Usuario> usuarioOpt = usuarioRepository.findById(id);
+    public String actualizarPuntos(String authorizationHeader, Integer puntosObtenidos) {
+        
+		// Extraer token eliminando "Bearer "
+        String token = authorizationHeader.substring(7);
+		
+		// Obtener ID del usuario desde el token
+        Integer idUsuario = jwtService.extractUserId(token);
+		
+		Optional<Usuario> usuarioOpt = usuarioRepository.findById(idUsuario);
 
         if (usuarioOpt.isPresent()) {
             Usuario usuario = usuarioOpt.get();

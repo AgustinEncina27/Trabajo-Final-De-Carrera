@@ -1,0 +1,11 @@
+package com.springboot.app.backend.turismo.dto;
+
+import com.springboot.app.backend.turismo.model.PuntoDeInteres;
+
+public class ObjetivoDTO {
+    private Integer id;
+    private PuntoDeInteres puntoDeInteres;
+    private boolean visitado;
+
+    // Constructor, getters y setters o @Data con Lombok
+}

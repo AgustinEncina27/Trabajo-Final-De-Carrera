@@ -1,7 +1,9 @@
 package com.springboot.app.backend.turismo.controller;
 
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,9 +42,16 @@ public class RutaController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/usuario/{usuarioId}")
-    public ResponseEntity<List<RutaConTraducciones>> obtenerRutasPorUsuario(@PathVariable Integer usuarioId, @RequestParam String idioma) {
-        List<RutaConTraducciones> rutas = rutaService.obtenerRutasPorUsuario(usuarioId, idioma);
+    @GetMapping("/usuario")
+    public ResponseEntity<?> obtenerRutasPorUsuario(
+    		@RequestHeader("Authorization") String authorizationHeader,
+    		@RequestParam String idioma) {
+    	
+    	if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message", "Token no válido"));
+        }
+    	
+        List<RutaConTraducciones> rutas = rutaService.obtenerRutasPorUsuario(authorizationHeader, idioma);
         if (rutas.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
@@ -55,8 +65,8 @@ public class RutaController {
     }
 
 	@PostMapping("/generar")
-	public ResponseEntity<RutaConTraducciones> generarRuta(
-	        @RequestParam Integer usuarioId,
+	public ResponseEntity<?> generarRuta(
+			@RequestHeader("Authorization") String authorizationHeader,
 	        @RequestParam double latitud,
 	        @RequestParam double longitud,
 	        @RequestParam Long distanciaPreferida,
@@ -64,7 +74,12 @@ public class RutaController {
 	        @RequestParam String idioma) {
 
 	    Coordenada ubicacionActual = new Coordenada(null, latitud, longitud);
-	    RutaConTraducciones ruta = rutaService.generarRutaParaUsuario(usuarioId, ubicacionActual,distanciaPreferida,tiempoDisponible, idioma);
+	    
+	    if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message", "Token no válido"));
+        }
+	    
+	    RutaConTraducciones ruta = rutaService.generarRutaParaUsuario(authorizationHeader, ubicacionActual,distanciaPreferida,tiempoDisponible, idioma);
 	    return ResponseEntity.ok(ruta);
 	}
 	

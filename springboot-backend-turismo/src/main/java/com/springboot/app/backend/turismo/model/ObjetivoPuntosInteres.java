@@ -1,5 +1,7 @@
 package com.springboot.app.backend.turismo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,6 +19,7 @@ public class ObjetivoPuntosInteres {
     
     
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 

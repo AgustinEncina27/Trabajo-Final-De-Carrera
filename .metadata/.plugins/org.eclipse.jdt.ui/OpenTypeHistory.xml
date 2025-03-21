@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-    <typeInfo handle="=springboot-backend-turismo/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.springboot.app.backend.turismo.service{IUsuarioService.java[IUsuarioService" modifiers="513" timestamp="1740692850701"/>
+    <typeInfo handle="=springboot-backend-turismo/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.springboot.app.backend.turismo.service{IUsuarioService.java[IUsuarioService" modifiers="513" timestamp="1742221426377"/>
     <typeInfo handle="=springboot-backend-turismo/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.springboot.app.backend.turismo.service{IPreferenciaService.java[IPreferenciaService" modifiers="513" timestamp="1739823099632"/>
     <typeInfo handle="=springboot-backend-turismo/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.springboot.app.backend.turismo.service{IRutaService.java[IRutaService" modifiers="513" timestamp="1741464087018"/>
 </typeInfoHistroy>

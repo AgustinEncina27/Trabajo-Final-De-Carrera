@@ -1,18 +1,20 @@
 package com.springboot.app.backend.turismo.controller;
 
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.app.backend.turismo.model.ObjetivoPuntosInteres;
-import com.springboot.app.backend.turismo.repository.ObjetivoPuntosInteresRepository;
 import com.springboot.app.backend.turismo.service.ObjetivoPuntosInteresService;
 
 import lombok.RequiredArgsConstructor;
@@ -22,32 +24,52 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ObjetivoPuntosInteresController {
 
-    private final ObjetivoPuntosInteresRepository repository;
-    private final ObjetivoPuntosInteresService service;
+    private final ObjetivoPuntosInteresService objetivoPuntosInteresService;
     
-    @GetMapping("/{usuarioId}")
-    public ResponseEntity<List<ObjetivoPuntosInteres>> obtenerObjetivosPorUsuario(@PathVariable Integer usuarioId) {
-        List<ObjetivoPuntosInteres> objetivos = service.obtenerObjetivosPorUsuario(usuarioId);
+    @GetMapping("/usuario")
+    public ResponseEntity<?> obtenerObjetivosPorUsuario(@RequestHeader("Authorization") String authorizationHeader) {
+    	
+    	if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message", "Token no válido"));
+        }
+    	
+        List<ObjetivoPuntosInteres> objetivos = objetivoPuntosInteresService.obtenerObjetivosPorUsuario(authorizationHeader);
         return ResponseEntity.ok(objetivos);
     }
     
-    @PostMapping("/{usuarioId}/asignar")
-    public ResponseEntity<Void> asignarObjetivosFijos(@PathVariable Integer usuarioId) {
-        service.asignarObjetivosFijos(usuarioId);
-        return ResponseEntity.ok().build();
+    @PostMapping("/asignar")
+    public ResponseEntity<?> asignarObjetivosFijos(@RequestHeader("Authorization") String authorizationHeader) {
+    	
+    	if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message", "Token no válido"));
+        }
+    	
+    	
+        objetivoPuntosInteresService.asignarObjetivosFijos(authorizationHeader);
+        return ResponseEntity.ok(Map.of("message", "Objetivos guardados con éxito"));
     }
     
-    @PutMapping("/{usuarioId}/visitar/{puntoDeInteresId}")
-    public ResponseEntity<Void> marcarComoVisitado(
-            @PathVariable Integer usuarioId,
+    @PutMapping("/visitar/{puntoDeInteresId}")
+    public ResponseEntity<?> marcarComoVisitado(
+    		@RequestHeader("Authorization") String authorizationHeader,
             @PathVariable Integer puntoDeInteresId) {
-        repository.marcarComoVisitado(usuarioId, puntoDeInteresId);
-        return ResponseEntity.ok().build();
+    	
+    	if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message", "Token no válido"));
+        }
+    	
+    	boolean marcado = objetivoPuntosInteresService.marcarComoVisitado(authorizationHeader, puntoDeInteresId);
+
+        if (!marcado) {
+            return ResponseEntity.badRequest().build(); // 400 si falla algo
+        }
+
+        return ResponseEntity.ok().build(); // 200 OK si todo salió bien
     }
     
     @DeleteMapping("/eliminar-antiguos")
     public ResponseEntity<Void> eliminarDesafios() {
-        service.eliminarDesafios();
+        objetivoPuntosInteresService.eliminarDesafios();
         return ResponseEntity.ok().build(); // Devuelve un 200 OK sin contenido
     }
 }
