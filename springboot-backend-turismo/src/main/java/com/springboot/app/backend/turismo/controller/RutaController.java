@@ -70,6 +70,7 @@ public class RutaController {
 	        @RequestParam double latitud,
 	        @RequestParam double longitud,
 	        @RequestParam Long distanciaPreferida,
+	        @RequestParam Integer costeMaximo,
 	        @RequestParam Long tiempoDisponible,
 	        @RequestParam String idioma) {
 
@@ -79,8 +80,23 @@ public class RutaController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message", "Token no válido"));
         }
 	    
-	    RutaConTraducciones ruta = rutaService.generarRutaParaUsuario(authorizationHeader, ubicacionActual,distanciaPreferida,tiempoDisponible, idioma);
+	    RutaConTraducciones ruta = rutaService.generarRutaParaUsuario(authorizationHeader, ubicacionActual,distanciaPreferida,costeMaximo,tiempoDisponible, idioma);
 	    return ResponseEntity.ok(ruta);
+	}
+	
+	@PutMapping("/{id}/estado")
+	public ResponseEntity<?> actualizarEstadoRuta(
+	        @PathVariable Integer id,
+	        @RequestParam Integer idEstadoRuta) {
+
+	    boolean actualizado = rutaService.actualizarEstado(id, idEstadoRuta);
+	    
+	    if (actualizado) {
+	        return ResponseEntity.ok(Map.of("message", "Estado actualizado correctamente"));
+	    } else {
+	        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+	                .body(Map.of("message", "Ruta o estado no encontrados"));
+	    }
 	}
 	
 	@PutMapping("/destino/{id}/llegar")

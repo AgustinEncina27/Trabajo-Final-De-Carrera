@@ -1,6 +1,5 @@
 package com.springboot.app.backend.turismo.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.HttpStatus;
@@ -12,9 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.app.backend.turismo.model.ObjetivoPuntosInteres;
+import com.springboot.app.backend.turismo.dto.ObjetivosConTraducciones;
 import com.springboot.app.backend.turismo.service.ObjetivoPuntosInteresService;
 
 import lombok.RequiredArgsConstructor;
@@ -27,14 +27,16 @@ public class ObjetivoPuntosInteresController {
     private final ObjetivoPuntosInteresService objetivoPuntosInteresService;
     
     @GetMapping("/usuario")
-    public ResponseEntity<?> obtenerObjetivosPorUsuario(@RequestHeader("Authorization") String authorizationHeader) {
-    	
-    	if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
+    public ResponseEntity<?> obtenerObjetivosPorUsuario(
+            @RequestHeader("Authorization") String authorizationHeader,
+            @RequestParam String idioma) {
+        
+        if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message", "Token no válido"));
         }
-    	
-        List<ObjetivoPuntosInteres> objetivos = objetivoPuntosInteresService.obtenerObjetivosPorUsuario(authorizationHeader);
-        return ResponseEntity.ok(objetivos);
+
+        ObjetivosConTraducciones resultado = objetivoPuntosInteresService.obtenerObjetivosConTraducciones(authorizationHeader, idioma);
+        return ResponseEntity.ok(resultado);
     }
     
     @PostMapping("/asignar")

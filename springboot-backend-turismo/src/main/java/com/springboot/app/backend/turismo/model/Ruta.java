@@ -29,6 +29,9 @@ public class Ruta {
 	  @Column(nullable = false)
 	  private Double distanciaTotal;
 	  
+	  @Column
+	  private Integer costeMaximo;
+	  
 	  @Column(nullable = false)
 	  private LocalDate fechaCreacion;
 	  

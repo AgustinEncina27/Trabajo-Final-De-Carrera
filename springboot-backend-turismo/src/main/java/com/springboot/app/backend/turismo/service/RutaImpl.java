@@ -98,7 +98,7 @@ public class RutaImpl implements IRutaService {
 	@Override
 	@Transactional
 	public RutaConTraducciones generarRutaParaUsuario(String authorizationHeader, Coordenada ubicacionActual, 
-			Long distanciaPreferida,Long tiempoDisponible, String idioma) {
+			Long distanciaPreferida,Integer costeMaximo,Long tiempoDisponible, String idioma) {
 		
 		// Extraer token eliminando "Bearer "
         String token = authorizationHeader.substring(7);
@@ -116,7 +116,7 @@ public class RutaImpl implements IRutaService {
 
 	    // Inicializar colonia de hormigas
 	    ColoniaHormigas coloniaHormigas = new ColoniaHormigas(
-	            destinos, preferencia, 100, 10,distanciaPreferida,tiempoDisponible, distanciaRepository, tiempoRepository);
+	            destinos, preferencia, 100, 10,distanciaPreferida,costeMaximo,tiempoDisponible, distanciaRepository, tiempoRepository);
 
 	    // Generar ruta optimizada considerando la ubicación actual
 	    List<PuntoDeInteres> mejorRuta = coloniaHormigas.optimizarRuta(ubicacionActual);
@@ -127,6 +127,7 @@ public class RutaImpl implements IRutaService {
 	            .distanciaTotal(calcularDistanciaTotal(mejorRuta))
 	            .duracionEstimada(calcularDuracionTotal(mejorRuta))
 	            .fechaCreacion(LocalDate.now())
+	            .costeMaximo(costeMaximo)
 	            .estado(estadoRuta.get())
 	            .clima(climaActual)
 	            .build();
@@ -165,6 +166,22 @@ public class RutaImpl implements IRutaService {
         }
         return false;
     }
+    
+	@Override
+	public boolean actualizarEstado(Integer idRuta, Integer idEstadoRuta) {
+		  Optional<Ruta> optionalRuta = rutaRepository.findById(idRuta);
+		    Optional<EstadoRuta> optionalEstado = estadoRutaRepository.findById(idEstadoRuta);
+
+		    if (optionalRuta.isPresent() && optionalEstado.isPresent()) {
+		        Ruta ruta = optionalRuta.get();
+		        ruta.setEstado(optionalEstado.get());
+		        rutaRepository.save(ruta);
+		        return true;
+		    }
+
+		    return false;
+	}
+
 
     /**
      * Calcular la distancia total de la ruta optimizada
@@ -181,22 +198,23 @@ public class RutaImpl implements IRutaService {
     /**
      * Calcular la duración total de la ruta optimizada
      */
-    private double calcularDuracionTotal(List<PuntoDeInteres> ruta) {
-        double duracionTotal = 0;
-        for (int i = 0; i < ruta.size() - 1; i++) {
-            Optional<TiempoPuntoDeInteres> tiempoOpt = tiempoRepository.findByOrigenAndDestino(ruta.get(i), ruta.get(i + 1));
-            duracionTotal += tiempoOpt.map(TiempoPuntoDeInteres::getTiempo).orElse(0.0);
+    private double calcularDuracionTotal(List<PuntoDeInteres> puntoDeInteres) {
+        double duracionTotal = puntoDeInteres.get(0).getDuracionVisita();
+        for (int i = 0; i < puntoDeInteres.size() - 1; i++) {
+            Optional<TiempoPuntoDeInteres> tiempoOpt = tiempoRepository.findByOrigenAndDestino(puntoDeInteres.get(i), puntoDeInteres.get(i + 1));
+            duracionTotal += tiempoOpt.map(TiempoPuntoDeInteres::getTiempo).orElse(0.0)+puntoDeInteres.get(i + 1).getDuracionVisita();
         }
         return duracionTotal;
     }
     
     private RutaConTraducciones convertirARutaConTraducciones(Ruta ruta, String idioma) {
         List<PuntoDeInteresTraduccion> destinosTraducidos = ruta.getPuntosDeInteres().stream()
-                .map(destino -> puntoDeInteresTraduccionRepository.findByPuntoDeInteresAndIdioma(destino.getId(), idioma))
+                .map(destino -> puntoDeInteresTraduccionRepository.findByPuntoDeInteresAndIdioma(destino.getPuntoDeInteres().getId(), idioma))
                 .collect(Collectors.toList());
 
         return new RutaConTraducciones(ruta, destinosTraducidos);
     }
+
 
 }
 

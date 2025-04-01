@@ -15,6 +15,7 @@ public class ColoniaHormigas {
     private final int iteraciones;
     private final int numHormigas;
     private final Long distanciaPreferida;
+    private final Integer costeMaximo;
     private final Long tiempoDisponible;
     private final Map<DefaultWeightedEdge, Double> feromonas;
     private final DistanciaPuntoDeInteresRepository distanciaRepository;
@@ -28,6 +29,7 @@ public class ColoniaHormigas {
             int iteraciones,
             int numHormigas,
             Long distanciaPreferida,
+            Integer costeMaximo,
             Long tiempoDisponible,
             DistanciaPuntoDeInteresRepository distanciaRepository,
             TiempoPuntoDeInteresRepository tiempoRepository) {
@@ -37,6 +39,7 @@ public class ColoniaHormigas {
         this.iteraciones = iteraciones;
         this.numHormigas = numHormigas;
         this.distanciaPreferida = distanciaPreferida;
+        this.costeMaximo = costeMaximo;
         this.tiempoDisponible = tiempoDisponible;
         this.feromonas = new HashMap<>();
         this.distanciaRepository = distanciaRepository;
@@ -243,7 +246,7 @@ public class ColoniaHormigas {
         }
 
         // **Penalización por coste si el destino excede el presupuesto del usuario**
-        if (destino.getCoste() > perfilUsuario.getCosteMaximo()) {
+        if (destino.getCoste() > this.costeMaximo) {
             utilidadTotal *= 0.5; // Reducimos la utilidad si el destino es demasiado costoso
         }
 

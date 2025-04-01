@@ -23,14 +23,9 @@ public class Preferencia {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-
-	
 	@Column
 	private boolean accesibilidadRequerida;
-	
-	@Column
-	private Integer costeMaximo;
-	
+		
 	@Column
 	private Integer popularidad;
 	

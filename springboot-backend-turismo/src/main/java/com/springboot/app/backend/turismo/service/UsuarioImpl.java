@@ -202,7 +202,6 @@ public class UsuarioImpl implements IUsuarioService {
 
 	    // Actualizar los valores básicos
 	    preferenciaExistente.setAccesibilidadRequerida(nuevaPreferencia.isAccesibilidadRequerida());
-	    preferenciaExistente.setCosteMaximo(nuevaPreferencia.getCosteMaximo());
 	    preferenciaExistente.setPopularidad(nuevaPreferencia.getPopularidad());
 
 	    // 🔥 Solución para evitar que Hibernate intente eliminar las referencias previas

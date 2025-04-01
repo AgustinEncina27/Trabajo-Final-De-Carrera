@@ -11,9 +11,10 @@ INSERT INTO tipos_de_actividades (id) VALUES (5);
 INSERT INTO tipos_de_actividades (id) VALUES (6); 
 INSERT INTO tipos_de_actividades (id) VALUES (7);
 INSERT INTO tipos_de_actividades (id) VALUES (8);
-INSERT INTO tipos_de_actividades (id) VALUES (9); 
+INSERT INTO tipos_de_actividades (id) VALUES (9);
+INSERT INTO tipos_de_actividades (id) VALUES (10); 
 
-
+-- Traducciones en español
 INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES(1, 'es', 'Turismo Cultural', 'Actividades relacionadas con museos, galerías y sitios históricos');
 INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES(2, 'es', 'Aventura', 'Actividades como trekking, rafting y escalada');
 INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES(3, 'es', 'Relax', 'Actividades relacionadas con spas, termas y descanso');
@@ -23,8 +24,9 @@ INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre
 INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES(7, 'es', 'Belleza Natural', 'Actividades en entornos naturales con vistas impresionantes y contacto con la naturaleza');
 INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES (8, 'es', 'Tranquilo y Relajado', 'Actividades de baja intensidad ideales para relajarse, como paseos suaves y meditación');
 INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES (9, 'es', 'Activo y Dinámico', 'Actividades con más movimiento y energía, como deportes y caminatas intensas');
+INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES (10, 'es', 'Religioso', 'Actividades relacionadas con visitas a iglesias, templos y lugares de culto');
 
-
+-- Traducciones en inglés
 INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES(1, 'en', 'Cultural Tourism', 'Activities related to museums, galleries, and historical sites');
 INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES(2, 'en', 'Adventure', 'Activities like trekking, rafting, and climbing');
 INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES(3, 'en', 'Relaxation', 'Activities related to spas, hot springs, and relaxation');
@@ -34,8 +36,9 @@ INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre
 INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES(7, 'en', 'Natural Beauty', 'Activities in natural environments with breathtaking views and nature contact');
 INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES (8, 'en', 'Calm and Relaxed', 'Low-intensity activities ideal for relaxation, such as gentle walks and meditation');
 INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES (9, 'en', 'Active and Dynamic', 'Activities with more movement and energy, such as sports and intense hikes');
+INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES (10, 'en', 'Religiou', 'Activities involving visits to churches, temples, and places of worship');
 
-
+-- Traducciones en portugués
 INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES(1, 'pt', 'Turismo Cultural', 'Atividades relacionadas a museus, galerias e locais históricos');
 INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES(2, 'pt', 'Aventura', 'Atividades como trekking, rafting e escalada');
 INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES(3, 'pt', 'Relaxamento', 'Atividades relacionadas a spas, águas termais e descanso');
@@ -45,6 +48,7 @@ INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre
 INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES(7, 'pt', 'Beleza Natural', 'Atividades em ambientes naturais com vistas deslumbrantes e contato com a natureza');
 INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES (8, 'pt', 'Calmo e Relaxado', 'Atividades de baixa intensidade ideais para relaxar, como caminhadas suaves e meditação');
 INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES (9, 'pt', 'Ativo e Dinâmico', 'Atividades com mais movimento e energia, como esportes e caminhadas intensas');
+INSERT INTO tipo_de_actividad_traducciones (id_tipo_de_actividad, idioma, nombre_actividad, descripcion) VALUES (10, 'pt', 'Religioso', 'Atividades relacionadas a visitas a igrejas, templos e locais de culto');
 
 INSERT INTO coordenadas (id_coordenada, latitud, longitud) VALUES(1, -27.366569960598934, -55.89339610508137); 
 INSERT INTO coordenadas (id_coordenada, latitud, longitud) VALUES(2, -27.365876915671777, -55.89403274744123); 
