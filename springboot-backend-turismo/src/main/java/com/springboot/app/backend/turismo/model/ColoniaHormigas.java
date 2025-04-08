@@ -22,8 +22,7 @@ public class ColoniaHormigas {
     private final TiempoPuntoDeInteresRepository tiempoRepository;
     private final Map<String, Double> mapaDistancias = new HashMap<>();
     private final Map<String, Double> mapaTiempos = new HashMap<>();
-    private double tiempoTotalRuta=0;
-    private double nuevaDistanciaRecorrida=0;
+
 
     public ColoniaHormigas(
             List<PuntoDeInteres> destinos,
@@ -129,8 +128,7 @@ public class ColoniaHormigas {
         double tiempoRestante = this.tiempoDisponible;
         double distanciaRecorrida = 0.0;
         double distanciaMaxima = this.distanciaPreferida;
-        this.nuevaDistanciaRecorrida=0;
-        this.tiempoTotalRuta=0;
+
 
         // Encontrar el punto más cercano a la ubicación actual
         PuntoDeInteres nodoActual = encontrarPuntoMasCercano(ubicacionActual);
@@ -159,11 +157,12 @@ public class ColoniaHormigas {
             }
 
             double tiempoTotal = tiempoViaje + siguiente.getDuracionVisita();
-            this.tiempoTotalRuta =  this.tiempoTotalRuta+tiempoViaje + siguiente.getDuracionVisita();
-            this.nuevaDistanciaRecorrida = distanciaRecorrida + distancia;
+            double nuevaDistanciaRecorrida = distanciaRecorrida + distancia;
 
-            if (tiempoTotal > tiempoRestante || nuevaDistanciaRecorrida > distanciaMaxima) break;
-
+            if (tiempoTotal > tiempoRestante || nuevaDistanciaRecorrida > distanciaMaxima) {
+            	break;
+        	}
+            
             ruta.add(siguiente);
             visitados.add(siguiente);
             nodoActual = siguiente;
@@ -174,11 +173,6 @@ public class ColoniaHormigas {
         return ruta;
     }
     
-    private double calcularTiempoEnMinutos(double distanciaMetros) {
-        double velocidadMetrosPorMinuto = 83.33; // caminata aprox. 5km/h
-        return distanciaMetros / velocidadMetrosPorMinuto;
-    }
-
     private PuntoDeInteres encontrarPuntoMasCercano(Coordenada ubicacionActual) {
         return grafo.vertexSet().stream()
                 .min(Comparator.comparingDouble(pdi -> calcularDistancia(ubicacionActual, pdi.getCoordenada())))
@@ -205,7 +199,11 @@ public class ColoniaHormigas {
 
         return RADIO_TIERRA_METROS * c; // Retorna la distancia en metros
     }
-
+    
+    private double calcularTiempoEnMinutos(double distanciaMetros) {
+        double velocidadMetrosPorMinuto = 83.33; // caminata aprox. 5km/h
+        return distanciaMetros / velocidadMetrosPorMinuto;
+    }
 
     /**
      * Seleccionar el siguiente destino basado en feromonas, utilidad y distancia-tiempo
@@ -333,24 +331,6 @@ public class ColoniaHormigas {
         }
         return opciones;
     }
-
-	public double getTiempoTotalRuta() {
-		return tiempoTotalRuta;
-	}
-
-	public void setTiempoTotalRuta(double tiempoTotal) {
-		this.tiempoTotalRuta = tiempoTotal;
-	}
-
-	public double getNuevaDistanciaRecorrida() {
-		return nuevaDistanciaRecorrida;
-	}
-
-	public void setNuevaDistanciaRecorrida(double nuevaDistanciaRecorrida) {
-		this.nuevaDistanciaRecorrida = nuevaDistanciaRecorrida;
-	}
-    
-    
 
 }
 

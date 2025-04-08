@@ -13,6 +13,8 @@ import com.springboot.app.backend.turismo.model.ColoniaHormigas;
 import com.springboot.app.backend.turismo.model.Coordenada;
 import com.springboot.app.backend.turismo.model.PuntoDeInteres;
 import com.springboot.app.backend.turismo.model.PuntoDeInteresTraduccion;
+import com.springboot.app.backend.turismo.model.DistanciaPuntoDeInteres;
+import com.springboot.app.backend.turismo.model.TiempoPuntoDeInteres;
 import com.springboot.app.backend.turismo.model.EstadoRuta;
 import com.springboot.app.backend.turismo.model.Preferencia;
 import com.springboot.app.backend.turismo.model.Ruta;
@@ -42,6 +44,7 @@ public class RutaImpl implements IRutaService {
     private final TiempoPuntoDeInteresRepository tiempoRepository;
     private final ClimaService climaService;
     private final JwtService jwtService;
+    private double distanciaMetros;
 
 	
     @Override
@@ -122,14 +125,14 @@ public class RutaImpl implements IRutaService {
 	    // Crear la ruta en la BD
 	    Ruta ruta = Ruta.builder()
 	            .usuario(preferencia.getUsuario())
-	            .distanciaTotal(coloniaHormigas.getNuevaDistanciaRecorrida())
-	            .duracionEstimada(coloniaHormigas.getTiempoTotalRuta())
+	            .distanciaTotal(calcularDistanciaTotal(mejorRuta,ubicacionActual))
+	            .duracionEstimada(calcularDuracionTotal(mejorRuta))
 	            .fechaCreacion(LocalDate.now())
 	            .costeMaximo(costeMaximo)
 	            .estado(estadoRuta.get())
 	            .clima(climaActual)
 	            .build();
-	    
+	    	    
 	 // Crear las relaciones de la ruta optimizada con los puntos de interés
 	    List<RutaPuntoDeInteres> rutaPuntos = mejorRuta.stream()
 	            .map(puntoDeInteres -> RutaPuntoDeInteres.builder()
@@ -150,6 +153,44 @@ public class RutaImpl implements IRutaService {
 	    
 	    return new RutaConTraducciones(rutaGuardada, destinosTraducidos);
 	}
+	
+	/**
+     * Calcular la distancia total de la ruta optimizada
+     */
+    private double calcularDistanciaTotal(List<PuntoDeInteres> puntoDeInteres,Coordenada ubicacionActual) {
+        double distanciaTotal = 0;
+        
+        distanciaTotal = calcularDistancia(ubicacionActual,puntoDeInteres.get(0).getCoordenada());
+        this.distanciaMetros=distanciaTotal;
+        for (int i = 0; i < puntoDeInteres.size() - 1; i++) {
+        	Optional<DistanciaPuntoDeInteres> distanciaOpt;
+        	if(puntoDeInteres.get(i).getId() < puntoDeInteres.get(i + 1).getId()) {
+        		 distanciaOpt = distanciaRepository.findByPuntoDeInteresOrigenAndPuntoDeInteresDestino(puntoDeInteres.get(i), puntoDeInteres.get(i + 1));
+        	}else {
+        		 distanciaOpt = distanciaRepository.findByPuntoDeInteresOrigenAndPuntoDeInteresDestino(puntoDeInteres.get(i + 1), puntoDeInteres.get(i));
+        	}	
+            distanciaTotal += distanciaOpt.map(DistanciaPuntoDeInteres::getDistancia).orElse(0.0);
+        }
+        return distanciaTotal;
+    }
+
+    /**
+     * Calcular la duración total de la ruta optimizada
+     */
+    private double calcularDuracionTotal(List<PuntoDeInteres> puntoDeInteres) {
+        double duracionTotal = calcularTiempoEnMinutos() + puntoDeInteres.get(0).getDuracionVisita();
+        for (int i = 0; i < puntoDeInteres.size() - 1; i++) {
+        	Optional<TiempoPuntoDeInteres> tiempoOpt;
+        	if(puntoDeInteres.get(i).getId() < puntoDeInteres.get(i + 1).getId()) {
+        		tiempoOpt= tiempoRepository.findByOrigenAndDestino(puntoDeInteres.get(i), puntoDeInteres.get(i + 1));
+        	}else {
+        		tiempoOpt= tiempoRepository.findByOrigenAndDestino(puntoDeInteres.get(i+1), puntoDeInteres.get(i));
+        	}	
+            duracionTotal += tiempoOpt.map(TiempoPuntoDeInteres::getTiempo).orElse(0.0)+puntoDeInteres.get(i + 1).getDuracionVisita();
+
+        }
+        return duracionTotal;
+    }
 
     @Override
     @Transactional
@@ -188,6 +229,30 @@ public class RutaImpl implements IRutaService {
         return new RutaConTraducciones(ruta, destinosTraducidos);
     }
 
+    private double calcularTiempoEnMinutos() {
+        double velocidadMetrosPorMinuto = 83.33; // caminata aprox. 5km/h
+        return this.distanciaMetros / velocidadMetrosPorMinuto;
+    }
+    
+  //Calculo de distancias
+    private double calcularDistancia(Coordenada origen, Coordenada destino) {
+        final int RADIO_TIERRA_METROS = 6371000; // Radio de la Tierra en metros
 
+        double lat1 = Math.toRadians(origen.getLatitud());
+        double lon1 = Math.toRadians(origen.getLongitud());
+        double lat2 = Math.toRadians(destino.getLatitud());
+        double lon2 = Math.toRadians(destino.getLongitud());
+
+        double dLat = lat2 - lat1;
+        double dLon = lon2 - lon1;
+
+        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                   Math.cos(lat1) * Math.cos(lat2) *
+                   Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        return RADIO_TIERRA_METROS * c; // Retorna la distancia en metros
+    }
 }
 

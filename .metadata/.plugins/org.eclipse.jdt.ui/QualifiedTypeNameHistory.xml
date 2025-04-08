@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.EstadoRuta"/>
+    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.EstadoRutaRepository"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.Ruta"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.DestinoTipoDeActividad"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.TiempoPuntoDeInteres.TipoTransporte"/>
@@ -41,6 +43,7 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.service.ObjetivoPuntosInteresService"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.ObjetivoPuntosInteres"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
@@ -57,7 +60,4 @@
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.dto.UsuarioDTO"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.PuntoDeInteres"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.ObjetivoPuntosInteres"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.dto.ObjetivosConTraducciones"/>
 </qualifiedTypeNameHistroy>
