@@ -1,4 +1,4 @@
-package com.springboot.app.backend.turismo.Exception;
+package com.springboot.app.backend.turismo.exception;
 
 public class UsuarioNoEncontradoException extends RuntimeException {
     /**

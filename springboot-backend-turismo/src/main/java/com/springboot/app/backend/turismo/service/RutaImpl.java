@@ -11,14 +11,12 @@ import com.springboot.app.backend.turismo.auth.service.JwtService;
 import com.springboot.app.backend.turismo.dto.RutaConTraducciones;
 import com.springboot.app.backend.turismo.model.ColoniaHormigas;
 import com.springboot.app.backend.turismo.model.Coordenada;
-import com.springboot.app.backend.turismo.model.DistanciaPuntoDeInteres;
 import com.springboot.app.backend.turismo.model.PuntoDeInteres;
 import com.springboot.app.backend.turismo.model.PuntoDeInteresTraduccion;
 import com.springboot.app.backend.turismo.model.EstadoRuta;
 import com.springboot.app.backend.turismo.model.Preferencia;
 import com.springboot.app.backend.turismo.model.Ruta;
 import com.springboot.app.backend.turismo.model.RutaPuntoDeInteres;
-import com.springboot.app.backend.turismo.model.TiempoPuntoDeInteres;
 import com.springboot.app.backend.turismo.repository.PuntoDeInteresTraduccionRepository;
 import com.springboot.app.backend.turismo.repository.DistanciaPuntoDeInteresRepository;
 import com.springboot.app.backend.turismo.repository.EstadoRutaRepository;
@@ -124,8 +122,8 @@ public class RutaImpl implements IRutaService {
 	    // Crear la ruta en la BD
 	    Ruta ruta = Ruta.builder()
 	            .usuario(preferencia.getUsuario())
-	            .distanciaTotal(calcularDistanciaTotal(mejorRuta))
-	            .duracionEstimada(calcularDuracionTotal(mejorRuta))
+	            .distanciaTotal(coloniaHormigas.getNuevaDistanciaRecorrida())
+	            .duracionEstimada(coloniaHormigas.getTiempoTotalRuta())
 	            .fechaCreacion(LocalDate.now())
 	            .costeMaximo(costeMaximo)
 	            .estado(estadoRuta.get())
@@ -181,31 +179,6 @@ public class RutaImpl implements IRutaService {
 
 		    return false;
 	}
-
-
-    /**
-     * Calcular la distancia total de la ruta optimizada
-     */
-    private double calcularDistanciaTotal(List<PuntoDeInteres> ruta) {
-        double distanciaTotal = 0;
-        for (int i = 0; i < ruta.size() - 1; i++) {
-            Optional<DistanciaPuntoDeInteres> distanciaOpt = distanciaRepository.findByPuntoDeInteresOrigenAndPuntoDeInteresDestino(ruta.get(i), ruta.get(i + 1));
-            distanciaTotal += distanciaOpt.map(DistanciaPuntoDeInteres::getDistancia).orElse(0.0);
-        }
-        return distanciaTotal;
-    }
-
-    /**
-     * Calcular la duración total de la ruta optimizada
-     */
-    private double calcularDuracionTotal(List<PuntoDeInteres> puntoDeInteres) {
-        double duracionTotal = puntoDeInteres.get(0).getDuracionVisita();
-        for (int i = 0; i < puntoDeInteres.size() - 1; i++) {
-            Optional<TiempoPuntoDeInteres> tiempoOpt = tiempoRepository.findByOrigenAndDestino(puntoDeInteres.get(i), puntoDeInteres.get(i + 1));
-            duracionTotal += tiempoOpt.map(TiempoPuntoDeInteres::getTiempo).orElse(0.0)+puntoDeInteres.get(i + 1).getDuracionVisita();
-        }
-        return duracionTotal;
-    }
     
     private RutaConTraducciones convertirARutaConTraducciones(Ruta ruta, String idioma) {
         List<PuntoDeInteresTraduccion> destinosTraducidos = ruta.getPuntosDeInteres().stream()

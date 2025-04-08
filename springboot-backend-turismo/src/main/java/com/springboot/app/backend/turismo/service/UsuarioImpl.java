@@ -11,9 +11,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.springboot.app.backend.turismo.Exception.UsuarioNoEncontradoException;
 import com.springboot.app.backend.turismo.auth.service.JwtService;
 import com.springboot.app.backend.turismo.dto.UsuarioDTO;
+import com.springboot.app.backend.turismo.exception.UsuarioNoEncontradoException;
 import com.springboot.app.backend.turismo.model.Preferencia;
 import com.springboot.app.backend.turismo.model.PreferenciaTipoDeActividad;
 import com.springboot.app.backend.turismo.model.Usuario;

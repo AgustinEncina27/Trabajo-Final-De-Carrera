@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
-import com.springboot.app.backend.turismo.Exception.UsuarioNoEncontradoException;
+import com.springboot.app.backend.turismo.exception.UsuarioNoEncontradoException;
 import com.springboot.app.backend.turismo.model.Preferencia;
 import com.springboot.app.backend.turismo.model.Usuario;
 import com.springboot.app.backend.turismo.service.UsuarioImpl;

@@ -22,6 +22,8 @@ public class ColoniaHormigas {
     private final TiempoPuntoDeInteresRepository tiempoRepository;
     private final Map<String, Double> mapaDistancias = new HashMap<>();
     private final Map<String, Double> mapaTiempos = new HashMap<>();
+    private double tiempoTotalRuta=0;
+    private double nuevaDistanciaRecorrida=0;
 
     public ColoniaHormigas(
             List<PuntoDeInteres> destinos,
@@ -32,7 +34,9 @@ public class ColoniaHormigas {
             Integer costeMaximo,
             Long tiempoDisponible,
             DistanciaPuntoDeInteresRepository distanciaRepository,
-            TiempoPuntoDeInteresRepository tiempoRepository) {
+            TiempoPuntoDeInteresRepository tiempoRepository
+
+            ) {
 
         this.grafo = new SimpleWeightedGraph<>(DefaultWeightedEdge.class);
         this.perfilUsuario = perfilUsuario;
@@ -44,6 +48,7 @@ public class ColoniaHormigas {
         this.feromonas = new HashMap<>();
         this.distanciaRepository = distanciaRepository;
         this.tiempoRepository = tiempoRepository;
+
 
         cargarDatosDesdeBD(destinos);
     }
@@ -82,7 +87,13 @@ public class ColoniaHormigas {
     
     // Método para generar la clave del mapa
     private String generarClave(PuntoDeInteres d1, PuntoDeInteres d2) {
-        return d1.getId() + "-" + d2.getId(); // Ejemplo: "1-2" para representar la relación entre dos puntos
+    	String result="";
+    	if(d1.getId()<d2.getId()) {
+    		result=d1.getId() + "-" + d2.getId(); // Ejemplo: "1-2" para representar la relación entre dos puntos
+    	}else{
+    		result=d2.getId() + "-" + d1.getId(); // Ejemplo: "1-2" para representar la relación entre dos puntos
+    	}
+        return result;
     }
 
     /**
@@ -118,6 +129,8 @@ public class ColoniaHormigas {
         double tiempoRestante = this.tiempoDisponible;
         double distanciaRecorrida = 0.0;
         double distanciaMaxima = this.distanciaPreferida;
+        this.nuevaDistanciaRecorrida=0;
+        this.tiempoTotalRuta=0;
 
         // Encontrar el punto más cercano a la ubicación actual
         PuntoDeInteres nodoActual = encontrarPuntoMasCercano(ubicacionActual);
@@ -131,16 +144,24 @@ public class ColoniaHormigas {
             PuntoDeInteres siguiente = seleccionarSiguiente(opciones, nodoActual);
             if (siguiente == null) break;
 
-            String key = generarClave(nodoActual, siguiente);
-            
-            // Obtener distancia y tiempo desde los mapas en memoria
-            double distancia = mapaDistancias.getOrDefault(key, 0.0);
-            double tiempoViaje = mapaTiempos.getOrDefault(key, 0.0);
+            double distancia;
+            double tiempoViaje;
+
+            if (ruta.isEmpty()) {
+                // Primer punto: calcular desde ubicación actual
+                distancia = calcularDistancia(ubicacionActual, siguiente.getCoordenada());
+                tiempoViaje = calcularTiempoEnMinutos(distancia);
+            } else {
+                // Los demás puntos: usar la distancia entre nodos
+                String key = generarClave(nodoActual, siguiente);
+                distancia = mapaDistancias.getOrDefault(key, 0.0);
+                tiempoViaje = calcularTiempoEnMinutos(distancia); // o desde mapaTiempos si ya tenés
+            }
 
             double tiempoTotal = tiempoViaje + siguiente.getDuracionVisita();
-            double nuevaDistanciaRecorrida = distanciaRecorrida + distancia;
+            this.tiempoTotalRuta =  this.tiempoTotalRuta+tiempoViaje + siguiente.getDuracionVisita();
+            this.nuevaDistanciaRecorrida = distanciaRecorrida + distancia;
 
-            // Verificar restricciones antes de agregar a la ruta
             if (tiempoTotal > tiempoRestante || nuevaDistanciaRecorrida > distanciaMaxima) break;
 
             ruta.add(siguiente);
@@ -149,7 +170,13 @@ public class ColoniaHormigas {
             tiempoRestante -= tiempoTotal;
             distanciaRecorrida = nuevaDistanciaRecorrida;
         }
+
         return ruta;
+    }
+    
+    private double calcularTiempoEnMinutos(double distanciaMetros) {
+        double velocidadMetrosPorMinuto = 83.33; // caminata aprox. 5km/h
+        return distanciaMetros / velocidadMetrosPorMinuto;
     }
 
     private PuntoDeInteres encontrarPuntoMasCercano(Coordenada ubicacionActual) {
@@ -306,6 +333,24 @@ public class ColoniaHormigas {
         }
         return opciones;
     }
+
+	public double getTiempoTotalRuta() {
+		return tiempoTotalRuta;
+	}
+
+	public void setTiempoTotalRuta(double tiempoTotal) {
+		this.tiempoTotalRuta = tiempoTotal;
+	}
+
+	public double getNuevaDistanciaRecorrida() {
+		return nuevaDistanciaRecorrida;
+	}
+
+	public void setNuevaDistanciaRecorrida(double nuevaDistanciaRecorrida) {
+		this.nuevaDistanciaRecorrida = nuevaDistanciaRecorrida;
+	}
+    
+    
 
 }
 

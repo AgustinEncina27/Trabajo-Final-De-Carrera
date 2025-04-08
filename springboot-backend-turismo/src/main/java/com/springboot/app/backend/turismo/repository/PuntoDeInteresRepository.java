@@ -13,7 +13,8 @@ import com.springboot.app.backend.turismo.model.PuntoDeInteres;
 public interface PuntoDeInteresRepository extends JpaRepository<PuntoDeInteres, Integer>  {
 	@Query("SELECT d FROM PuntoDeInteres d " +
 		       "WHERE (:techado IS NULL OR d.techado = :techado) " +
-		       "AND (:climaActual IS NULL OR d.climaIdeal = :climaActual OR d.climaIdeal = 'CUALQUIERA') ")
+		       "AND (:climaActual IS NULL OR d.climaIdeal = :climaActual OR d.climaIdeal = 'CUALQUIERA') "+
+		       "ORDER BY d.id")
 		List<PuntoDeInteres> filtrarDestinos(
 		        @Param("techado") Boolean techado,
 		        @Param("climaActual") PuntoDeInteres.ClimaIdeal climaActual
