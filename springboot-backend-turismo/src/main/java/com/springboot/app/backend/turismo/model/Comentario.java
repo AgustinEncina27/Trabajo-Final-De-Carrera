@@ -39,6 +39,6 @@ public class Comentario {
 	  
 	  @JsonIgnore
 	  @ManyToOne
-	  @JoinColumn(name = "fkPuntoDeInteres") 
-	  private PuntoDeInteres puntoDeInteres;
+	  @JoinColumn(name = "fkRuta") 
+	  private Ruta ruta;
 }

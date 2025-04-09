@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.EstadoRuta"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.EstadoRutaRepository"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.Ruta"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.DestinoTipoDeActividad"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.TiempoPuntoDeInteres.TipoTransporte"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.DistanciaPuntoDeInteres"/>
@@ -60,4 +56,8 @@
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.dto.UsuarioDTO"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.PuntoDeInteres"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
+    <fullyQualifiedTypeName name="lombok.Data"/>
+    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.Comentario"/>
+    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.ComentarioRepository"/>
+    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.dto.ComentarioRequest"/>
 </qualifiedTypeNameHistroy>

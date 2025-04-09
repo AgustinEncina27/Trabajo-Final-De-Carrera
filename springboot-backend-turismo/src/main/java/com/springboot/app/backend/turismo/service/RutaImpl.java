@@ -8,8 +8,10 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.springboot.app.backend.turismo.auth.service.JwtService;
+import com.springboot.app.backend.turismo.dto.ComentarioRequest;
 import com.springboot.app.backend.turismo.dto.RutaConTraducciones;
 import com.springboot.app.backend.turismo.model.ColoniaHormigas;
+import com.springboot.app.backend.turismo.model.Comentario;
 import com.springboot.app.backend.turismo.model.Coordenada;
 import com.springboot.app.backend.turismo.model.PuntoDeInteres;
 import com.springboot.app.backend.turismo.model.PuntoDeInteresTraduccion;
@@ -20,6 +22,7 @@ import com.springboot.app.backend.turismo.model.Preferencia;
 import com.springboot.app.backend.turismo.model.Ruta;
 import com.springboot.app.backend.turismo.model.RutaPuntoDeInteres;
 import com.springboot.app.backend.turismo.repository.PuntoDeInteresTraduccionRepository;
+import com.springboot.app.backend.turismo.repository.ComentarioRepository;
 import com.springboot.app.backend.turismo.repository.DistanciaPuntoDeInteresRepository;
 import com.springboot.app.backend.turismo.repository.EstadoRutaRepository;
 import com.springboot.app.backend.turismo.repository.RutaPuntoDeInteresRepository;
@@ -45,6 +48,7 @@ public class RutaImpl implements IRutaService {
     private final ClimaService climaService;
     private final JwtService jwtService;
     private double distanciaMetros;
+    private final ComentarioRepository comentarioRepository;
 
 	
     @Override
@@ -207,6 +211,7 @@ public class RutaImpl implements IRutaService {
     }
     
 	@Override
+	@Transactional
 	public boolean actualizarEstado(Integer idRuta, Integer idEstadoRuta) {
 		  Optional<Ruta> optionalRuta = rutaRepository.findById(idRuta);
 		    Optional<EstadoRuta> optionalEstado = estadoRutaRepository.findById(idEstadoRuta);
@@ -220,6 +225,33 @@ public class RutaImpl implements IRutaService {
 
 		    return false;
 	}
+	
+	@Override
+	@Transactional
+	public void agregarComentarioYActualizarCalificacion(ComentarioRequest request) {
+        Ruta ruta = rutaRepository.findById(request.getRutaId())
+                .orElseThrow(() -> new RuntimeException("Ruta no encontrada"));
+
+        Comentario comentario = Comentario.builder()
+                .contenido(request.getContenido())
+                .calificacion(request.getCalificacion())
+                .fechaComentario(LocalDate.now())
+                .ruta(ruta)
+                .build();
+
+        comentarioRepository.save(comentario);
+
+        ruta.getComentarios().add(comentario);
+
+        List<Comentario> comentarios = ruta.getComentarios();
+        double promedio = comentarios.stream()
+                .mapToInt(Comentario::getCalificacion)
+                .average()
+                .orElse(0.0);
+
+        ruta.setCalificacion((int) Math.round(promedio));
+        rutaRepository.save(ruta);
+    }
     
     private RutaConTraducciones convertirARutaConTraducciones(Ruta ruta, String idioma) {
         List<PuntoDeInteresTraduccion> destinosTraducidos = ruta.getPuntosDeInteres().stream()

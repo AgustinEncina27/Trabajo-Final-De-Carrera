@@ -53,9 +53,6 @@ public class PuntoDeInteres {
 	  @OneToMany(mappedBy = "puntoDeInteres", cascade = CascadeType.ALL, orphanRemoval = true)
 	  private List<RutaPuntoDeInteres> rutas;
 	  
-	  @OneToMany(mappedBy = "puntoDeInteres", cascade = CascadeType.ALL, orphanRemoval = true)
-	  private List<Comentario> comentarios;
-	  
 	  @JsonIgnore
 	  @OneToMany(mappedBy = "puntoDeInteres", cascade = CascadeType.ALL, orphanRemoval = true)
 	  private List<PuntoDeInteresTraduccion> traducciones;

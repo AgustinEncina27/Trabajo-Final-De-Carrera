@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.springboot.app.backend.turismo.dto.ComentarioRequest;
 import com.springboot.app.backend.turismo.dto.RutaConTraducciones;
 import com.springboot.app.backend.turismo.model.Coordenada;
 import com.springboot.app.backend.turismo.model.Ruta;
@@ -62,6 +63,12 @@ public class RutaController {
     @PostMapping
     public Ruta guardar(@RequestBody Ruta ruta) {
         return rutaService.guardar(ruta);
+    }
+    
+    @PostMapping("/comentario")
+    public ResponseEntity<?> agregarComentario(@RequestBody ComentarioRequest request) {
+        rutaService.agregarComentarioYActualizarCalificacion(request);
+        return ResponseEntity.ok("Comentario agregado y calificación actualizada");
     }
 
 	@PostMapping("/generar")

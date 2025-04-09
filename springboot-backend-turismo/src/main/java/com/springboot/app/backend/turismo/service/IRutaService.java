@@ -3,6 +3,7 @@ package com.springboot.app.backend.turismo.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.springboot.app.backend.turismo.dto.ComentarioRequest;
 import com.springboot.app.backend.turismo.dto.RutaConTraducciones;
 import com.springboot.app.backend.turismo.model.Coordenada;
 import com.springboot.app.backend.turismo.model.Ruta;
@@ -17,5 +18,6 @@ public interface IRutaService {
 	public Optional<RutaConTraducciones> obtenerPorId(Integer id, String idioma);
 	public List<RutaConTraducciones> obtenerRutasPorUsuario(String authorizationHeader, String idioma);
 	public boolean actualizarEstado(Integer id, Integer idEstadoRuta);
+	public void agregarComentarioYActualizarCalificacion(ComentarioRequest request);
 }
 

@@ -38,6 +38,12 @@ public class Ruta {
 	  @Column
 	  private ClimaIdeal clima;
 	  
+	  @Column
+	  private int calificacion;
+	  
+	  @OneToMany(mappedBy = "ruta", cascade = CascadeType.ALL, orphanRemoval = true)
+	  private List<Comentario> comentarios;
+	  
 	  @JsonIgnore
 	  @ManyToOne
 	  @JoinColumn(name = "fkUsuario")
