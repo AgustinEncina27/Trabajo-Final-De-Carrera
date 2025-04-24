@@ -79,6 +79,7 @@ public class RutaController {
 	        @RequestParam Long distanciaPreferida,
 	        @RequestParam Integer costeMaximo,
 	        @RequestParam Long tiempoDisponible,
+	        @RequestParam Boolean sorpresa,
 	        @RequestParam String idioma) {
 
 	    Coordenada ubicacionActual = new Coordenada(null, latitud, longitud);
@@ -87,7 +88,7 @@ public class RutaController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("message", "Token no válido"));
         }
 	    
-	    RutaConTraducciones ruta = rutaService.generarRutaParaUsuario(authorizationHeader, ubicacionActual,distanciaPreferida,costeMaximo,tiempoDisponible, idioma);
+	    RutaConTraducciones ruta = rutaService.generarRutaParaUsuario(authorizationHeader, ubicacionActual,distanciaPreferida,costeMaximo,tiempoDisponible,sorpresa, idioma);
 	    return ResponseEntity.ok(ruta);
 	}
 	

@@ -3,6 +3,7 @@ package com.springboot.app.backend.turismo.service;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
@@ -17,8 +18,10 @@ import com.springboot.app.backend.turismo.model.PuntoDeInteres;
 import com.springboot.app.backend.turismo.model.PuntoDeInteresTraduccion;
 import com.springboot.app.backend.turismo.model.DistanciaPuntoDeInteres;
 import com.springboot.app.backend.turismo.model.TiempoPuntoDeInteres;
+import com.springboot.app.backend.turismo.model.TipoDeActividad;
 import com.springboot.app.backend.turismo.model.EstadoRuta;
 import com.springboot.app.backend.turismo.model.Preferencia;
+import com.springboot.app.backend.turismo.model.PreferenciaTipoDeActividad;
 import com.springboot.app.backend.turismo.model.Ruta;
 import com.springboot.app.backend.turismo.model.RutaPuntoDeInteres;
 import com.springboot.app.backend.turismo.repository.PuntoDeInteresTraduccionRepository;
@@ -49,6 +52,7 @@ public class RutaImpl implements IRutaService {
     private final JwtService jwtService;
     private double distanciaMetros;
     private final ComentarioRepository comentarioRepository;
+    private final TipoDeActividadServiceImpl TipoDeActividadServiceImpl;
 
 	
     @Override
@@ -103,7 +107,7 @@ public class RutaImpl implements IRutaService {
 	@Override
 	@Transactional
 	public RutaConTraducciones generarRutaParaUsuario(String authorizationHeader, Coordenada ubicacionActual, 
-			Long distanciaPreferida,Integer costeMaximo,Long tiempoDisponible, String idioma) {
+			Long distanciaPreferida,Integer costeMaximo,Long tiempoDisponible,Boolean sorpresa, String idioma) {
 		
 		// Extraer token eliminando "Bearer "
         String token = authorizationHeader.substring(7);
@@ -112,6 +116,34 @@ public class RutaImpl implements IRutaService {
         Integer idUsuario = jwtService.extractUserId(token);
 		
 	    Preferencia preferencia = preferenciaService.obtenerPreferenciasPorUsuario(idUsuario);
+	    
+	    if (sorpresa) {
+	        Random random = new Random();
+
+	        // Obtener todas las actividades posibles desde la base de datos
+	        List<TipoDeActividad> todasLasActividades = TipoDeActividadServiceImpl.findAll();
+
+	        // Limpiar las actividades actuales si hay
+	        preferencia.getPreferenciasActividades().clear();
+	        
+	        List<PreferenciaTipoDeActividad> nuevasPreferencias = todasLasActividades.stream()
+	                .map(tipo -> PreferenciaTipoDeActividad.builder()
+	                        .preferencia(preferencia)
+	                        .tipoDeActividad(tipo)
+	                        .peso(Math.round(random.nextDouble() * 100.0) / 100.0)
+	                        .build())
+	                .collect(Collectors.toList());
+
+	        preferencia.getPreferenciasActividades().addAll(nuevasPreferencias);
+	        
+	        tiempoDisponible = 60L + random.nextInt(301);
+	        
+	        costeMaximo=100000;
+	        
+	        distanciaPreferida=1000000L;
+	        
+	    }
+	    	
 	    Optional<EstadoRuta> estadoRuta = estadoRutaRepository.findById(3);
 	    
 	    PuntoDeInteres.ClimaIdeal climaActual = climaService.obtenerClima(ubicacionActual.getLatitud(), ubicacionActual.getLongitud(), tiempoDisponible);
