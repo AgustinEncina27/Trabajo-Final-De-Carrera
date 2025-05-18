@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.DistanciaPuntoDeInteres"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.TiempoPuntoDeInteres"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.DistanciaPuntoDeInteresRepository"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.TiempoPuntoDeInteresRepository"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.ColoniaHormigas"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.PuntoDeInteresTipoDeActividad"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.PreferenciaTipoActividadRepository"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.service.IUsuarioService"/>
     <fullyQualifiedTypeName name="java.util.HashSet"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.PreferenciaTipoDeActividad"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.auth.controller.AuthRequest"/>
@@ -37,9 +30,7 @@
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.service.ObjetivoPuntosInteresService"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.ObjetivoPuntosInteres"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.UserRepository"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.repository.PuntoDeInteresRepository"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.Usuario"/>
@@ -51,7 +42,6 @@
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.Preferencia"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.dto.UsuarioDTO"/>
-    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.PuntoDeInteres"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnore"/>
     <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.Comentario"/>
@@ -60,4 +50,14 @@
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.TipoDeActividad"/>
     <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.service.TipoDeActividadServiceImpl"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.dto.ActividadDTO"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.DistanciaPuntoDeInteres"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.dto.PuntoDeInteresDTO"/>
+    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.model.PuntoDeInteres"/>
+    <fullyQualifiedTypeName name="com.springboot.app.backend.turismo.service.IPuntoDeInteresService"/>
 </qualifiedTypeNameHistroy>

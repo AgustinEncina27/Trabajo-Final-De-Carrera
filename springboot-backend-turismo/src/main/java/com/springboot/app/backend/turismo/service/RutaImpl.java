@@ -90,12 +90,49 @@ public class RutaImpl implements IRutaService {
                 .map(ruta -> convertirARutaConTraducciones(ruta, idioma))
                 .collect(Collectors.toList());
     }
+    
+
 		
 	@Override
 	@Transactional
     public Ruta guardar(Ruta ruta) {
-        return rutaRepository.save(ruta);
+          return rutaRepository.save(ruta);
     }
+	
+	@Override
+	@Transactional
+	public Ruta actualizarRuta(Integer idRuta, Ruta rutaNueva) {
+	    Ruta rutaExistente = rutaRepository.findById(idRuta)
+	        .orElseThrow(() -> new IllegalArgumentException("Ruta no encontrada"));
+
+	    EstadoRuta estado = estadoRutaRepository.findById(rutaNueva.getEstado().getIdEstadoRuta())
+	        .orElseThrow(() -> new IllegalArgumentException("Estado no encontrado"));
+
+	    // Actualizar campos simples
+	    rutaExistente.setCosteMaximo(rutaNueva.getCosteMaximo());
+	    rutaExistente.setDistanciaTotal(rutaNueva.getDistanciaTotal());
+	    rutaExistente.setDuracionEstimada(rutaNueva.getDuracionEstimada());
+	    rutaExistente.setFechaCreacion(rutaNueva.getFechaCreacion());
+	    rutaExistente.setClima(rutaNueva.getClima());
+	    rutaExistente.setCalificacion(rutaNueva.getCalificacion());
+	    rutaExistente.setEstado(estado);
+
+	    // Actualizar puntos de interés
+	    rutaExistente.getPuntosDeInteres().clear();
+
+	    for (RutaPuntoDeInteres rpi : rutaNueva.getPuntosDeInteres()) {
+	        Integer idPoi = rpi.getPuntoDeInteres().getId();
+	        PuntoDeInteres poi = puntoDeInteresService.obtenerPorId(idPoi)
+	            .orElseThrow(() -> new RuntimeException("Punto de interés no encontrado con id " + idPoi));
+
+	        rpi.setPuntoDeInteres(poi);
+	        rpi.setRuta(rutaExistente);
+	        rutaExistente.getPuntosDeInteres().add(rpi);
+	    }
+
+	    return rutaRepository.save(rutaExistente);
+	}
+
 	
 	@Override
 	@Transactional
@@ -149,7 +186,7 @@ public class RutaImpl implements IRutaService {
 	    PuntoDeInteres.ClimaIdeal climaActual = climaService.obtenerClima(ubicacionActual.getLatitud(), ubicacionActual.getLongitud(), tiempoDisponible);
 	    
 	    
-	    List<PuntoDeInteres> destinos = puntoDeInteresService.obtenerPuntosDeInteresSegunClima(climaActual);
+	    List<PuntoDeInteres> destinos = puntoDeInteresService.obtenerPuntosDeInteresSegunClima(climaActual,idUsuario);
 
 	    // Inicializar colonia de hormigas
 	    ColoniaHormigas coloniaHormigas = new ColoniaHormigas(
@@ -189,6 +226,35 @@ public class RutaImpl implements IRutaService {
 	    
 	    return new RutaConTraducciones(rutaGuardada, destinosTraducidos);
 	}
+	
+    @Override
+    @Transactional(readOnly = true)
+    public List<PuntoDeInteres> obtenerSugerenciasDesdePunto(Integer idPuntoActual, String authorizationHeader) {
+    	
+    	// Extraer token eliminando "Bearer "
+        String token = authorizationHeader.substring(7);
+		
+		// Obtener ID del usuario desde el token
+        Integer idUsuario = jwtService.extractUserId(token);
+    	
+        // 1. Obtener preferencias del usuario
+        Preferencia preferencia = preferenciaService.obtenerPreferenciasPorUsuario(idUsuario);
+        
+        PuntoDeInteres pDIActual= puntoDeInteresService.obtenerPorId(idPuntoActual)
+        	    .orElseThrow(() -> new RuntimeException("Punto de interés no encontrado con ID: " + idPuntoActual));
+        
+        PuntoDeInteres.ClimaIdeal climaActual = climaService.obtenerClima(pDIActual.getCoordenada().getLatitud(), pDIActual.getCoordenada().getLongitud(), 300);
+
+        // 2. Obtener todos los destinos excepto los ya visitados
+        List<PuntoDeInteres> candidatos = puntoDeInteresService.obtenerPuntosDeInteresSegunClima(climaActual,idUsuario);
+
+        // 3. Inicializar ColoniaHormigas con esos destinos
+        ColoniaHormigas colonia = new ColoniaHormigas(candidatos, preferencia, 1, 1,
+                0L, 0, 0L,
+                distanciaRepository, tiempoRepository);
+
+        return colonia.obtenerTopSugerenciasDesde(pDIActual, 3);
+    }
 	
 	/**
      * Calcular la distancia total de la ruta optimizada

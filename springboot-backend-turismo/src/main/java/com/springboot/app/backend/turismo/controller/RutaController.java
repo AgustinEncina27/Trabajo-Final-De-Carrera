@@ -17,9 +17,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.app.backend.turismo.dto.ComentarioRequest;
+import com.springboot.app.backend.turismo.dto.PuntoDeInteresDTO;
 import com.springboot.app.backend.turismo.dto.RutaConTraducciones;
 import com.springboot.app.backend.turismo.model.Coordenada;
+import com.springboot.app.backend.turismo.model.PuntoDeInteres;
 import com.springboot.app.backend.turismo.model.Ruta;
+import com.springboot.app.backend.turismo.service.IPuntoDeInteresService;
 import com.springboot.app.backend.turismo.service.IRutaService;
 
 import lombok.RequiredArgsConstructor;
@@ -30,6 +33,7 @@ import lombok.RequiredArgsConstructor;
 public class RutaController {
 	
 	private final IRutaService rutaService;
+	private final IPuntoDeInteresService puntoDeInteresService;
 	
 	@GetMapping
     public ResponseEntity<List<RutaConTraducciones>> obtenerTodas(@RequestParam String idioma) {
@@ -92,6 +96,22 @@ public class RutaController {
 	    return ResponseEntity.ok(ruta);
 	}
 	
+	@PostMapping("/sugerencias")
+	public ResponseEntity<List<PuntoDeInteresDTO>> sugerenciasParaRuta(
+			@RequestHeader("Authorization") String authorizationHeader,
+	        @RequestParam Integer idPuntoActual,
+	        @RequestParam String idioma) {
+
+	    
+	    List<PuntoDeInteres> sugerencias = rutaService.obtenerSugerenciasDesdePunto(idPuntoActual, authorizationHeader);
+
+	    List<PuntoDeInteresDTO> respuesta = sugerencias.stream()
+	        .map(p -> puntoDeInteresService.mapToDTO(p, idioma))
+	        .toList();
+
+	    return ResponseEntity.ok(respuesta);
+	}
+	
 	@PutMapping("/{id}/estado")
 	public ResponseEntity<?> actualizarEstadoRuta(
 	        @PathVariable Integer id,
@@ -116,6 +136,21 @@ public class RutaController {
             return ResponseEntity.notFound().build();
         }
     }
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<?> actualizarRuta(
+	        @PathVariable Integer id,
+	        @RequestBody Ruta rutaActualizada) {
+
+	    try {
+	        Ruta actualizada = rutaService.actualizarRuta(id, rutaActualizada);
+	        return ResponseEntity.ok(actualizada);
+	    } catch (IllegalArgumentException e) {
+	        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+	                .body(Map.of("message", e.getMessage()));
+	    }
+	}
+
 	
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Integer id) {

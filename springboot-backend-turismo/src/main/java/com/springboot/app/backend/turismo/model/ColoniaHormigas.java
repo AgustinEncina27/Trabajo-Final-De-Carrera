@@ -331,6 +331,27 @@ public class ColoniaHormigas {
         }
         return opciones;
     }
+    
+    public List<PuntoDeInteres> obtenerTopSugerenciasDesde(PuntoDeInteres origen, int limite) {
+        return grafo.vertexSet().stream()
+            .filter(destino -> !destino.equals(origen))
+            .sorted(Comparator.comparingDouble(destino -> {
+                double utilidad = this.calcularUtilidad((PuntoDeInteres) destino);
+
+                // Obtener clave para buscar en los mapas de distancia y tiempo
+                String key = this.generarClave(origen, (PuntoDeInteres) destino);
+
+                double distancia = mapaDistancias.getOrDefault(key, 0.0);
+                double tiempo = mapaTiempos.getOrDefault(key, 0.0);
+
+                // Penalización proporcional al tiempo y distancia
+                double penalizacion = (distancia + tiempo) / 1000.0;
+
+                return utilidad - penalizacion;
+            }).reversed()) // Orden descendente
+            .limit(limite)
+            .toList();
+    }
 
 }
 

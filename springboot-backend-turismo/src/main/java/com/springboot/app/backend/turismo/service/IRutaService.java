@@ -6,6 +6,7 @@ import java.util.Optional;
 import com.springboot.app.backend.turismo.dto.ComentarioRequest;
 import com.springboot.app.backend.turismo.dto.RutaConTraducciones;
 import com.springboot.app.backend.turismo.model.Coordenada;
+import com.springboot.app.backend.turismo.model.PuntoDeInteres;
 import com.springboot.app.backend.turismo.model.Ruta;
 
 public interface IRutaService {
@@ -19,5 +20,7 @@ public interface IRutaService {
 	public List<RutaConTraducciones> obtenerRutasPorUsuario(String authorizationHeader, String idioma);
 	public boolean actualizarEstado(Integer id, Integer idEstadoRuta);
 	public void agregarComentarioYActualizarCalificacion(ComentarioRequest request);
+	public Ruta actualizarRuta(Integer idRuta, Ruta rutaNueva);
+	public List<PuntoDeInteres> obtenerSugerenciasDesdePunto(Integer idPuntoActual, String authorizationHeader);
 }
 
