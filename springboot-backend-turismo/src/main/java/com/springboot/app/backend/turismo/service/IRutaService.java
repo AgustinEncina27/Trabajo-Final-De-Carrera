@@ -22,5 +22,9 @@ public interface IRutaService {
 	public void agregarComentarioYActualizarCalificacion(ComentarioRequest request);
 	public Ruta actualizarRuta(Integer idRuta, Ruta rutaNueva);
 	public List<PuntoDeInteres> obtenerSugerenciasDesdePunto(Integer idPuntoActual, String authorizationHeader);
+	public Optional<RutaConTraducciones> eliminarPuntoDeInteresDeRuta(Integer idRuta,Coordenada ubicacionActual,  Integer idPunto, String idioma);
+	public Optional<RutaConTraducciones> agregarPuntoDeInteresARuta(Integer idRuta, Coordenada ubicacionActual, Integer idPunto, String idioma);
+	public Optional<RutaConTraducciones> insertarPuntoDespuesDeOtro(Integer idRuta, Coordenada ubicacionActual, Integer idPuntoNuevo,
+			Integer idPuntoReferencia, String idioma);
 }
 

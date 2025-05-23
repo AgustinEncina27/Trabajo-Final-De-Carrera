@@ -384,5 +384,159 @@ public class RutaImpl implements IRutaService {
 
         return RADIO_TIERRA_METROS * c; // Retorna la distancia en metros
     }
+
+    @Override
+    @Transactional
+    public Optional<RutaConTraducciones> eliminarPuntoDeInteresDeRuta(Integer idRuta, Coordenada ubicacionActual, Integer idPunto, String idioma) {
+        Optional<Ruta> rutaOpt = rutaRepository.findById(idRuta);
+        if (rutaOpt.isEmpty()) return Optional.empty();
+
+        Ruta ruta = rutaOpt.get();
+        boolean eliminado = ruta.getPuntosDeInteres().removeIf(pdi -> pdi.getPuntoDeInteres().getId().equals(idPunto));
+        if (!eliminado) return Optional.empty();
+
+        // Obtener la lista actualizada de puntos de interés
+        List<PuntoDeInteres> listaPDI = ruta.getPuntosDeInteres().stream()
+            .map(RutaPuntoDeInteres::getPuntoDeInteres)
+            .toList();
+
+        // Recalcular distancia y duración solo si hay al menos un punto
+        double nuevaDistancia = 0;
+        double nuevaDuracion = 0;
+
+        if (!listaPDI.isEmpty()) {
+            nuevaDistancia = calcularDistanciaTotal(listaPDI, ubicacionActual);
+            nuevaDuracion = calcularDuracionTotal(listaPDI);
+        }
+
+        ruta.setDistanciaTotal(nuevaDistancia);
+        ruta.setDuracionEstimada(nuevaDuracion);
+
+        rutaRepository.save(ruta);
+
+        List<PuntoDeInteresTraduccion> traducciones = ruta.getPuntosDeInteres().stream()
+            .map(p -> puntoDeInteresTraduccionRepository.findByPuntoDeInteresAndIdioma(p.getPuntoDeInteres().getId(), idioma))
+            .toList();
+
+        return Optional.of(new RutaConTraducciones(ruta, traducciones));
+    }
+
+
+    @Override
+    @Transactional
+    public Optional<RutaConTraducciones> agregarPuntoDeInteresARuta(Integer idRuta, Coordenada ubicacionActual, Integer idPunto, String idioma) {
+        Optional<Ruta> rutaOpt = rutaRepository.findById(idRuta);
+        Optional<PuntoDeInteres> puntoOpt = puntoDeInteresService.obtenerPorId(idPunto);
+
+        if (rutaOpt.isEmpty() || puntoOpt.isEmpty()) return Optional.empty();
+
+        Ruta ruta = rutaOpt.get();
+        PuntoDeInteres nuevoPunto = puntoOpt.get();
+
+        // Verificar si ya existe
+        boolean yaExiste = ruta.getPuntosDeInteres().stream()
+                .anyMatch(p -> p.getPuntoDeInteres().getId().equals(idPunto));
+        if (yaExiste) return Optional.empty();
+
+        // Obtener lista de IDs actuales
+        List<Integer> idsActuales = ruta.getPuntosDeInteres().stream()
+                .map(p -> p.getPuntoDeInteres().getId())
+                .toList();
+
+        // Calcular la posición óptima
+        int posicion = puntoDeInteresService.calcularPosicionInsercion(idPunto, idsActuales);
+
+        // Crear la relación
+        RutaPuntoDeInteres nuevo = RutaPuntoDeInteres.builder()
+                .ruta(ruta)
+                .puntoDeInteres(nuevoPunto)
+                .visitado(false)
+                .build();
+
+        // Insertar en la posición calculada
+        ruta.getPuntosDeInteres().add(posicion, nuevo);
+
+        // Recalcular distancia y duración
+        List<PuntoDeInteres> listaPDI = ruta.getPuntosDeInteres().stream()
+                .map(RutaPuntoDeInteres::getPuntoDeInteres)
+                .toList();
+
+        double nuevaDistancia = calcularDistanciaTotal(listaPDI, ubicacionActual);
+        double nuevaDuracion = calcularDuracionTotal(listaPDI);
+
+        ruta.setDistanciaTotal(nuevaDistancia);
+        ruta.setDuracionEstimada(nuevaDuracion);
+
+        rutaRepository.save(ruta);
+
+        List<PuntoDeInteresTraduccion> traducciones = ruta.getPuntosDeInteres().stream()
+                .map(p -> puntoDeInteresTraduccionRepository.findByPuntoDeInteresAndIdioma(p.getPuntoDeInteres().getId(), idioma))
+                .toList();
+
+        return Optional.of(new RutaConTraducciones(ruta, traducciones));
+    }
+
+
+    @Override
+    @Transactional
+    public Optional<RutaConTraducciones> insertarPuntoDespuesDeOtro(Integer idRuta, Coordenada ubicacionActual, Integer idPuntoNuevo, Integer idPuntoReferencia, String idioma) {
+        Optional<Ruta> rutaOpt = rutaRepository.findById(idRuta);
+        Optional<PuntoDeInteres> puntoNuevoOpt = puntoDeInteresService.obtenerPorId(idPuntoNuevo);
+
+        if (rutaOpt.isEmpty() || puntoNuevoOpt.isEmpty()) return Optional.empty();
+
+        Ruta ruta = rutaOpt.get();
+        PuntoDeInteres nuevoPunto = puntoNuevoOpt.get();
+
+        // Verificar si ya existe
+        boolean yaExiste = ruta.getPuntosDeInteres().stream()
+                .anyMatch(p -> p.getPuntoDeInteres().getId().equals(idPuntoNuevo));
+        if (yaExiste) return Optional.empty();
+
+        // Buscar la posición del punto de referencia
+        List<RutaPuntoDeInteres> lista = ruta.getPuntosDeInteres();
+        int indiceReferencia = -1;
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getPuntoDeInteres().getId().equals(idPuntoReferencia)) {
+                indiceReferencia = i;
+                break;
+            }
+        }
+
+        if (indiceReferencia == -1) return Optional.empty();
+
+        // Insertar después del punto de referencia
+        int posicionInsercion = indiceReferencia + 1;
+
+        RutaPuntoDeInteres nuevo = RutaPuntoDeInteres.builder()
+                .ruta(ruta)
+                .puntoDeInteres(nuevoPunto)
+                .visitado(false)
+                .build();
+
+        lista.add(posicionInsercion, nuevo);
+
+        // Recalcular distancia y duración
+        List<PuntoDeInteres> listaPDI = ruta.getPuntosDeInteres().stream()
+                .map(RutaPuntoDeInteres::getPuntoDeInteres)
+                .toList();
+
+        double nuevaDistancia = calcularDistanciaTotal(listaPDI, ubicacionActual);
+        double nuevaDuracion = calcularDuracionTotal(listaPDI);
+
+        ruta.setDistanciaTotal(nuevaDistancia);
+        ruta.setDuracionEstimada(nuevaDuracion);
+
+        rutaRepository.save(ruta);
+
+        List<PuntoDeInteresTraduccion> traducciones = ruta.getPuntosDeInteres().stream()
+                .map(p -> puntoDeInteresTraduccionRepository.findByPuntoDeInteresAndIdioma(p.getPuntoDeInteres().getId(), idioma))
+                .toList();
+
+        return Optional.of(new RutaConTraducciones(ruta, traducciones));
+    }
+
+    
+    
 }
 

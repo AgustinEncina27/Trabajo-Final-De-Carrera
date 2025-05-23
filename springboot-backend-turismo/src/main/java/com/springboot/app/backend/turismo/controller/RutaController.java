@@ -2,9 +2,10 @@ package com.springboot.app.backend.turismo.controller;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -112,6 +113,49 @@ public class RutaController {
 	    return ResponseEntity.ok(respuesta);
 	}
 	
+	@PostMapping("/{idRuta}/puntos")
+    public ResponseEntity<?> agregarPuntoDeInteresARuta(
+            @PathVariable Integer idRuta,
+            @RequestParam Integer idPunto,
+            @RequestParam double latitud,
+	        @RequestParam double longitud,
+            @RequestParam String idioma) {
+		
+		Coordenada ubicacionActual = new Coordenada(null, latitud, longitud);
+
+        Optional<RutaConTraducciones> resultado = rutaService.agregarPuntoDeInteresARuta(idRuta,ubicacionActual, idPunto, idioma);
+
+        if (resultado.isPresent()) {
+            return ResponseEntity.ok(resultado.get());
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(Map.of("message", "Ruta o punto no encontrado"));
+        }
+    }
+	
+	@PostMapping("/{idRuta}/puntos/agregar-despues")
+	public ResponseEntity<?> insertarPuntoDeInteresDespuesDeOtro(
+	        @PathVariable Integer idRuta,
+	        @RequestParam Integer idPuntoNuevo,
+	        @RequestParam Integer idPuntoReferencia,
+	        @RequestParam double latitud,
+	        @RequestParam double longitud,
+	        @RequestParam String idioma) {
+		
+		Coordenada ubicacionActual = new Coordenada(null, latitud, longitud);
+
+		Optional<RutaConTraducciones> resultado = rutaService.insertarPuntoDespuesDeOtro(idRuta, ubicacionActual,idPuntoNuevo, idPuntoReferencia, idioma);
+	      
+		if (resultado.isPresent()) {
+            return ResponseEntity.ok(resultado.get());
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(Map.of("message", "Ruta o punto no encontrado"));
+        }		
+		
+	}
+
+	
 	@PutMapping("/{id}/estado")
 	public ResponseEntity<?> actualizarEstadoRuta(
 	        @PathVariable Integer id,
@@ -137,19 +181,26 @@ public class RutaController {
         }
     }
 	
-	@PutMapping("/{id}")
-	public ResponseEntity<?> actualizarRuta(
-	        @PathVariable Integer id,
-	        @RequestBody Ruta rutaActualizada) {
+	@DeleteMapping("/{idRuta}/puntos/{idPunto}")
+	public ResponseEntity<?> eliminarPuntoDeInteresDeRuta(
+	        @PathVariable Integer idRuta,
+	        @PathVariable Integer idPunto,
+	        @RequestParam double latitud,
+	        @RequestParam double longitud,
+	        @RequestParam String idioma) {
+		
+		Coordenada ubicacionActual = new Coordenada(null, latitud, longitud);
 
-	    try {
-	        Ruta actualizada = rutaService.actualizarRuta(id, rutaActualizada);
-	        return ResponseEntity.ok(actualizada);
-	    } catch (IllegalArgumentException e) {
+	    Optional<RutaConTraducciones> result = rutaService.eliminarPuntoDeInteresDeRuta(idRuta,ubicacionActual, idPunto, idioma);
+
+	    if (result.isPresent()) {
+	        return ResponseEntity.ok(result.get());
+	    } else {
 	        return ResponseEntity.status(HttpStatus.NOT_FOUND)
-	                .body(Map.of("message", e.getMessage()));
+	                .body(Map.of("message", "Ruta o punto no encontrado"));
 	    }
 	}
+
 
 	
     @DeleteMapping("/{id}")

@@ -74,29 +74,36 @@ public class PuntoDeInteresImpl implements IPuntoDeInteresService {
 
 	    List<PuntoDeInteres> lista = puntoDeInteresRepository.findAllById(listaIds);
 
-	    // Calcular la distancia del nuevo punto con cada punto actual
-	    double menorDistancia = Double.MAX_VALUE;
+	    double menorCosto = Double.MAX_VALUE;
 	    int mejorPosicion = 0;
 
 	    for (int i = 0; i <= lista.size(); i++) {
-	        double distancia = 0;
+	        double costo = 0;
 
-	        if (i > 0) {
-	            distancia += obtenerDistancia(lista.get(i - 1), nuevo);
+	        if (i == 0 && !lista.isEmpty()) {
+	            // Inserción al inicio
+	            costo = obtenerDistancia(nuevo, lista.get(0));
+	        } else if (i == lista.size() && !lista.isEmpty()) {
+	            // Inserción al final
+	            costo = obtenerDistancia(lista.get(lista.size() - 1), nuevo);
+	        } else if (i > 0 && i < lista.size()) {
+	            PuntoDeInteres anterior = lista.get(i - 1);
+	            PuntoDeInteres siguiente = lista.get(i);
+
+	            double distanciaOriginal = obtenerDistancia(anterior, siguiente);
+	            double nuevaDistancia = obtenerDistancia(anterior, nuevo) + obtenerDistancia(nuevo, siguiente);
+	            costo = nuevaDistancia - distanciaOriginal; // diferencia real
 	        }
 
-	        if (i < lista.size()) {
-	            distancia += obtenerDistancia(nuevo, lista.get(i));
-	        }
-
-	        if (distancia < menorDistancia) {
-	            menorDistancia = distancia;
+	        if (costo < menorCosto) {
+	            menorCosto = costo;
 	            mejorPosicion = i;
 	        }
 	    }
 
 	    return mejorPosicion;
 	}
+
 	
 	@Override
 	@Transactional(readOnly = true)
@@ -141,10 +148,13 @@ public class PuntoDeInteresImpl implements IPuntoDeInteresService {
 	}
 	
 
-	private double obtenerDistancia(PuntoDeInteres origen, PuntoDeInteres destino) {
+	private double obtenerDistancia(PuntoDeInteres a, PuntoDeInteres b) {
+	    PuntoDeInteres origen = a.getId() < b.getId() ? a : b;
+	    PuntoDeInteres destino = a.getId() < b.getId() ? b : a;
+
 	    return distanciaRepository.findByPuntoDeInteresOrigenAndPuntoDeInteresDestino(origen, destino)
-	        .map(DistanciaPuntoDeInteres::getDistancia)
-	        .orElse(Double.MAX_VALUE);
+	            .map(DistanciaPuntoDeInteres::getDistancia)
+	            .orElse(Double.MAX_VALUE); // Penalización si no existe
 	}
 	
 
