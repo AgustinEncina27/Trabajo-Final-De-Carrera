@@ -54,5 +54,6 @@ public class Ruta {
 	  private EstadoRuta estado;
 	  
 	  @OneToMany(mappedBy = "ruta", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+	  @OrderBy("orden ASC")
 	  private List<RutaPuntoDeInteres> puntosDeInteres;
 }

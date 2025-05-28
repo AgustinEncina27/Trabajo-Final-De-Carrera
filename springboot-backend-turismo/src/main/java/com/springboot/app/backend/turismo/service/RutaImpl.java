@@ -1,6 +1,7 @@
 package com.springboot.app.backend.turismo.service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
@@ -207,13 +208,15 @@ public class RutaImpl implements IRutaService {
 	            .build();
 	    	    
 	 // Crear las relaciones de la ruta optimizada con los puntos de interés
-	    List<RutaPuntoDeInteres> rutaPuntos = mejorRuta.stream()
-	            .map(puntoDeInteres -> RutaPuntoDeInteres.builder()
-	                    .ruta(ruta)
-	                    .puntoDeInteres(puntoDeInteres)
-	                    .visitado(false)
-	                    .build())
-	            .toList();
+	    List<RutaPuntoDeInteres> rutaPuntos = new ArrayList<>();
+	    for (int i = 0; i < mejorRuta.size(); i++) {
+	        rutaPuntos.add(RutaPuntoDeInteres.builder()
+	                .ruta(ruta)
+	                .puntoDeInteres(mejorRuta.get(i))
+	                .visitado(false)
+	                .orden(i) // ✅ asignar orden
+	                .build());
+	    }
 	    
 	    ruta.setPuntosDeInteres(rutaPuntos);
 	    
@@ -392,15 +395,23 @@ public class RutaImpl implements IRutaService {
         if (rutaOpt.isEmpty()) return Optional.empty();
 
         Ruta ruta = rutaOpt.get();
-        boolean eliminado = ruta.getPuntosDeInteres().removeIf(pdi -> pdi.getPuntoDeInteres().getId().equals(idPunto));
+
+        // Obtener lista actual antes de eliminar
+        List<RutaPuntoDeInteres> lista = ruta.getPuntosDeInteres();
+
+        boolean eliminado = lista.removeIf(pdi -> pdi.getPuntoDeInteres().getId().equals(idPunto));
         if (!eliminado) return Optional.empty();
 
-        // Obtener la lista actualizada de puntos de interés
-        List<PuntoDeInteres> listaPDI = ruta.getPuntosDeInteres().stream()
+        // ✅ Reasignar orden a los elementos restantes
+        for (int i = 0; i < lista.size(); i++) {
+            lista.get(i).setOrden(i);
+        }
+
+        // Recalcular distancia y duración solo si hay al menos un punto
+        List<PuntoDeInteres> listaPDI = lista.stream()
             .map(RutaPuntoDeInteres::getPuntoDeInteres)
             .toList();
 
-        // Recalcular distancia y duración solo si hay al menos un punto
         double nuevaDistancia = 0;
         double nuevaDuracion = 0;
 
@@ -414,12 +425,13 @@ public class RutaImpl implements IRutaService {
 
         rutaRepository.save(ruta);
 
-        List<PuntoDeInteresTraduccion> traducciones = ruta.getPuntosDeInteres().stream()
+        List<PuntoDeInteresTraduccion> traducciones = lista.stream()
             .map(p -> puntoDeInteresTraduccionRepository.findByPuntoDeInteresAndIdioma(p.getPuntoDeInteres().getId(), idioma))
             .toList();
 
         return Optional.of(new RutaConTraducciones(ruta, traducciones));
     }
+
 
 
     @Override
@@ -451,10 +463,16 @@ public class RutaImpl implements IRutaService {
                 .ruta(ruta)
                 .puntoDeInteres(nuevoPunto)
                 .visitado(false)
+                .orden(posicion) // ✅ Seteamos el orden
                 .build();
 
         // Insertar en la posición calculada
         ruta.getPuntosDeInteres().add(posicion, nuevo);
+
+        // ✅ Reasignar todos los órdenes por si alguno se desplazó
+        for (int i = 0; i < ruta.getPuntosDeInteres().size(); i++) {
+            ruta.getPuntosDeInteres().get(i).setOrden(i);
+        }
 
         // Recalcular distancia y duración
         List<PuntoDeInteres> listaPDI = ruta.getPuntosDeInteres().stream()
@@ -512,12 +530,18 @@ public class RutaImpl implements IRutaService {
                 .ruta(ruta)
                 .puntoDeInteres(nuevoPunto)
                 .visitado(false)
+                .orden(posicionInsercion) // ✅ Asignar orden inicial
                 .build();
 
         lista.add(posicionInsercion, nuevo);
 
+        // ✅ Reasignar todos los órdenes para mantener consistencia
+        for (int i = 0; i < lista.size(); i++) {
+            lista.get(i).setOrden(i);
+        }
+
         // Recalcular distancia y duración
-        List<PuntoDeInteres> listaPDI = ruta.getPuntosDeInteres().stream()
+        List<PuntoDeInteres> listaPDI = lista.stream()
                 .map(RutaPuntoDeInteres::getPuntoDeInteres)
                 .toList();
 
@@ -529,12 +553,13 @@ public class RutaImpl implements IRutaService {
 
         rutaRepository.save(ruta);
 
-        List<PuntoDeInteresTraduccion> traducciones = ruta.getPuntosDeInteres().stream()
+        List<PuntoDeInteresTraduccion> traducciones = lista.stream()
                 .map(p -> puntoDeInteresTraduccionRepository.findByPuntoDeInteresAndIdioma(p.getPuntoDeInteres().getId(), idioma))
                 .toList();
 
         return Optional.of(new RutaConTraducciones(ruta, traducciones));
     }
+
 
     
     

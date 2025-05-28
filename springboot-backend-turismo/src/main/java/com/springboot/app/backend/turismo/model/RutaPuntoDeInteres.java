@@ -28,6 +28,9 @@ public class RutaPuntoDeInteres {
 	    @ManyToOne
 	    @JoinColumn(name = "idPuntoDeInteres", nullable = false)
 	    private PuntoDeInteres puntoDeInteres;
+	    
+	    @Column(name = "orden")
+	    private Integer orden;
 
 	    @Column(nullable = false)
 	    private boolean visitado; // Indica si el usuario llegó a este destino
