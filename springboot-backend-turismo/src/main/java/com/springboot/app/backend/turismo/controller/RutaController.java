@@ -101,10 +101,11 @@ public class RutaController {
 	public ResponseEntity<List<PuntoDeInteresDTO>> sugerenciasParaRuta(
 			@RequestHeader("Authorization") String authorizationHeader,
 	        @RequestParam Integer idPuntoActual,
+	        @RequestParam Integer idRuta,
 	        @RequestParam String idioma) {
 
 	    
-	    List<PuntoDeInteres> sugerencias = rutaService.obtenerSugerenciasDesdePunto(idPuntoActual, authorizationHeader);
+	    List<PuntoDeInteres> sugerencias = rutaService.obtenerSugerenciasDesdePunto(idPuntoActual, authorizationHeader, idRuta);
 
 	    List<PuntoDeInteresDTO> respuesta = sugerencias.stream()
 	        .map(p -> puntoDeInteresService.mapToDTO(p, idioma))

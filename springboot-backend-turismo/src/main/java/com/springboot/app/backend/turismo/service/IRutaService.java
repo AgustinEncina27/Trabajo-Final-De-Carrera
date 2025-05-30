@@ -21,7 +21,7 @@ public interface IRutaService {
 	public boolean actualizarEstado(Integer id, Integer idEstadoRuta);
 	public void agregarComentarioYActualizarCalificacion(ComentarioRequest request);
 	public Ruta actualizarRuta(Integer idRuta, Ruta rutaNueva);
-	public List<PuntoDeInteres> obtenerSugerenciasDesdePunto(Integer idPuntoActual, String authorizationHeader);
+	public List<PuntoDeInteres> obtenerSugerenciasDesdePunto(Integer idPuntoActual, String authorizationHeader, Integer idRuta);
 	public Optional<RutaConTraducciones> eliminarPuntoDeInteresDeRuta(Integer idRuta,Coordenada ubicacionActual,  Integer idPunto, String idioma);
 	public Optional<RutaConTraducciones> agregarPuntoDeInteresARuta(Integer idRuta, Coordenada ubicacionActual, Integer idPunto, String idioma);
 	public Optional<RutaConTraducciones> insertarPuntoDespuesDeOtro(Integer idRuta, Coordenada ubicacionActual, Integer idPuntoNuevo,

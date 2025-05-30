@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="calcularUtilidad"/>
+		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="actualizarRuta"/>
 			<item value="calcularUtilidad"/>
 			<item value="coste"/>
 			<item value="calcularDistancia"/>

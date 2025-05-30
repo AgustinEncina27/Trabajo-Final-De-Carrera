@@ -230,34 +230,42 @@ public class RutaImpl implements IRutaService {
 	    return new RutaConTraducciones(rutaGuardada, destinosTraducidos);
 	}
 	
-    @Override
-    @Transactional(readOnly = true)
-    public List<PuntoDeInteres> obtenerSugerenciasDesdePunto(Integer idPuntoActual, String authorizationHeader) {
-    	
-    	// Extraer token eliminando "Bearer "
-        String token = authorizationHeader.substring(7);
-		
-		// Obtener ID del usuario desde el token
-        Integer idUsuario = jwtService.extractUserId(token);
-    	
-        // 1. Obtener preferencias del usuario
-        Preferencia preferencia = preferenciaService.obtenerPreferenciasPorUsuario(idUsuario);
-        
-        PuntoDeInteres pDIActual= puntoDeInteresService.obtenerPorId(idPuntoActual)
-        	    .orElseThrow(() -> new RuntimeException("Punto de interés no encontrado con ID: " + idPuntoActual));
-        
-        PuntoDeInteres.ClimaIdeal climaActual = climaService.obtenerClima(pDIActual.getCoordenada().getLatitud(), pDIActual.getCoordenada().getLongitud(), 300);
+	@Override
+	@Transactional(readOnly = true)
+	public List<PuntoDeInteres> obtenerSugerenciasDesdePunto(Integer idPuntoActual, String authorizationHeader, Integer idRuta) {
+	    
+	    String token = authorizationHeader.substring(7);
+	    Integer idUsuario = jwtService.extractUserId(token);
 
-        // 2. Obtener todos los destinos excepto los ya visitados
-        List<PuntoDeInteres> candidatos = puntoDeInteresService.obtenerPuntosDeInteresSegunClima(climaActual,idUsuario);
+	    Preferencia preferencia = preferenciaService.obtenerPreferenciasPorUsuario(idUsuario);
+	    
+	    PuntoDeInteres pDIActual = puntoDeInteresService.obtenerPorId(idPuntoActual)
+	        .orElseThrow(() -> new RuntimeException("Punto de interés no encontrado con ID: " + idPuntoActual));
 
-        // 3. Inicializar ColoniaHormigas con esos destinos
-        ColoniaHormigas colonia = new ColoniaHormigas(candidatos, preferencia, 1, 1,
-                0L, 0, 0L,
-                distanciaRepository, tiempoRepository);
+	    PuntoDeInteres.ClimaIdeal climaActual = climaService.obtenerClima(
+	        pDIActual.getCoordenada().getLatitud(),
+	        pDIActual.getCoordenada().getLongitud(),
+	        300
+	    );
 
-        return colonia.obtenerTopSugerenciasDesde(pDIActual, 3);
-    }
+	    // Obtener los puntos ya en la ruta
+	    Ruta ruta = rutaRepository.findById(idRuta)
+	        .orElseThrow(() -> new RuntimeException("Ruta no encontrada con ID: " + idRuta));
+	    
+	    List<PuntoDeInteres> puntosYaEnRuta = ruta.getPuntosDeInteres().stream()
+	        .map(RutaPuntoDeInteres::getPuntoDeInteres)
+	        .toList();
+
+	    // Candidatos según clima, excluyendo los ya presentes
+	    List<PuntoDeInteres> candidatos = puntoDeInteresService.obtenerPuntosDeInteresSegunClima(climaActual, idUsuario).stream()
+	        .filter(p -> !puntosYaEnRuta.contains(p))
+	        .toList();
+
+	    ColoniaHormigas colonia = new ColoniaHormigas(candidatos, preferencia, 1, 1,
+	        0L, 0, 0L, distanciaRepository, tiempoRepository);
+
+	    return colonia.obtenerTopSugerenciasDesde(pDIActual, 3);
+	}
 	
 	/**
      * Calcular la distancia total de la ruta optimizada
